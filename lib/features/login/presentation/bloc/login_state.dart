@@ -1,12 +1,10 @@
 part of 'login_bloc.dart';
 
-enum ScreenStatus { init, loading, success, failure }
-
-
 class LoginState {
   ScreenStatus? screenStatus;
   SignInModel? signInModel;
   Failures? failures;
+  bool isPassword = false;
 
   LoginState({this.screenStatus, this.signInModel, this.failures});
  LoginState copyWith(

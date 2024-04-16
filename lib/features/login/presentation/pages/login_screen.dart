@@ -1,5 +1,6 @@
 import 'package:e_commerce_app/config/routes/app_routes_name.dart';
 import 'package:e_commerce_app/core/components/reusable_components.dart';
+import 'package:e_commerce_app/core/enums/enums.dart';
 import 'package:e_commerce_app/core/utils/app_colors.dart';
 import 'package:e_commerce_app/core/utils/app_images.dart';
 import 'package:e_commerce_app/core/utils/app_strings.dart';
@@ -44,7 +45,7 @@ class LoginScreen extends StatelessWidget {
           } else if (state.screenStatus == ScreenStatus.success) {
             Navigator.pushNamedAndRemoveUntil(
               context,
-              AppRoutesName.home,
+              AppRoutesName.layout,
               (route) => false,
             );
           } else if (state.screenStatus == ScreenStatus.failure) {
@@ -91,9 +92,10 @@ class LoginScreen extends StatelessWidget {
                     ),
                     SizedBox(height: 24.h),
                     customTextFormField(
+                        height: 64.h,
                         hintText: AppStrings.userNameHint,
                         hintStyle: AppStyles.bodyS,
-                        borderRadius: BorderRadius.circular(15),
+                        radius: 15,
                         borderColor: AppColor.whiteColor,
                         controller: nameController),
                     SizedBox(height: 32.h),
@@ -103,9 +105,10 @@ class LoginScreen extends StatelessWidget {
                     ),
                     SizedBox(height: 24.h),
                     customTextFormField(
+                      height: 64.h,
                       hintText: AppStrings.passwordHint,
                       hintStyle: AppStyles.bodyS,
-                      borderRadius: BorderRadius.circular(15),
+                      radius: 15,
                       borderColor: AppColor.whiteColor,
                       controller: passwordController,
                       suffixIcon: Icon(

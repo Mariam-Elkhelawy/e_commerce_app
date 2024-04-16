@@ -13,13 +13,14 @@ Widget unDefinedRoute() {
 Widget customTextFormField(
     {String? hintText,
     TextStyle? hintStyle,
-    required BorderRadius borderRadius,
     required Color borderColor,
     Widget? prefixIcon,
     Widget? suffixIcon,
-      TextEditingController? controller}) {
+    TextEditingController? controller,
+    required double height,
+    double radius = 0}) {
   return SizedBox(
-    height: 64.h,
+    height: height,
     child: TextFormField(
       cursorColor: AppColor.primaryColor,
       controller: controller,
@@ -31,15 +32,15 @@ Widget customTextFormField(
         prefixIcon: prefixIcon,
         suffixIcon: suffixIcon,
         border: OutlineInputBorder(
-          borderRadius: borderRadius,
+          borderRadius: BorderRadius.circular(radius),
           borderSide: BorderSide(color: borderColor),
         ),
         focusedBorder: OutlineInputBorder(
-          borderRadius: borderRadius,
+          borderRadius: BorderRadius.circular(radius),
           borderSide: BorderSide(color: borderColor),
         ),
         enabledBorder: OutlineInputBorder(
-          borderRadius: borderRadius,
+          borderRadius: BorderRadius.circular(radius),
           borderSide: BorderSide(color: borderColor),
         ),
       ),

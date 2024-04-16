@@ -14,7 +14,9 @@ class AppStrings{
   static const String forgotPassword='Forgot password';
   static const String login='Login';
   static const String signup='Sign up';
-  static const String createAccount ='Don’t have an account? Create Account';
+  static const String createAccount ='Don’t have an account ? Create Account';
+  static const String haveAccount ='Already have an account ? Login';
   static const String error='Error !';
+  static const String searchHint='what do you search for?';
 
 }

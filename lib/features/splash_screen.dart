@@ -1,4 +1,5 @@
 import 'package:e_commerce_app/config/routes/app_routes_name.dart';
+import 'package:e_commerce_app/core/utils/app_images.dart';
 import 'package:flutter/material.dart';
 
 class SplashScreen extends StatelessWidget {
@@ -10,7 +11,7 @@ class SplashScreen extends StatelessWidget {
       Navigator.pushReplacementNamed(context, AppRoutesName.login);
     });
     return Image.asset(
-      "assets/images/splash.png",
+      AppImages.splash,
       fit: BoxFit.fill,
     );
   }
