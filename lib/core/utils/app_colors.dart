@@ -6,4 +6,6 @@ class AppColor {
   static Color blackHintColor = Colors.black.withOpacity(.7);
   static Color suffixGrey = const Color(0xFF808080);
   static Color textColor = const Color(0xFF06004F);
+  static Color starColor = const Color(0xFFF4B400);
+
 }

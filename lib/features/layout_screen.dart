@@ -28,7 +28,9 @@ class _LayoutScreenState extends State<LayoutScreen> {
         elevation: 0,
         backgroundColor: AppColor.whiteColor,
         toolbarHeight: 95.h,
-        title: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+        title: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
           SvgPicture.asset(
             AppImages.routeSvg,
             width: 66.w,
@@ -42,7 +44,8 @@ class _LayoutScreenState extends State<LayoutScreen> {
                 child: customTextFormField(
                     height: 50.h,
                     hintStyle: AppStyles.bodyS.copyWith(
-                        color: AppColor.textColor.withOpacity(.6), fontSize: 14),
+                        color: AppColor.textColor.withOpacity(.6),
+                        fontSize: 14),
                     hintText: AppStrings.searchHint,
                     borderColor: AppColor.primaryColor,
                     prefixIcon: const ImageIcon(
@@ -128,7 +131,7 @@ class _LayoutScreenState extends State<LayoutScreen> {
 }
 
 List<Widget> tabs = [
-   HomeTab(),
+  HomeTab(),
   const CategoryTab(),
   const FavTab(),
   const ProfileTab()
