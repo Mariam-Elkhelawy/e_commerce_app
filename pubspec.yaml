@@ -21,12 +21,17 @@ dependencies:
   google_fonts: 6.1.0
   freezed: ^2.5.2
   flutter_svg: ^2.0.10+1
+  carousel_slider: ^4.2.1
+  cached_network_image: ^3.3.1
+  injectable: ^2.4.0
+  get_it: ^7.6.8
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_lints: ^2.0.0
   build_runner: ^2.4.9
+  injectable_generator: ^2.6.1
 
 flutter:
 

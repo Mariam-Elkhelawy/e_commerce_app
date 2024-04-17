@@ -9,11 +9,11 @@ import 'package:flutter/material.dart';
 class AppRoutes {
   static Route onGenerate(RouteSettings settings) {
     switch (settings.name) {
-      case AppRoutesName.splash:
-        return MaterialPageRoute(
-          builder: (context) => const SplashScreen(),
-          settings: settings
-        );
+      // case AppRoutesName.splash:
+      //   return MaterialPageRoute(
+      //     builder: (context) => const SplashScreen(),
+      //     settings: settings
+      //   );
       case AppRoutesName.login:
         return MaterialPageRoute(
           builder: (context) => LoginScreen(),
@@ -27,7 +27,7 @@ class AppRoutes {
 
       case AppRoutesName.layout:
         return MaterialPageRoute(
-          builder: (context) => LayoutScreen(),
+          builder: (context) => const LayoutScreen(),
             settings: settings
 
         );

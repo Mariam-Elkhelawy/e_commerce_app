@@ -25,7 +25,9 @@ class _LayoutScreenState extends State<LayoutScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        toolbarHeight: 100.h,
+        elevation: 0,
+        backgroundColor: AppColor.whiteColor,
+        toolbarHeight: 95.h,
         title: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
           SvgPicture.asset(
             AppImages.routeSvg,
@@ -40,7 +42,7 @@ class _LayoutScreenState extends State<LayoutScreen> {
                 child: customTextFormField(
                     height: 50.h,
                     hintStyle: AppStyles.bodyS.copyWith(
-                        color: AppColor.searchHintColor, fontSize: 14),
+                        color: AppColor.textColor.withOpacity(.6), fontSize: 14),
                     hintText: AppStrings.searchHint,
                     borderColor: AppColor.primaryColor,
                     prefixIcon: const ImageIcon(
@@ -68,10 +70,6 @@ class _LayoutScreenState extends State<LayoutScreen> {
             topLeft: Radius.circular(15.r),
           ),
           child: BottomNavigationBar(
-            backgroundColor: AppColor.primaryColor,
-            type: BottomNavigationBarType.fixed,
-            showUnselectedLabels: false,
-            showSelectedLabels: false,
             selectedFontSize: 0,
             unselectedFontSize: 0,
             currentIndex: index,
@@ -130,7 +128,7 @@ class _LayoutScreenState extends State<LayoutScreen> {
 }
 
 List<Widget> tabs = [
-  const HomeTab(),
+   HomeTab(),
   const CategoryTab(),
   const FavTab(),
   const ProfileTab()

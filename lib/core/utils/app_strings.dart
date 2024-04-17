@@ -18,5 +18,8 @@ class AppStrings{
   static const String haveAccount ='Already have an account ? Login';
   static const String error='Error !';
   static const String searchHint='what do you search for?';
+  static const String categories='Categories';
+  static const String viewAll='view all';
+  static const String brands='Brands';
 
 }
