@@ -1,131 +1,102 @@
+import 'package:e_commerce_app/config.dart';
 import 'package:e_commerce_app/core/components/reusable_components.dart';
 import 'package:e_commerce_app/core/utils/app_colors.dart';
 import 'package:e_commerce_app/core/utils/app_images.dart';
-import 'package:e_commerce_app/core/utils/app_strings.dart';
-import 'package:e_commerce_app/core/utils/styles.dart';
+
+import 'package:e_commerce_app/features/category_tab/presentation/bloc/category_bloc.dart';
 import 'package:e_commerce_app/features/category_tab/presentation/pages/category_tab.dart';
 import 'package:e_commerce_app/features/fav_tab/presentation/pages/fav_tab.dart';
 import 'package:e_commerce_app/features/home_tab/presentation/pages/home_tab.dart';
 import 'package:e_commerce_app/features/profile_tab/presentation/pages/profile_tab.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-class LayoutScreen extends StatefulWidget {
+import 'home_tab/presentation/bloc/home_bloc.dart';
+
+class LayoutScreen extends StatelessWidget {
   const LayoutScreen({super.key});
 
   @override
-  State<LayoutScreen> createState() => _LayoutScreenState();
-}
-
-class _LayoutScreenState extends State<LayoutScreen> {
-  int index = 0;
-
-  @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        elevation: 0,
-        backgroundColor: AppColor.whiteColor,
-        toolbarHeight: 95.h,
-        title: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-          SvgPicture.asset(
-            AppImages.routeSvg,
-            width: 66.w,
-            height: 22.h,
-          ),
-          SizedBox(height: 20.h),
-          Row(
-            children: [
-              SizedBox(
-                width: 348.w,
-                child: customTextFormField(
-                    height: 50.h,
-                    hintStyle: AppStyles.bodyS.copyWith(
-                        color: AppColor.textColor.withOpacity(.6),
-                        fontSize: 14),
-                    hintText: AppStrings.searchHint,
-                    borderColor: AppColor.primaryColor,
-                    prefixIcon: const ImageIcon(
-                      AssetImage(AppImages.searchP),
-                      size: 21,
-                      color: AppColor.primaryColor,
-                    ),
-                    radius: 25),
-              ),
-              const Spacer(),
-              const ImageIcon(
-                AssetImage(AppImages.cart),
-                size: 24,
-                color: AppColor.primaryColor,
-              ),
-            ],
-          )
-        ]),
-      ),
-      bottomNavigationBar: SizedBox(
-        height: 56.h,
-        child: ClipRRect(
-          borderRadius: BorderRadius.only(
-            topRight: Radius.circular(15.r),
-            topLeft: Radius.circular(15.r),
-          ),
-          child: BottomNavigationBar(
-            selectedFontSize: 0,
-            unselectedFontSize: 0,
-            currentIndex: index,
-            onTap: (value) {
-              index = value;
-              setState(() {});
-            },
-            items: [
-              BottomNavigationBarItem(
-                icon: SvgPicture.asset(
-                  AppImages.home,
-                  color: AppColor.whiteColor,
+    return BlocProvider(
+      create: (context) => getIt<HomeBloc>(),
+      child: BlocBuilder<HomeBloc, HomeState>(builder: (context, homeState) {
+        return BlocProvider(
+          create: (context) => getIt<CategoryBloc>()..add(const GetCartEvent()),
+          child: BlocBuilder<CategoryBloc, CategoryState>(
+              builder: (context, catState) {
+            return Scaffold(
+              appBar: customAppBar(
+                  context: context,
+                  formFieldWidth: 348.w,
+                  cartItemsCount: catState.cartItemsCount),
+              bottomNavigationBar: SizedBox(
+                height: 56.h,
+                child: ClipRRect(
+                  borderRadius: BorderRadius.only(
+                    topRight: Radius.circular(15.r),
+                    topLeft: Radius.circular(15.r),
+                  ),
+                  child: BottomNavigationBar(
+                    selectedFontSize: 0,
+                    unselectedFontSize: 0,
+                    currentIndex: homeState.currentIndex,
+                    onTap: (value) {
+                      BlocProvider.of<HomeBloc>(context).add(
+                        ChangeNavbarIndexEvent(value),
+                      );
+                    },
+                    items: [
+                      BottomNavigationBarItem(
+                        icon: SvgPicture.asset(AppImages.home,
+                            colorFilter: const ColorFilter.mode(
+                                AppColor.whiteColor, BlendMode.srcIn)),
+                        label: '',
+                        activeIcon: const ActiveIcon(
+                          image: AppImages.home,
+                        ),
+                      ),
+                      BottomNavigationBarItem(
+                          activeIcon: const ActiveIcon(
+                            image: AppImages.category,
+                          ),
+                          icon: SvgPicture.asset(
+                            AppImages.category,
+                            width: 24.w,
+                            height: 24.h,
+                          ),
+                          label: ''),
+                      BottomNavigationBarItem(
+                          activeIcon: const ActiveIcon(
+                            image: AppImages.fav,
+                          ),
+                          icon: SvgPicture.asset(
+                            AppImages.fav,
+                            width: 24.w,
+                            height: 24.h,
+                          ),
+                          label: ''),
+                      BottomNavigationBarItem(
+                          activeIcon: const ActiveIcon(
+                            image: AppImages.profile,
+                          ),
+                          icon: SvgPicture.asset(
+                            AppImages.profile,
+                            width: 24.w,
+                            height: 24.h,
+                          ),
+                          label: ''),
+                    ],
+                  ),
                 ),
-                label: '',
-                activeIcon: const ActiveIcon(
-                  image: AppImages.home,
-                ),
               ),
-              BottomNavigationBarItem(
-                  activeIcon: const ActiveIcon(
-                    image: AppImages.category,
-                  ),
-                  icon: SvgPicture.asset(
-                    AppImages.category,
-                    width: 24.w,
-                    height: 24.h,
-                  ),
-                  label: ''),
-              BottomNavigationBarItem(
-                  activeIcon: const ActiveIcon(
-                    image: AppImages.fav,
-                  ),
-                  icon: SvgPicture.asset(
-                    AppImages.fav,
-                    width: 24.w,
-                    height: 24.h,
-                  ),
-                  label: ''),
-              BottomNavigationBarItem(
-                  activeIcon: const ActiveIcon(
-                    image: AppImages.profile,
-                  ),
-                  icon: SvgPicture.asset(
-                    AppImages.profile,
-                    width: 24.w,
-                    height: 24.h,
-                  ),
-                  label: ''),
-            ],
-          ),
-        ),
-      ),
-      body: tabs[index],
+              body: tabs[homeState.currentIndex],
+            );
+          }),
+        );
+      }),
     );
   }
 }
@@ -149,12 +120,11 @@ class ActiveIcon extends StatelessWidget {
       height: 40.h,
       decoration: const BoxDecoration(
           color: AppColor.whiteColor, shape: BoxShape.circle),
-      child: SvgPicture.asset(
-        image,
-        width: 24.w,
-        height: 24.h,
-        color: AppColor.primaryColor,
-      ),
+      child: SvgPicture.asset(image,
+          width: 24.w,
+          height: 24.h,
+          colorFilter:
+              const ColorFilter.mode(AppColor.primaryColor, BlendMode.srcIn)),
     );
   }
 }

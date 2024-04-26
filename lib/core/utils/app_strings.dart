@@ -22,5 +22,12 @@ class AppStrings{
   static const String viewAll='view all';
   static const String brands='Brands';
   static const String review='Review';
+  static const String details='Product Details';
+  static const String description='Description';
+  static const String brand='Brand';
+  static const String addToCart='Add to cart';
+  static const String totalPrice='Total price';
+  static const String shop='Shop Now';
+  static const String cart='Cart';
 
 }

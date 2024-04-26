@@ -10,12 +10,17 @@ class ApiManager {
   }
 
   Future<Response> getData(
-      String endPoint, Map<String, dynamic>? queryParameters) {
+      String endPoint, {Map<String, dynamic>? queryParameters, Map<String, dynamic>? headers}) {
     return dio.get(Constants.baseURL + endPoint,
-        queryParameters: queryParameters);
+        queryParameters: queryParameters,options: Options(
+          headers: headers
+        ));
   }
 
-  postData(String endPoint, Map<String, dynamic>? data) {
-    return dio.post(Constants.baseURL + endPoint, data: data);
+  postData(String endPoint,
+      {Map<String, dynamic>? body, Map<String, dynamic>? headers}) {
+    return dio.post(Constants.baseURL + endPoint, data: body,options: Options(
+      headers: headers
+    ));
   }
 }

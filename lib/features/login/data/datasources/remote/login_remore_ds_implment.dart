@@ -6,13 +6,11 @@ import 'package:e_commerce_app/features/login/data/models/SigninModel.dart';
 
 class LoginRemoteDSImplementation implements LoginRemoteDS {
   @override
-  Future<SignInModel> login(String email, String password) async{
+  Future<SignInModel> login(String email, String password) async {
     ApiManager apiManager = ApiManager();
-  Response response = await apiManager.postData(EndPoints.signIn, {
-      "email":email,
-      "password":password
-    });
-  SignInModel signInModel=SignInModel.fromJson(response.data);
-  return signInModel;
+    Response response = await apiManager.postData(EndPoints.signIn,
+        body: {"email": email, "password": password});
+    SignInModel signInModel = SignInModel.fromJson(response.data);
+    return signInModel;
   }
 }

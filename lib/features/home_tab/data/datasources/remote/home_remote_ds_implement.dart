@@ -1,5 +1,6 @@
 import 'package:e_commerce_app/core/api/api_manager.dart';
 import 'package:e_commerce_app/core/api/end_points.dart';
+import 'package:e_commerce_app/features/home_tab/data/models/CategoriesOnCategoryModel.dart';
 import 'package:e_commerce_app/features/home_tab/data/datasources/remote/home_remote_ds.dart';
 import 'package:e_commerce_app/features/home_tab/data/models/GetAllBrandsModel.dart';
 import 'package:e_commerce_app/features/home_tab/data/models/GetAllCategoriesModel.dart';
@@ -12,7 +13,9 @@ class HomeRemoteDSImplementation implements HomeRemoteDS {
 
   @override
   Future<GetAllBrandsModel> getAllBrands() async {
-    var response = await apiManager.getData(EndPoints.brands, {});
+    var response = await apiManager.getData(
+      EndPoints.brands,
+    );
     GetAllBrandsModel getAllBrandsModel =
         GetAllBrandsModel.fromJson(response.data);
     return getAllBrandsModel;
@@ -20,9 +23,22 @@ class HomeRemoteDSImplementation implements HomeRemoteDS {
 
   @override
   Future<GetAllCategoriesModel> getAllCategories() async {
-    var response = await apiManager.getData(EndPoints.categories, {});
+    var response = await apiManager.getData(
+      EndPoints.categories,
+    );
     GetAllCategoriesModel getAllCategoriesModel =
         GetAllCategoriesModel.fromJson(response.data);
     return getAllCategoriesModel;
+  }
+
+  @override
+  Future<CategoriesOnCategoryModel> getCategoriesOnCategory(
+      String categoryId) async {
+    var response = await apiManager.getData(
+      EndPoints.categoriesOnCategory(categoryId),
+    );
+    CategoriesOnCategoryModel categoriesOnCategoryModel =
+        CategoriesOnCategoryModel.fromJson(response.data);
+    return categoriesOnCategoryModel;
   }
 }

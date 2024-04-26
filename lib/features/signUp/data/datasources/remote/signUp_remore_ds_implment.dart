@@ -10,7 +10,7 @@ class SignUpRemoteDsImplementation implements SignUpRemoteDs {
   Future<SignUpModel> signUp(SignUpRequestModel signUpRequestModel) async {
     ApiManager apiManager = ApiManager();
     Response response = await apiManager.postData(
-        EndPoints.signUp, signUpRequestModel.toJson());
+        EndPoints.signUp,body:  signUpRequestModel.toJson());
     SignUpModel signUpModel = SignUpModel.fromJson(response.data);
     return signUpModel;
   }

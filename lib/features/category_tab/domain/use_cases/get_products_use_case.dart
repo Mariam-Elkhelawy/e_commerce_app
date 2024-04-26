@@ -9,5 +9,6 @@ class GetAllProductsUseCase {
   CategoryRepo categoryRepo;
 
   GetAllProductsUseCase(this.categoryRepo);
-  Future<Either<Failures, GetAllProductsModel>> call()=>categoryRepo.getAllProducts();
+  Future<Either<Failures, GetAllProductsModel>> call(String categoryId) =>
+      categoryRepo.getAllProducts(categoryId);
 }

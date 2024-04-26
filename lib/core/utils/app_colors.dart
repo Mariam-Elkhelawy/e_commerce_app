@@ -7,5 +7,6 @@ class AppColor {
   static Color suffixGrey = const Color(0xFF808080);
   static Color textColor = const Color(0xFF06004F);
   static Color starColor = const Color(0xFFF4B400);
+  static Color categoryContainerColor = const Color(0xFFEDF1F5);
 
 }
