@@ -8,6 +8,9 @@ class AppImages{
   static const String home='assets/images/ic_home.svg';
   static const String profile='assets/images/ic_profile.svg';
   static const String cart='assets/images/ic_cart.png';
+  static const String delete='assets/images/delete.svg';
+  static const String arrow='assets/images/arrow.svg';
+  static const String poster='assets/images/poster.png';
   static const String addToCart='assets/images/add_to_cart.svg';
   static const String carousel1='assets/images/1.png';
   static const String carousel2='assets/images/2.png';

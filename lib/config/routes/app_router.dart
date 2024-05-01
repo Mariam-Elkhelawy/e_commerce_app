@@ -1,12 +1,12 @@
 import 'package:e_commerce_app/config/routes/app_routes_name.dart';
 import 'package:e_commerce_app/core/components/reusable_components.dart';
-import 'package:e_commerce_app/features/category_tab/presentation/pages/cart_screen.dart';
-import 'package:e_commerce_app/features/category_tab/presentation/pages/product_details_screen.dart';
-import 'package:e_commerce_app/features/category_tab/presentation/pages/product_screen.dart';
 import 'package:e_commerce_app/features/layout_screen.dart';
 import 'package:e_commerce_app/features/login/presentation/pages/login_screen.dart';
 import 'package:e_commerce_app/features/signUp/presentation/pages/signUp_screen.dart';
 import 'package:e_commerce_app/features/splash_screen.dart';
+import 'package:e_commerce_app/features/tabs/presentation/view/category_tab/presentation/pages/cart_screen.dart';
+import 'package:e_commerce_app/features/tabs/presentation/view/category_tab/presentation/pages/product_details_screen.dart';
+import 'package:e_commerce_app/features/tabs/presentation/view/category_tab/presentation/pages/product_screen.dart';
 import 'package:flutter/material.dart';
 
 class AppRoutes {

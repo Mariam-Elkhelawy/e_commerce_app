@@ -26,8 +26,10 @@ class AppStrings{
   static const String description='Description';
   static const String brand='Brand';
   static const String addToCart='Add to cart';
+  static const String checkOut='Check Out';
   static const String totalPrice='Total price';
   static const String shop='Shop Now';
   static const String cart='Cart';
+  static const String offers='Special Offers';
 
 }
