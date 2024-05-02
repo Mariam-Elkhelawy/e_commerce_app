@@ -2,12 +2,13 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:e_commerce_app/core/utils/app_colors.dart';
 import 'package:e_commerce_app/core/utils/app_images.dart';
 import 'package:e_commerce_app/core/utils/styles.dart';
+import 'package:e_commerce_app/features/tabs/presentation/bloc/home_bloc.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 
 import '../../../../../data/models/GetCartModel.dart';
-
 
 class CartItem extends StatelessWidget {
   const CartItem({super.key, required this.data, required this.index});
@@ -15,9 +16,9 @@ class CartItem extends StatelessWidget {
   final int index;
   @override
   Widget build(BuildContext context) {
-    var counter = data.products![index].count;
+    var counter = data.products?[index].count ?? 1;
     return Container(
-      width: 400.w,
+      width: double.infinity,
       height: 115.h,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(15.r),
@@ -88,7 +89,7 @@ class CartItem extends StatelessWidget {
             ),
           ),
           Padding(
-            padding: EdgeInsets.only(right: 8.0.h),
+            padding: EdgeInsets.only(right: 7.0.h),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.end,
               children: [
@@ -102,7 +103,12 @@ class CartItem extends StatelessWidget {
                       colorFilter:
                           ColorFilter.mode(AppColor.textColor, BlendMode.srcIn),
                     ),
-                    onTap: () {},
+                    onTap: () {
+                      BlocProvider.of<HomeBloc>(context).add(
+                          DeleteCartItemEvent(
+                              data.products?[index].product?.id ?? ''));
+                      BlocProvider.of<HomeBloc>(context).add(const GetCartEvent());
+                    },
                   ),
                 ),
                 SizedBox(height: 30.h),
@@ -118,11 +124,15 @@ class CartItem extends StatelessWidget {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      GestureDetector(
+                      InkWell(
                         onTap: () {
-                          counter = (counter! -
-                              1);
-                          // if (data.products![index].count > 1) data.products![index].count??1 --;
+                          if (counter > 1) {
+                            BlocProvider.of<HomeBloc>(context).add(
+                              UpdateCartItemEvent(
+                                  data.products?[index].product?.id ?? '',
+                                  --counter),
+                            );
+                          }
                         },
                         child: Icon(
                           Icons.remove_circle_outline_outlined,
@@ -131,13 +141,16 @@ class CartItem extends StatelessWidget {
                         ),
                       ),
                       Text(
-                        "${data.products?[index].count ?? 1}",
+                        "$counter",
                         style: AppStyles.bodyM,
                       ),
-                      GestureDetector(
+                      InkWell(
                         onTap: () {
-                          counter = (counter! - 1);
-                        },
+                          BlocProvider.of<HomeBloc>(context).add(
+                            UpdateCartItemEvent(
+                                data.products?[index].product?.id ?? '',
+                                ++counter),
+                          );                        },
                         child: Icon(
                           Icons.add_circle_outline_outlined,
                           color: AppColor.whiteColor,

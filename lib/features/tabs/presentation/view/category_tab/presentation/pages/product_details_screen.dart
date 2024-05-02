@@ -2,6 +2,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:e_commerce_app/config.dart';
 import 'package:e_commerce_app/config/routes/app_routes_name.dart';
 import 'package:e_commerce_app/core/components/reusable_components.dart';
+import 'package:e_commerce_app/core/enums/enums.dart';
 import 'package:e_commerce_app/core/utils/app_colors.dart';
 import 'package:e_commerce_app/core/utils/app_images.dart';
 import 'package:e_commerce_app/core/utils/app_strings.dart';
@@ -12,30 +13,39 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:readmore/readmore.dart';
-
 import '../../../../../data/models/GetAllProductsModel.dart';
 
-
-class ProductDetailsScreen extends StatefulWidget {
+class ProductDetailsScreen extends StatelessWidget {
   const ProductDetailsScreen({super.key});
 
-  @override
-  State<ProductDetailsScreen> createState() => _ProductDetailsScreenState();
-}
-
-class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
-  int quantity = 1;
   @override
   Widget build(BuildContext context) {
     var model = ModalRoute.of(context)!.settings.arguments as Data;
     if (model.priceAfterDiscount == 0 || model.priceAfterDiscount == null) {
       model.priceAfterDiscount = model.price;
     }
-    var totalPrice = model.priceAfterDiscount! * quantity;
     return BlocProvider(
       create: (context) => getIt<HomeBloc>()..add(const GetCartEvent()),
-      child: BlocBuilder<HomeBloc, HomeState>(builder: (context, state) {
+      child: BlocConsumer<HomeBloc, HomeState>(listener: (context, state) {
+        if (state.addToCartStatus == ScreenStatus.success) {
+          BlocProvider.of<HomeBloc>(context).add(UpdateProductItemEvent(
+            model.id ?? '',
+            state.productItemCount,
+          ),);
+          Fluttertoast.showToast(
+              msg: "Product added successfully to your cart",
+              toastLength: Toast.LENGTH_SHORT,
+              gravity: ToastGravity.BOTTOM,
+              backgroundColor: AppColor.primaryColor,
+              timeInSecForIosWeb: 3,
+              textColor: Colors.white,
+              fontSize: 13.0);
+        }
+      }, builder: (context, state) {
+        int counter = state.productItemCount;
+        var totalPrice = model.priceAfterDiscount! * counter;
         return Scaffold(
           appBar: AppBar(
             centerTitle: true,
@@ -155,8 +165,12 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
                         children: [
                           GestureDetector(
                             onTap: () {
-                              if (quantity > 1) quantity--;
-                              setState(() {});
+                              if (counter > 1) {
+                                BlocProvider.of<HomeBloc>(context)
+                                    .add(ChangeProductCountEvent(
+                                  counter - 1,
+                                ));
+                              }
                             },
                             child: Icon(
                               Icons.remove_circle_outline_outlined,
@@ -165,13 +179,15 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
                             ),
                           ),
                           Text(
-                            "$quantity",
+                            "$counter",
                             style: AppStyles.bodyM,
                           ),
                           GestureDetector(
                             onTap: () {
-                              quantity++;
-                              setState(() {});
+                              BlocProvider.of<HomeBloc>(context)
+                                  .add(ChangeProductCountEvent(
+                                ++counter,
+                              ));
                             },
                             child: Icon(
                               Icons.add_circle_outline_outlined,
@@ -249,7 +265,8 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
                       onTap: () {
                         BlocProvider.of<HomeBloc>(context)
                             .add(AddToCartEvent(model.id ?? ''));
-                        BlocProvider.of<HomeBloc>(context).add(GetCartEvent());
+                        BlocProvider.of<HomeBloc>(context)
+                            .add(const GetCartEvent());
                       },
                       child: customButton(
                         padding: EdgeInsets.symmetric(

@@ -5,6 +5,7 @@ import 'package:e_commerce_app/core/cache/shared_prefrences.dart';
 import 'package:e_commerce_app/features/tabs/data/datasources/remote/home_remote_ds.dart';
 import 'package:e_commerce_app/features/tabs/data/models/AddToCartModel.dart';
 import 'package:e_commerce_app/features/tabs/data/models/CategoriesOnCategoryModel.dart';
+import 'package:e_commerce_app/features/tabs/data/models/DeleteCartItemModel.dart';
 import 'package:e_commerce_app/features/tabs/data/models/GetAllBrandsModel.dart';
 import 'package:e_commerce_app/features/tabs/data/models/GetAllCategoriesModel.dart';
 import 'package:e_commerce_app/features/tabs/data/models/GetAllProductsModel.dart';
@@ -49,18 +50,19 @@ class HomeRemoteDSImplementation implements HomeRemoteDS {
   }
 
   @override
-  Future<GetAllProductsModel> getAllProducts(String categoryId,String sortBy) async {
+  Future<GetAllProductsModel> getAllProducts(
+      String categoryId, String sortBy) async {
     Map<String, dynamic>? params = {};
     params['category[in]'] = categoryId;
     Response<dynamic> response;
     if (categoryId != '') {
       response =
-      await apiManager.getData(EndPoints.products, queryParameters: params);
+          await apiManager.getData(EndPoints.products, queryParameters: params);
     } else {
       response = await apiManager.getData('${EndPoints.products}$sortBy');
     }
     GetAllProductsModel getAllProductsModel =
-    GetAllProductsModel.fromJson(response.data);
+        GetAllProductsModel.fromJson(response.data);
     return getAllProductsModel;
   }
 
@@ -80,5 +82,41 @@ class HomeRemoteDSImplementation implements HomeRemoteDS {
         .getData(EndPoints.addToCart, headers: {'token': token});
     GetCartModel getCartModel = GetCartModel.fromJson(response.data);
     return getCartModel;
+  }
+
+  @override
+  Future<String> clearCart() async {
+    var token = CacheHelper.getToken('token');
+    await apiManager.deleteData(EndPoints.addToCart, headers: {'token': token});
+    return 'Success';
+  }
+
+  @override
+  Future<DeleteCartItemModel> deleteCartItem(String cartItem) async {
+    var token = CacheHelper.getToken('token');
+    var response = await apiManager.deleteData(
+        EndPoints.deleteCartItem(cartItem),
+        headers: {'token': token});
+    DeleteCartItemModel deleteCartItemModel =
+        DeleteCartItemModel.fromJson(response.data);
+    return deleteCartItemModel;
+  }
+
+  @override
+  Future<GetCartModel> updateCartCount(String productId, int count) async {
+    var token = CacheHelper.getToken('token');
+    var response = await apiManager.putData('${EndPoints.addToCart}/$productId',
+        body: {'count': count}, headers: {'token': token});
+    GetCartModel getCartModel = GetCartModel.fromJson(response.data);
+    return getCartModel;
+  }
+
+  @override
+  Future<GetAllProductsModel> updateProductCount(String productId, int count)async {
+    var token = CacheHelper.getToken('token');
+    var response = await apiManager.putData('${EndPoints.addToCart}/$productId',
+        body: {'count': count}, headers: {'token': token});
+    GetAllProductsModel getAllProductsModel = GetAllProductsModel.fromJson(response.data);
+    return getAllProductsModel;
   }
 }

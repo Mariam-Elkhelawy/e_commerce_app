@@ -5,7 +5,7 @@ import 'package:e_commerce_app/core/utils/app_colors.dart';
 import 'package:e_commerce_app/core/utils/app_images.dart';
 import 'package:e_commerce_app/core/utils/app_strings.dart';
 import 'package:e_commerce_app/core/utils/styles.dart';
-import 'package:e_commerce_app/features/login/data/datasources/remote/login_remore_ds_implment.dart';
+import 'package:e_commerce_app/features/login/data/datasources/remote/login_remote_ds_implment.dart';
 import 'package:e_commerce_app/features/login/data/repository/login_repo_implment.dart';
 import 'package:e_commerce_app/features/login/domain/usecases/login_usecase.dart';
 import 'package:e_commerce_app/features/login/presentation/bloc/login_bloc.dart';

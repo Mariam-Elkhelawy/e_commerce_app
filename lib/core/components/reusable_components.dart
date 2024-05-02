@@ -1,4 +1,5 @@
 import 'package:e_commerce_app/config/routes/app_routes_name.dart';
+import 'package:e_commerce_app/core/cache/shared_prefrences.dart';
 import 'package:e_commerce_app/core/utils/app_colors.dart';
 import 'package:e_commerce_app/core/utils/app_images.dart';
 import 'package:e_commerce_app/core/utils/app_strings.dart';
@@ -73,7 +74,10 @@ AppBar customAppBar(
     {required BuildContext context,
     int cartItemsCount = 0,
     double? formFieldWidth,
-    bool leading = false}) {
+    bool leading = false,
+    bool isProfile = false}) {
+  var name = CacheHelper.getToken('name');
+  var email = CacheHelper.getToken('email');
   return AppBar(
     automaticallyImplyLeading: false,
     elevation: 0,
@@ -92,40 +96,60 @@ AppBar customAppBar(
     title: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
       SvgPicture.asset(AppImages.routeSvg, width: 66.w, height: 22.h),
       SizedBox(height: 18.h),
-      Row(
-        children: [
-          SizedBox(width: 14.w),
-          SizedBox(
-            width: formFieldWidth,
-            child: customTextFormField(
-                height: 50.h,
-                hintStyle: AppStyles.bodyS.copyWith(
-                    color: AppColor.textColor.withOpacity(.6), fontSize: 14),
-                hintText: AppStrings.searchHint,
-                borderColor: AppColor.primaryColor,
-                prefixIcon: const ImageIcon(
-                  AssetImage(AppImages.search),
-                  size: 21,
-                  color: AppColor.primaryColor,
+      isProfile
+          ? Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  'Welcome, $name',
+                  style: AppStyles.bodyM.copyWith(color: AppColor.textColor),
                 ),
-                radius: 25),
-          ),
-          const Spacer(),
-          InkWell(
-            onTap: () {
-              Navigator.pushNamed(context, AppRoutesName.cart);
-            },
-            child: Badge(
-              label: Text(cartItemsCount.toString()),
-              child: const ImageIcon(
-                AssetImage(AppImages.cart),
-                size: 24,
-                color: AppColor.primaryColor,
-              ),
-            ),
-          ),
-        ],
-      )
+                SizedBox(
+                  height: 8.h,
+                ),
+                Text(
+                  '$email',
+                  style: AppStyles.bodyM.copyWith(
+                      color: AppColor.textColor.withOpacity(.6),
+                      fontSize: 14.sp),
+                )
+              ],
+            )
+          : Row(
+              children: [
+                SizedBox(width: 14.w),
+                SizedBox(
+                  width: formFieldWidth,
+                  child: customTextFormField(
+                      height: 50.h,
+                      hintStyle: AppStyles.bodyS.copyWith(
+                          color: AppColor.textColor.withOpacity(.6),
+                          fontSize: 14),
+                      hintText: AppStrings.searchHint,
+                      borderColor: AppColor.primaryColor,
+                      prefixIcon: const ImageIcon(
+                        AssetImage(AppImages.search),
+                        size: 21,
+                        color: AppColor.primaryColor,
+                      ),
+                      radius: 25),
+                ),
+                const Spacer(),
+                InkWell(
+                  onTap: () {
+                    Navigator.pushNamed(context, AppRoutesName.cart);
+                  },
+                  child: Badge(
+                    label: Text(cartItemsCount.toString()),
+                    child: const ImageIcon(
+                      AssetImage(AppImages.cart),
+                      size: 24,
+                      color: AppColor.primaryColor,
+                    ),
+                  ),
+                ),
+              ],
+            )
     ]),
   );
 }

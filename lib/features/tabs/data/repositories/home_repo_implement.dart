@@ -3,6 +3,7 @@ import 'package:e_commerce_app/core/errors/failures.dart';
 import 'package:e_commerce_app/features/tabs/data/datasources/remote/home_remote_ds.dart';
 import 'package:e_commerce_app/features/tabs/data/models/AddToCartModel.dart';
 import 'package:e_commerce_app/features/tabs/data/models/CategoriesOnCategoryModel.dart';
+import 'package:e_commerce_app/features/tabs/data/models/DeleteCartItemModel.dart';
 import 'package:e_commerce_app/features/tabs/data/models/GetAllBrandsModel.dart';
 import 'package:e_commerce_app/features/tabs/data/models/GetAllCategoriesModel.dart';
 import 'package:e_commerce_app/features/tabs/data/models/GetAllProductsModel.dart';
@@ -45,7 +46,8 @@ class HomeRepoImplementation implements HomeRepo {
   }
 
   @override
-  Future<Either<Failures, CategoriesOnCategoryModel>> getCategoriesOnCategory(String categoryId) async{
+  Future<Either<Failures, CategoriesOnCategoryModel>> getCategoriesOnCategory(
+      String categoryId) async {
     try {
       var result = await homeRemoteDS.getCategoriesOnCategory(categoryId);
       return Right(result);
@@ -57,11 +59,12 @@ class HomeRepoImplementation implements HomeRepo {
       );
     }
   }
+
   @override
   Future<Either<Failures, GetAllProductsModel>> getAllProducts(
-      String categoryId,String sortBy) async {
+      String categoryId, String sortBy) async {
     try {
-      var result = await homeRemoteDS.getAllProducts(categoryId,sortBy);
+      var result = await homeRemoteDS.getAllProducts(categoryId, sortBy);
       return Right(result);
     } catch (e) {
       return Left(
@@ -90,6 +93,65 @@ class HomeRepoImplementation implements HomeRepo {
   Future<Either<Failures, GetCartModel>> getCart() async {
     try {
       var result = await homeRemoteDS.getCart();
+      return Right(result);
+    } catch (e) {
+      return Left(
+        RemoteFailures(
+          e.toString(),
+        ),
+      );
+    }
+  }
+
+  @override
+  Future<Either<Failures, String>> clearCart() async {
+    try {
+      await homeRemoteDS.clearCart();
+      return const Right('Success');
+    } catch (e) {
+      return Left(
+        RemoteFailures(
+          e.toString(),
+        ),
+      );
+    }
+  }
+
+  @override
+  Future<Either<Failures, DeleteCartItemModel>> deleteCartItem(
+      String cartItem) async {
+    try {
+      var result = await homeRemoteDS.deleteCartItem(cartItem);
+      return Right(result);
+    } catch (e) {
+      return Left(
+        RemoteFailures(
+          e.toString(),
+        ),
+      );
+    }
+  }
+
+  @override
+  Future<Either<Failures, GetCartModel>> updateCartCount(
+      String productId, int count) async {
+    try {
+      var result = await homeRemoteDS.updateCartCount(productId, count);
+      return Right(result);
+    } catch (e) {
+      return Left(
+        RemoteFailures(
+          e.toString(),
+        ),
+      );
+    }
+  }
+
+  @override
+  Future<Either<Failures, GetAllProductsModel>> updateProductCount(
+      String productId, int count) async {
+    try {
+      var result = await homeRemoteDS.updateProductCount(productId, count);
       return Right(result);
     } catch (e) {
       return Left(

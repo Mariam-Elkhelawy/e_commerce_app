@@ -1,11 +1,13 @@
 import 'package:e_commerce_app/config.dart';
 import 'package:e_commerce_app/core/components/reusable_components.dart';
 import 'package:e_commerce_app/core/enums/enums.dart';
+import 'package:e_commerce_app/core/utils/app_colors.dart';
 import 'package:e_commerce_app/features/tabs/presentation/bloc/home_bloc.dart';
 import 'package:e_commerce_app/features/tabs/presentation/view/category_tab/presentation/widgets/product_item.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
 class ProductScreen extends StatelessWidget {
   const ProductScreen({super.key});
@@ -15,12 +17,33 @@ class ProductScreen extends StatelessWidget {
     String categoryId = ModalRoute.of(context)!.settings.arguments as String;
     return BlocProvider(
       create: (context) => getIt<HomeBloc>()
-        ..add(GetProductsEvent(categoryId,''))
-        ..add(const GetCartEvent()),
-      child:
-          BlocConsumer<HomeBloc, HomeState>(listener: (context, state) {
+        ..add(
+          GetProductsEvent(categoryId, ''),
+        )
+        ..add(
+          const GetCartEvent(),
+        ),
+      child: BlocConsumer<HomeBloc, HomeState>(listener: (context, state) {
         if (state.addToCartStatus == ScreenStatus.success) {
           BlocProvider.of<HomeBloc>(context).add(const GetCartEvent());
+          ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+            content: const Row(
+              children: [
+                Text("Product added successfully to your cart"),Spacer(),
+                Icon(Icons.check,color: AppColor.whiteColor,)
+              ],
+            ),
+            backgroundColor: AppColor.primaryColor,
+            shape: OutlineInputBorder(borderRadius: BorderRadius.circular(5)),
+          ));
+          Fluttertoast.showToast(
+              msg: "Product added successfully to your cart",
+              toastLength: Toast.LENGTH_LONG,
+              gravity: ToastGravity.BOTTOM,
+              backgroundColor: AppColor.primaryColor,
+              timeInSecForIosWeb: 3,
+              textColor: Colors.white,
+              fontSize: 13.0.sp);
         }
       }, builder: (context, state) {
         return Scaffold(

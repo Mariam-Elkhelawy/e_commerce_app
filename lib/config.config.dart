@@ -18,12 +18,17 @@ import 'features/tabs/data/datasources/remote/home_remote_ds_implement.dart'
 import 'features/tabs/data/repositories/home_repo_implement.dart' as _i7;
 import 'features/tabs/domain/repositories/home_repo.dart' as _i6;
 import 'features/tabs/domain/use_cases/add_to_Cart_use_case.dart' as _i8;
+import 'features/tabs/domain/use_cases/clear_cart_use_case.dart' as _i14;
+import 'features/tabs/domain/use_cases/delete_cart_item_use_case.dart' as _i15;
 import 'features/tabs/domain/use_cases/get_brands_use_case.dart' as _i9;
 import 'features/tabs/domain/use_cases/get_cart_use_case.dart' as _i10;
 import 'features/tabs/domain/use_cases/get_categories_use_case.dart' as _i11;
 import 'features/tabs/domain/use_cases/get_products_use_case.dart' as _i12;
 import 'features/tabs/domain/use_cases/get_subCategories_use_case.dart' as _i13;
-import 'features/tabs/presentation/bloc/home_bloc.dart' as _i14;
+import 'features/tabs/domain/use_cases/update_cart_count_use_case.dart' as _i16;
+import 'features/tabs/domain/use_cases/update_product_count_use_case.dart'
+    as _i17;
+import 'features/tabs/presentation/bloc/home_bloc.dart' as _i18;
 
 extension GetItInjectableX on _i1.GetIt {
 // initializes the registration of main-scope dependencies inside of GetIt
@@ -53,7 +58,15 @@ extension GetItInjectableX on _i1.GetIt {
         () => _i12.GetAllProductsUseCase(gh<_i6.HomeRepo>()));
     gh.factory<_i13.GetCategoriesOnCategoryUseCase>(
         () => _i13.GetCategoriesOnCategoryUseCase(gh<_i6.HomeRepo>()));
-    gh.factory<_i14.HomeBloc>(() => _i14.HomeBloc(
+    gh.factory<_i14.ClearCartUseCase>(
+        () => _i14.ClearCartUseCase(gh<_i6.HomeRepo>()));
+    gh.factory<_i15.DeleteCartItemUseCase>(
+        () => _i15.DeleteCartItemUseCase(gh<_i6.HomeRepo>()));
+    gh.factory<_i16.UpdateCartCountUseCase>(
+        () => _i16.UpdateCartCountUseCase(gh<_i6.HomeRepo>()));
+    gh.factory<_i17.UpdateProductCountUseCase>(
+        () => _i17.UpdateProductCountUseCase(gh<_i6.HomeRepo>()));
+    gh.factory<_i18.HomeBloc>(() => _i18.HomeBloc(
           getAllCategoriesUseCase: gh<_i11.GetAllCategoriesUseCase>(),
           getAllBrandsUseCase: gh<_i9.GetAllBrandsUseCase>(),
           getCategoriesOnCategoryUseCase:
@@ -61,6 +74,10 @@ extension GetItInjectableX on _i1.GetIt {
           getAllProductsUseCase: gh<_i12.GetAllProductsUseCase>(),
           addToCartUseCase: gh<_i8.AddToCartUseCase>(),
           getCartUseCase: gh<_i10.GetCartUseCase>(),
+          clearCartUseCase: gh<_i14.ClearCartUseCase>(),
+          deleteCartItemUseCase: gh<_i15.DeleteCartItemUseCase>(),
+          updateCartCountUseCase: gh<_i16.UpdateCartCountUseCase>(),
+          updateProductCountUseCase: gh<_i17.UpdateProductCountUseCase>(),
         ));
     return this;
   }

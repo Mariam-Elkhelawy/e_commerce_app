@@ -31,5 +31,7 @@ class AppStrings{
   static const String shop='Shop Now';
   static const String cart='Cart';
   static const String offers='Special Offers';
+  static const String aboveName='Your full name';
+  static const String aboveEmail='Your E-mail';
 
 }

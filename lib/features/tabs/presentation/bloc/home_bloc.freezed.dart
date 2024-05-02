@@ -27,6 +27,11 @@ mixin _$HomeEvent {
     required TResult Function(String categoryId, String sortBy) getProducts,
     required TResult Function(String productId) addToCart,
     required TResult Function() getCart,
+    required TResult Function() clearCart,
+    required TResult Function(String productId, int count) updateCartCount,
+    required TResult Function(String productId, int count) updateProductCount,
+    required TResult Function(int productCount) changeProductCount,
+    required TResult Function(String productId) deleteItem,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -40,6 +45,11 @@ mixin _$HomeEvent {
     TResult? Function(String categoryId, String sortBy)? getProducts,
     TResult? Function(String productId)? addToCart,
     TResult? Function()? getCart,
+    TResult? Function()? clearCart,
+    TResult? Function(String productId, int count)? updateCartCount,
+    TResult? Function(String productId, int count)? updateProductCount,
+    TResult? Function(int productCount)? changeProductCount,
+    TResult? Function(String productId)? deleteItem,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -53,6 +63,11 @@ mixin _$HomeEvent {
     TResult Function(String categoryId, String sortBy)? getProducts,
     TResult Function(String productId)? addToCart,
     TResult Function()? getCart,
+    TResult Function()? clearCart,
+    TResult Function(String productId, int count)? updateCartCount,
+    TResult Function(String productId, int count)? updateProductCount,
+    TResult Function(int productCount)? changeProductCount,
+    TResult Function(String productId)? deleteItem,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -68,6 +83,11 @@ mixin _$HomeEvent {
     required TResult Function(GetProductsEvent value) getProducts,
     required TResult Function(AddToCartEvent value) addToCart,
     required TResult Function(GetCartEvent value) getCart,
+    required TResult Function(ClearCartEvent value) clearCart,
+    required TResult Function(UpdateCartItemEvent value) updateCartCount,
+    required TResult Function(UpdateProductItemEvent value) updateProductCount,
+    required TResult Function(ChangeProductCountEvent value) changeProductCount,
+    required TResult Function(DeleteCartItemEvent value) deleteItem,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -81,6 +101,11 @@ mixin _$HomeEvent {
     TResult? Function(GetProductsEvent value)? getProducts,
     TResult? Function(AddToCartEvent value)? addToCart,
     TResult? Function(GetCartEvent value)? getCart,
+    TResult? Function(ClearCartEvent value)? clearCart,
+    TResult? Function(UpdateCartItemEvent value)? updateCartCount,
+    TResult? Function(UpdateProductItemEvent value)? updateProductCount,
+    TResult? Function(ChangeProductCountEvent value)? changeProductCount,
+    TResult? Function(DeleteCartItemEvent value)? deleteItem,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -94,6 +119,11 @@ mixin _$HomeEvent {
     TResult Function(GetProductsEvent value)? getProducts,
     TResult Function(AddToCartEvent value)? addToCart,
     TResult Function(GetCartEvent value)? getCart,
+    TResult Function(ClearCartEvent value)? clearCart,
+    TResult Function(UpdateCartItemEvent value)? updateCartCount,
+    TResult Function(UpdateProductItemEvent value)? updateProductCount,
+    TResult Function(ChangeProductCountEvent value)? changeProductCount,
+    TResult Function(DeleteCartItemEvent value)? deleteItem,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -163,6 +193,11 @@ class _$StartedImpl implements _Started {
     required TResult Function(String categoryId, String sortBy) getProducts,
     required TResult Function(String productId) addToCart,
     required TResult Function() getCart,
+    required TResult Function() clearCart,
+    required TResult Function(String productId, int count) updateCartCount,
+    required TResult Function(String productId, int count) updateProductCount,
+    required TResult Function(int productCount) changeProductCount,
+    required TResult Function(String productId) deleteItem,
   }) {
     return started();
   }
@@ -179,6 +214,11 @@ class _$StartedImpl implements _Started {
     TResult? Function(String categoryId, String sortBy)? getProducts,
     TResult? Function(String productId)? addToCart,
     TResult? Function()? getCart,
+    TResult? Function()? clearCart,
+    TResult? Function(String productId, int count)? updateCartCount,
+    TResult? Function(String productId, int count)? updateProductCount,
+    TResult? Function(int productCount)? changeProductCount,
+    TResult? Function(String productId)? deleteItem,
   }) {
     return started?.call();
   }
@@ -195,6 +235,11 @@ class _$StartedImpl implements _Started {
     TResult Function(String categoryId, String sortBy)? getProducts,
     TResult Function(String productId)? addToCart,
     TResult Function()? getCart,
+    TResult Function()? clearCart,
+    TResult Function(String productId, int count)? updateCartCount,
+    TResult Function(String productId, int count)? updateProductCount,
+    TResult Function(int productCount)? changeProductCount,
+    TResult Function(String productId)? deleteItem,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -216,6 +261,11 @@ class _$StartedImpl implements _Started {
     required TResult Function(GetProductsEvent value) getProducts,
     required TResult Function(AddToCartEvent value) addToCart,
     required TResult Function(GetCartEvent value) getCart,
+    required TResult Function(ClearCartEvent value) clearCart,
+    required TResult Function(UpdateCartItemEvent value) updateCartCount,
+    required TResult Function(UpdateProductItemEvent value) updateProductCount,
+    required TResult Function(ChangeProductCountEvent value) changeProductCount,
+    required TResult Function(DeleteCartItemEvent value) deleteItem,
   }) {
     return started(this);
   }
@@ -232,6 +282,11 @@ class _$StartedImpl implements _Started {
     TResult? Function(GetProductsEvent value)? getProducts,
     TResult? Function(AddToCartEvent value)? addToCart,
     TResult? Function(GetCartEvent value)? getCart,
+    TResult? Function(ClearCartEvent value)? clearCart,
+    TResult? Function(UpdateCartItemEvent value)? updateCartCount,
+    TResult? Function(UpdateProductItemEvent value)? updateProductCount,
+    TResult? Function(ChangeProductCountEvent value)? changeProductCount,
+    TResult? Function(DeleteCartItemEvent value)? deleteItem,
   }) {
     return started?.call(this);
   }
@@ -248,6 +303,11 @@ class _$StartedImpl implements _Started {
     TResult Function(GetProductsEvent value)? getProducts,
     TResult Function(AddToCartEvent value)? addToCart,
     TResult Function(GetCartEvent value)? getCart,
+    TResult Function(ClearCartEvent value)? clearCart,
+    TResult Function(UpdateCartItemEvent value)? updateCartCount,
+    TResult Function(UpdateProductItemEvent value)? updateProductCount,
+    TResult Function(ChangeProductCountEvent value)? changeProductCount,
+    TResult Function(DeleteCartItemEvent value)? deleteItem,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -308,6 +368,11 @@ class _$GetBrandsEventImpl implements GetBrandsEvent {
     required TResult Function(String categoryId, String sortBy) getProducts,
     required TResult Function(String productId) addToCart,
     required TResult Function() getCart,
+    required TResult Function() clearCart,
+    required TResult Function(String productId, int count) updateCartCount,
+    required TResult Function(String productId, int count) updateProductCount,
+    required TResult Function(int productCount) changeProductCount,
+    required TResult Function(String productId) deleteItem,
   }) {
     return getBrands();
   }
@@ -324,6 +389,11 @@ class _$GetBrandsEventImpl implements GetBrandsEvent {
     TResult? Function(String categoryId, String sortBy)? getProducts,
     TResult? Function(String productId)? addToCart,
     TResult? Function()? getCart,
+    TResult? Function()? clearCart,
+    TResult? Function(String productId, int count)? updateCartCount,
+    TResult? Function(String productId, int count)? updateProductCount,
+    TResult? Function(int productCount)? changeProductCount,
+    TResult? Function(String productId)? deleteItem,
   }) {
     return getBrands?.call();
   }
@@ -340,6 +410,11 @@ class _$GetBrandsEventImpl implements GetBrandsEvent {
     TResult Function(String categoryId, String sortBy)? getProducts,
     TResult Function(String productId)? addToCart,
     TResult Function()? getCart,
+    TResult Function()? clearCart,
+    TResult Function(String productId, int count)? updateCartCount,
+    TResult Function(String productId, int count)? updateProductCount,
+    TResult Function(int productCount)? changeProductCount,
+    TResult Function(String productId)? deleteItem,
     required TResult orElse(),
   }) {
     if (getBrands != null) {
@@ -361,6 +436,11 @@ class _$GetBrandsEventImpl implements GetBrandsEvent {
     required TResult Function(GetProductsEvent value) getProducts,
     required TResult Function(AddToCartEvent value) addToCart,
     required TResult Function(GetCartEvent value) getCart,
+    required TResult Function(ClearCartEvent value) clearCart,
+    required TResult Function(UpdateCartItemEvent value) updateCartCount,
+    required TResult Function(UpdateProductItemEvent value) updateProductCount,
+    required TResult Function(ChangeProductCountEvent value) changeProductCount,
+    required TResult Function(DeleteCartItemEvent value) deleteItem,
   }) {
     return getBrands(this);
   }
@@ -377,6 +457,11 @@ class _$GetBrandsEventImpl implements GetBrandsEvent {
     TResult? Function(GetProductsEvent value)? getProducts,
     TResult? Function(AddToCartEvent value)? addToCart,
     TResult? Function(GetCartEvent value)? getCart,
+    TResult? Function(ClearCartEvent value)? clearCart,
+    TResult? Function(UpdateCartItemEvent value)? updateCartCount,
+    TResult? Function(UpdateProductItemEvent value)? updateProductCount,
+    TResult? Function(ChangeProductCountEvent value)? changeProductCount,
+    TResult? Function(DeleteCartItemEvent value)? deleteItem,
   }) {
     return getBrands?.call(this);
   }
@@ -393,6 +478,11 @@ class _$GetBrandsEventImpl implements GetBrandsEvent {
     TResult Function(GetProductsEvent value)? getProducts,
     TResult Function(AddToCartEvent value)? addToCart,
     TResult Function(GetCartEvent value)? getCart,
+    TResult Function(ClearCartEvent value)? clearCart,
+    TResult Function(UpdateCartItemEvent value)? updateCartCount,
+    TResult Function(UpdateProductItemEvent value)? updateProductCount,
+    TResult Function(ChangeProductCountEvent value)? changeProductCount,
+    TResult Function(DeleteCartItemEvent value)? deleteItem,
     required TResult orElse(),
   }) {
     if (getBrands != null) {
@@ -453,6 +543,11 @@ class _$GetCategoriesEventImpl implements GetCategoriesEvent {
     required TResult Function(String categoryId, String sortBy) getProducts,
     required TResult Function(String productId) addToCart,
     required TResult Function() getCart,
+    required TResult Function() clearCart,
+    required TResult Function(String productId, int count) updateCartCount,
+    required TResult Function(String productId, int count) updateProductCount,
+    required TResult Function(int productCount) changeProductCount,
+    required TResult Function(String productId) deleteItem,
   }) {
     return getCategories();
   }
@@ -469,6 +564,11 @@ class _$GetCategoriesEventImpl implements GetCategoriesEvent {
     TResult? Function(String categoryId, String sortBy)? getProducts,
     TResult? Function(String productId)? addToCart,
     TResult? Function()? getCart,
+    TResult? Function()? clearCart,
+    TResult? Function(String productId, int count)? updateCartCount,
+    TResult? Function(String productId, int count)? updateProductCount,
+    TResult? Function(int productCount)? changeProductCount,
+    TResult? Function(String productId)? deleteItem,
   }) {
     return getCategories?.call();
   }
@@ -485,6 +585,11 @@ class _$GetCategoriesEventImpl implements GetCategoriesEvent {
     TResult Function(String categoryId, String sortBy)? getProducts,
     TResult Function(String productId)? addToCart,
     TResult Function()? getCart,
+    TResult Function()? clearCart,
+    TResult Function(String productId, int count)? updateCartCount,
+    TResult Function(String productId, int count)? updateProductCount,
+    TResult Function(int productCount)? changeProductCount,
+    TResult Function(String productId)? deleteItem,
     required TResult orElse(),
   }) {
     if (getCategories != null) {
@@ -506,6 +611,11 @@ class _$GetCategoriesEventImpl implements GetCategoriesEvent {
     required TResult Function(GetProductsEvent value) getProducts,
     required TResult Function(AddToCartEvent value) addToCart,
     required TResult Function(GetCartEvent value) getCart,
+    required TResult Function(ClearCartEvent value) clearCart,
+    required TResult Function(UpdateCartItemEvent value) updateCartCount,
+    required TResult Function(UpdateProductItemEvent value) updateProductCount,
+    required TResult Function(ChangeProductCountEvent value) changeProductCount,
+    required TResult Function(DeleteCartItemEvent value) deleteItem,
   }) {
     return getCategories(this);
   }
@@ -522,6 +632,11 @@ class _$GetCategoriesEventImpl implements GetCategoriesEvent {
     TResult? Function(GetProductsEvent value)? getProducts,
     TResult? Function(AddToCartEvent value)? addToCart,
     TResult? Function(GetCartEvent value)? getCart,
+    TResult? Function(ClearCartEvent value)? clearCart,
+    TResult? Function(UpdateCartItemEvent value)? updateCartCount,
+    TResult? Function(UpdateProductItemEvent value)? updateProductCount,
+    TResult? Function(ChangeProductCountEvent value)? changeProductCount,
+    TResult? Function(DeleteCartItemEvent value)? deleteItem,
   }) {
     return getCategories?.call(this);
   }
@@ -538,6 +653,11 @@ class _$GetCategoriesEventImpl implements GetCategoriesEvent {
     TResult Function(GetProductsEvent value)? getProducts,
     TResult Function(AddToCartEvent value)? addToCart,
     TResult Function(GetCartEvent value)? getCart,
+    TResult Function(ClearCartEvent value)? clearCart,
+    TResult Function(UpdateCartItemEvent value)? updateCartCount,
+    TResult Function(UpdateProductItemEvent value)? updateProductCount,
+    TResult Function(ChangeProductCountEvent value)? changeProductCount,
+    TResult Function(DeleteCartItemEvent value)? deleteItem,
     required TResult orElse(),
   }) {
     if (getCategories != null) {
@@ -627,6 +747,11 @@ class _$ChangeNavbarIndexEventImpl implements ChangeNavbarIndexEvent {
     required TResult Function(String categoryId, String sortBy) getProducts,
     required TResult Function(String productId) addToCart,
     required TResult Function() getCart,
+    required TResult Function() clearCart,
+    required TResult Function(String productId, int count) updateCartCount,
+    required TResult Function(String productId, int count) updateProductCount,
+    required TResult Function(int productCount) changeProductCount,
+    required TResult Function(String productId) deleteItem,
   }) {
     return changeNavBarIndex(index);
   }
@@ -643,6 +768,11 @@ class _$ChangeNavbarIndexEventImpl implements ChangeNavbarIndexEvent {
     TResult? Function(String categoryId, String sortBy)? getProducts,
     TResult? Function(String productId)? addToCart,
     TResult? Function()? getCart,
+    TResult? Function()? clearCart,
+    TResult? Function(String productId, int count)? updateCartCount,
+    TResult? Function(String productId, int count)? updateProductCount,
+    TResult? Function(int productCount)? changeProductCount,
+    TResult? Function(String productId)? deleteItem,
   }) {
     return changeNavBarIndex?.call(index);
   }
@@ -659,6 +789,11 @@ class _$ChangeNavbarIndexEventImpl implements ChangeNavbarIndexEvent {
     TResult Function(String categoryId, String sortBy)? getProducts,
     TResult Function(String productId)? addToCart,
     TResult Function()? getCart,
+    TResult Function()? clearCart,
+    TResult Function(String productId, int count)? updateCartCount,
+    TResult Function(String productId, int count)? updateProductCount,
+    TResult Function(int productCount)? changeProductCount,
+    TResult Function(String productId)? deleteItem,
     required TResult orElse(),
   }) {
     if (changeNavBarIndex != null) {
@@ -680,6 +815,11 @@ class _$ChangeNavbarIndexEventImpl implements ChangeNavbarIndexEvent {
     required TResult Function(GetProductsEvent value) getProducts,
     required TResult Function(AddToCartEvent value) addToCart,
     required TResult Function(GetCartEvent value) getCart,
+    required TResult Function(ClearCartEvent value) clearCart,
+    required TResult Function(UpdateCartItemEvent value) updateCartCount,
+    required TResult Function(UpdateProductItemEvent value) updateProductCount,
+    required TResult Function(ChangeProductCountEvent value) changeProductCount,
+    required TResult Function(DeleteCartItemEvent value) deleteItem,
   }) {
     return changeNavBarIndex(this);
   }
@@ -696,6 +836,11 @@ class _$ChangeNavbarIndexEventImpl implements ChangeNavbarIndexEvent {
     TResult? Function(GetProductsEvent value)? getProducts,
     TResult? Function(AddToCartEvent value)? addToCart,
     TResult? Function(GetCartEvent value)? getCart,
+    TResult? Function(ClearCartEvent value)? clearCart,
+    TResult? Function(UpdateCartItemEvent value)? updateCartCount,
+    TResult? Function(UpdateProductItemEvent value)? updateProductCount,
+    TResult? Function(ChangeProductCountEvent value)? changeProductCount,
+    TResult? Function(DeleteCartItemEvent value)? deleteItem,
   }) {
     return changeNavBarIndex?.call(this);
   }
@@ -712,6 +857,11 @@ class _$ChangeNavbarIndexEventImpl implements ChangeNavbarIndexEvent {
     TResult Function(GetProductsEvent value)? getProducts,
     TResult Function(AddToCartEvent value)? addToCart,
     TResult Function(GetCartEvent value)? getCart,
+    TResult Function(ClearCartEvent value)? clearCart,
+    TResult Function(UpdateCartItemEvent value)? updateCartCount,
+    TResult Function(UpdateProductItemEvent value)? updateProductCount,
+    TResult Function(ChangeProductCountEvent value)? changeProductCount,
+    TResult Function(DeleteCartItemEvent value)? deleteItem,
     required TResult orElse(),
   }) {
     if (changeNavBarIndex != null) {
@@ -805,6 +955,11 @@ class _$ChangeCategoryIndexImpl implements ChangeCategoryIndex {
     required TResult Function(String categoryId, String sortBy) getProducts,
     required TResult Function(String productId) addToCart,
     required TResult Function() getCart,
+    required TResult Function() clearCart,
+    required TResult Function(String productId, int count) updateCartCount,
+    required TResult Function(String productId, int count) updateProductCount,
+    required TResult Function(int productCount) changeProductCount,
+    required TResult Function(String productId) deleteItem,
   }) {
     return changeCategoryIndex(index);
   }
@@ -821,6 +976,11 @@ class _$ChangeCategoryIndexImpl implements ChangeCategoryIndex {
     TResult? Function(String categoryId, String sortBy)? getProducts,
     TResult? Function(String productId)? addToCart,
     TResult? Function()? getCart,
+    TResult? Function()? clearCart,
+    TResult? Function(String productId, int count)? updateCartCount,
+    TResult? Function(String productId, int count)? updateProductCount,
+    TResult? Function(int productCount)? changeProductCount,
+    TResult? Function(String productId)? deleteItem,
   }) {
     return changeCategoryIndex?.call(index);
   }
@@ -837,6 +997,11 @@ class _$ChangeCategoryIndexImpl implements ChangeCategoryIndex {
     TResult Function(String categoryId, String sortBy)? getProducts,
     TResult Function(String productId)? addToCart,
     TResult Function()? getCart,
+    TResult Function()? clearCart,
+    TResult Function(String productId, int count)? updateCartCount,
+    TResult Function(String productId, int count)? updateProductCount,
+    TResult Function(int productCount)? changeProductCount,
+    TResult Function(String productId)? deleteItem,
     required TResult orElse(),
   }) {
     if (changeCategoryIndex != null) {
@@ -858,6 +1023,11 @@ class _$ChangeCategoryIndexImpl implements ChangeCategoryIndex {
     required TResult Function(GetProductsEvent value) getProducts,
     required TResult Function(AddToCartEvent value) addToCart,
     required TResult Function(GetCartEvent value) getCart,
+    required TResult Function(ClearCartEvent value) clearCart,
+    required TResult Function(UpdateCartItemEvent value) updateCartCount,
+    required TResult Function(UpdateProductItemEvent value) updateProductCount,
+    required TResult Function(ChangeProductCountEvent value) changeProductCount,
+    required TResult Function(DeleteCartItemEvent value) deleteItem,
   }) {
     return changeCategoryIndex(this);
   }
@@ -874,6 +1044,11 @@ class _$ChangeCategoryIndexImpl implements ChangeCategoryIndex {
     TResult? Function(GetProductsEvent value)? getProducts,
     TResult? Function(AddToCartEvent value)? addToCart,
     TResult? Function(GetCartEvent value)? getCart,
+    TResult? Function(ClearCartEvent value)? clearCart,
+    TResult? Function(UpdateCartItemEvent value)? updateCartCount,
+    TResult? Function(UpdateProductItemEvent value)? updateProductCount,
+    TResult? Function(ChangeProductCountEvent value)? changeProductCount,
+    TResult? Function(DeleteCartItemEvent value)? deleteItem,
   }) {
     return changeCategoryIndex?.call(this);
   }
@@ -890,6 +1065,11 @@ class _$ChangeCategoryIndexImpl implements ChangeCategoryIndex {
     TResult Function(GetProductsEvent value)? getProducts,
     TResult Function(AddToCartEvent value)? addToCart,
     TResult Function(GetCartEvent value)? getCart,
+    TResult Function(ClearCartEvent value)? clearCart,
+    TResult Function(UpdateCartItemEvent value)? updateCartCount,
+    TResult Function(UpdateProductItemEvent value)? updateProductCount,
+    TResult Function(ChangeProductCountEvent value)? changeProductCount,
+    TResult Function(DeleteCartItemEvent value)? deleteItem,
     required TResult orElse(),
   }) {
     if (changeCategoryIndex != null) {
@@ -988,6 +1168,11 @@ class _$GetCategoriesOnCategoryEventImpl
     required TResult Function(String categoryId, String sortBy) getProducts,
     required TResult Function(String productId) addToCart,
     required TResult Function() getCart,
+    required TResult Function() clearCart,
+    required TResult Function(String productId, int count) updateCartCount,
+    required TResult Function(String productId, int count) updateProductCount,
+    required TResult Function(int productCount) changeProductCount,
+    required TResult Function(String productId) deleteItem,
   }) {
     return getSubCategories(categoryId);
   }
@@ -1004,6 +1189,11 @@ class _$GetCategoriesOnCategoryEventImpl
     TResult? Function(String categoryId, String sortBy)? getProducts,
     TResult? Function(String productId)? addToCart,
     TResult? Function()? getCart,
+    TResult? Function()? clearCart,
+    TResult? Function(String productId, int count)? updateCartCount,
+    TResult? Function(String productId, int count)? updateProductCount,
+    TResult? Function(int productCount)? changeProductCount,
+    TResult? Function(String productId)? deleteItem,
   }) {
     return getSubCategories?.call(categoryId);
   }
@@ -1020,6 +1210,11 @@ class _$GetCategoriesOnCategoryEventImpl
     TResult Function(String categoryId, String sortBy)? getProducts,
     TResult Function(String productId)? addToCart,
     TResult Function()? getCart,
+    TResult Function()? clearCart,
+    TResult Function(String productId, int count)? updateCartCount,
+    TResult Function(String productId, int count)? updateProductCount,
+    TResult Function(int productCount)? changeProductCount,
+    TResult Function(String productId)? deleteItem,
     required TResult orElse(),
   }) {
     if (getSubCategories != null) {
@@ -1041,6 +1236,11 @@ class _$GetCategoriesOnCategoryEventImpl
     required TResult Function(GetProductsEvent value) getProducts,
     required TResult Function(AddToCartEvent value) addToCart,
     required TResult Function(GetCartEvent value) getCart,
+    required TResult Function(ClearCartEvent value) clearCart,
+    required TResult Function(UpdateCartItemEvent value) updateCartCount,
+    required TResult Function(UpdateProductItemEvent value) updateProductCount,
+    required TResult Function(ChangeProductCountEvent value) changeProductCount,
+    required TResult Function(DeleteCartItemEvent value) deleteItem,
   }) {
     return getSubCategories(this);
   }
@@ -1057,6 +1257,11 @@ class _$GetCategoriesOnCategoryEventImpl
     TResult? Function(GetProductsEvent value)? getProducts,
     TResult? Function(AddToCartEvent value)? addToCart,
     TResult? Function(GetCartEvent value)? getCart,
+    TResult? Function(ClearCartEvent value)? clearCart,
+    TResult? Function(UpdateCartItemEvent value)? updateCartCount,
+    TResult? Function(UpdateProductItemEvent value)? updateProductCount,
+    TResult? Function(ChangeProductCountEvent value)? changeProductCount,
+    TResult? Function(DeleteCartItemEvent value)? deleteItem,
   }) {
     return getSubCategories?.call(this);
   }
@@ -1073,6 +1278,11 @@ class _$GetCategoriesOnCategoryEventImpl
     TResult Function(GetProductsEvent value)? getProducts,
     TResult Function(AddToCartEvent value)? addToCart,
     TResult Function(GetCartEvent value)? getCart,
+    TResult Function(ClearCartEvent value)? clearCart,
+    TResult Function(UpdateCartItemEvent value)? updateCartCount,
+    TResult Function(UpdateProductItemEvent value)? updateProductCount,
+    TResult Function(ChangeProductCountEvent value)? changeProductCount,
+    TResult Function(DeleteCartItemEvent value)? deleteItem,
     required TResult orElse(),
   }) {
     if (getSubCategories != null) {
@@ -1176,6 +1386,11 @@ class _$GetProductsEventImpl implements GetProductsEvent {
     required TResult Function(String categoryId, String sortBy) getProducts,
     required TResult Function(String productId) addToCart,
     required TResult Function() getCart,
+    required TResult Function() clearCart,
+    required TResult Function(String productId, int count) updateCartCount,
+    required TResult Function(String productId, int count) updateProductCount,
+    required TResult Function(int productCount) changeProductCount,
+    required TResult Function(String productId) deleteItem,
   }) {
     return getProducts(categoryId, sortBy);
   }
@@ -1192,6 +1407,11 @@ class _$GetProductsEventImpl implements GetProductsEvent {
     TResult? Function(String categoryId, String sortBy)? getProducts,
     TResult? Function(String productId)? addToCart,
     TResult? Function()? getCart,
+    TResult? Function()? clearCart,
+    TResult? Function(String productId, int count)? updateCartCount,
+    TResult? Function(String productId, int count)? updateProductCount,
+    TResult? Function(int productCount)? changeProductCount,
+    TResult? Function(String productId)? deleteItem,
   }) {
     return getProducts?.call(categoryId, sortBy);
   }
@@ -1208,6 +1428,11 @@ class _$GetProductsEventImpl implements GetProductsEvent {
     TResult Function(String categoryId, String sortBy)? getProducts,
     TResult Function(String productId)? addToCart,
     TResult Function()? getCart,
+    TResult Function()? clearCart,
+    TResult Function(String productId, int count)? updateCartCount,
+    TResult Function(String productId, int count)? updateProductCount,
+    TResult Function(int productCount)? changeProductCount,
+    TResult Function(String productId)? deleteItem,
     required TResult orElse(),
   }) {
     if (getProducts != null) {
@@ -1229,6 +1454,11 @@ class _$GetProductsEventImpl implements GetProductsEvent {
     required TResult Function(GetProductsEvent value) getProducts,
     required TResult Function(AddToCartEvent value) addToCart,
     required TResult Function(GetCartEvent value) getCart,
+    required TResult Function(ClearCartEvent value) clearCart,
+    required TResult Function(UpdateCartItemEvent value) updateCartCount,
+    required TResult Function(UpdateProductItemEvent value) updateProductCount,
+    required TResult Function(ChangeProductCountEvent value) changeProductCount,
+    required TResult Function(DeleteCartItemEvent value) deleteItem,
   }) {
     return getProducts(this);
   }
@@ -1245,6 +1475,11 @@ class _$GetProductsEventImpl implements GetProductsEvent {
     TResult? Function(GetProductsEvent value)? getProducts,
     TResult? Function(AddToCartEvent value)? addToCart,
     TResult? Function(GetCartEvent value)? getCart,
+    TResult? Function(ClearCartEvent value)? clearCart,
+    TResult? Function(UpdateCartItemEvent value)? updateCartCount,
+    TResult? Function(UpdateProductItemEvent value)? updateProductCount,
+    TResult? Function(ChangeProductCountEvent value)? changeProductCount,
+    TResult? Function(DeleteCartItemEvent value)? deleteItem,
   }) {
     return getProducts?.call(this);
   }
@@ -1261,6 +1496,11 @@ class _$GetProductsEventImpl implements GetProductsEvent {
     TResult Function(GetProductsEvent value)? getProducts,
     TResult Function(AddToCartEvent value)? addToCart,
     TResult Function(GetCartEvent value)? getCart,
+    TResult Function(ClearCartEvent value)? clearCart,
+    TResult Function(UpdateCartItemEvent value)? updateCartCount,
+    TResult Function(UpdateProductItemEvent value)? updateProductCount,
+    TResult Function(ChangeProductCountEvent value)? changeProductCount,
+    TResult Function(DeleteCartItemEvent value)? deleteItem,
     required TResult orElse(),
   }) {
     if (getProducts != null) {
@@ -1356,6 +1596,11 @@ class _$AddToCartEventImpl implements AddToCartEvent {
     required TResult Function(String categoryId, String sortBy) getProducts,
     required TResult Function(String productId) addToCart,
     required TResult Function() getCart,
+    required TResult Function() clearCart,
+    required TResult Function(String productId, int count) updateCartCount,
+    required TResult Function(String productId, int count) updateProductCount,
+    required TResult Function(int productCount) changeProductCount,
+    required TResult Function(String productId) deleteItem,
   }) {
     return addToCart(productId);
   }
@@ -1372,6 +1617,11 @@ class _$AddToCartEventImpl implements AddToCartEvent {
     TResult? Function(String categoryId, String sortBy)? getProducts,
     TResult? Function(String productId)? addToCart,
     TResult? Function()? getCart,
+    TResult? Function()? clearCart,
+    TResult? Function(String productId, int count)? updateCartCount,
+    TResult? Function(String productId, int count)? updateProductCount,
+    TResult? Function(int productCount)? changeProductCount,
+    TResult? Function(String productId)? deleteItem,
   }) {
     return addToCart?.call(productId);
   }
@@ -1388,6 +1638,11 @@ class _$AddToCartEventImpl implements AddToCartEvent {
     TResult Function(String categoryId, String sortBy)? getProducts,
     TResult Function(String productId)? addToCart,
     TResult Function()? getCart,
+    TResult Function()? clearCart,
+    TResult Function(String productId, int count)? updateCartCount,
+    TResult Function(String productId, int count)? updateProductCount,
+    TResult Function(int productCount)? changeProductCount,
+    TResult Function(String productId)? deleteItem,
     required TResult orElse(),
   }) {
     if (addToCart != null) {
@@ -1409,6 +1664,11 @@ class _$AddToCartEventImpl implements AddToCartEvent {
     required TResult Function(GetProductsEvent value) getProducts,
     required TResult Function(AddToCartEvent value) addToCart,
     required TResult Function(GetCartEvent value) getCart,
+    required TResult Function(ClearCartEvent value) clearCart,
+    required TResult Function(UpdateCartItemEvent value) updateCartCount,
+    required TResult Function(UpdateProductItemEvent value) updateProductCount,
+    required TResult Function(ChangeProductCountEvent value) changeProductCount,
+    required TResult Function(DeleteCartItemEvent value) deleteItem,
   }) {
     return addToCart(this);
   }
@@ -1425,6 +1685,11 @@ class _$AddToCartEventImpl implements AddToCartEvent {
     TResult? Function(GetProductsEvent value)? getProducts,
     TResult? Function(AddToCartEvent value)? addToCart,
     TResult? Function(GetCartEvent value)? getCart,
+    TResult? Function(ClearCartEvent value)? clearCart,
+    TResult? Function(UpdateCartItemEvent value)? updateCartCount,
+    TResult? Function(UpdateProductItemEvent value)? updateProductCount,
+    TResult? Function(ChangeProductCountEvent value)? changeProductCount,
+    TResult? Function(DeleteCartItemEvent value)? deleteItem,
   }) {
     return addToCart?.call(this);
   }
@@ -1441,6 +1706,11 @@ class _$AddToCartEventImpl implements AddToCartEvent {
     TResult Function(GetProductsEvent value)? getProducts,
     TResult Function(AddToCartEvent value)? addToCart,
     TResult Function(GetCartEvent value)? getCart,
+    TResult Function(ClearCartEvent value)? clearCart,
+    TResult Function(UpdateCartItemEvent value)? updateCartCount,
+    TResult Function(UpdateProductItemEvent value)? updateProductCount,
+    TResult Function(ChangeProductCountEvent value)? changeProductCount,
+    TResult Function(DeleteCartItemEvent value)? deleteItem,
     required TResult orElse(),
   }) {
     if (addToCart != null) {
@@ -1506,6 +1776,11 @@ class _$GetCartEventImpl implements GetCartEvent {
     required TResult Function(String categoryId, String sortBy) getProducts,
     required TResult Function(String productId) addToCart,
     required TResult Function() getCart,
+    required TResult Function() clearCart,
+    required TResult Function(String productId, int count) updateCartCount,
+    required TResult Function(String productId, int count) updateProductCount,
+    required TResult Function(int productCount) changeProductCount,
+    required TResult Function(String productId) deleteItem,
   }) {
     return getCart();
   }
@@ -1522,6 +1797,11 @@ class _$GetCartEventImpl implements GetCartEvent {
     TResult? Function(String categoryId, String sortBy)? getProducts,
     TResult? Function(String productId)? addToCart,
     TResult? Function()? getCart,
+    TResult? Function()? clearCart,
+    TResult? Function(String productId, int count)? updateCartCount,
+    TResult? Function(String productId, int count)? updateProductCount,
+    TResult? Function(int productCount)? changeProductCount,
+    TResult? Function(String productId)? deleteItem,
   }) {
     return getCart?.call();
   }
@@ -1538,6 +1818,11 @@ class _$GetCartEventImpl implements GetCartEvent {
     TResult Function(String categoryId, String sortBy)? getProducts,
     TResult Function(String productId)? addToCart,
     TResult Function()? getCart,
+    TResult Function()? clearCart,
+    TResult Function(String productId, int count)? updateCartCount,
+    TResult Function(String productId, int count)? updateProductCount,
+    TResult Function(int productCount)? changeProductCount,
+    TResult Function(String productId)? deleteItem,
     required TResult orElse(),
   }) {
     if (getCart != null) {
@@ -1559,6 +1844,11 @@ class _$GetCartEventImpl implements GetCartEvent {
     required TResult Function(GetProductsEvent value) getProducts,
     required TResult Function(AddToCartEvent value) addToCart,
     required TResult Function(GetCartEvent value) getCart,
+    required TResult Function(ClearCartEvent value) clearCart,
+    required TResult Function(UpdateCartItemEvent value) updateCartCount,
+    required TResult Function(UpdateProductItemEvent value) updateProductCount,
+    required TResult Function(ChangeProductCountEvent value) changeProductCount,
+    required TResult Function(DeleteCartItemEvent value) deleteItem,
   }) {
     return getCart(this);
   }
@@ -1575,6 +1865,11 @@ class _$GetCartEventImpl implements GetCartEvent {
     TResult? Function(GetProductsEvent value)? getProducts,
     TResult? Function(AddToCartEvent value)? addToCart,
     TResult? Function(GetCartEvent value)? getCart,
+    TResult? Function(ClearCartEvent value)? clearCart,
+    TResult? Function(UpdateCartItemEvent value)? updateCartCount,
+    TResult? Function(UpdateProductItemEvent value)? updateProductCount,
+    TResult? Function(ChangeProductCountEvent value)? changeProductCount,
+    TResult? Function(DeleteCartItemEvent value)? deleteItem,
   }) {
     return getCart?.call(this);
   }
@@ -1591,6 +1886,11 @@ class _$GetCartEventImpl implements GetCartEvent {
     TResult Function(GetProductsEvent value)? getProducts,
     TResult Function(AddToCartEvent value)? addToCart,
     TResult Function(GetCartEvent value)? getCart,
+    TResult Function(ClearCartEvent value)? clearCart,
+    TResult Function(UpdateCartItemEvent value)? updateCartCount,
+    TResult Function(UpdateProductItemEvent value)? updateProductCount,
+    TResult Function(ChangeProductCountEvent value)? changeProductCount,
+    TResult Function(DeleteCartItemEvent value)? deleteItem,
     required TResult orElse(),
   }) {
     if (getCart != null) {
@@ -1602,6 +1902,1039 @@ class _$GetCartEventImpl implements GetCartEvent {
 
 abstract class GetCartEvent implements HomeEvent {
   const factory GetCartEvent() = _$GetCartEventImpl;
+}
+
+/// @nodoc
+abstract class _$$ClearCartEventImplCopyWith<$Res> {
+  factory _$$ClearCartEventImplCopyWith(_$ClearCartEventImpl value,
+          $Res Function(_$ClearCartEventImpl) then) =
+      __$$ClearCartEventImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$ClearCartEventImplCopyWithImpl<$Res>
+    extends _$HomeEventCopyWithImpl<$Res, _$ClearCartEventImpl>
+    implements _$$ClearCartEventImplCopyWith<$Res> {
+  __$$ClearCartEventImplCopyWithImpl(
+      _$ClearCartEventImpl _value, $Res Function(_$ClearCartEventImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$ClearCartEventImpl implements ClearCartEvent {
+  const _$ClearCartEventImpl();
+
+  @override
+  String toString() {
+    return 'HomeEvent.clearCart()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$ClearCartEventImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() started,
+    required TResult Function() getBrands,
+    required TResult Function() getCategories,
+    required TResult Function(int index) changeNavBarIndex,
+    required TResult Function(int index) changeCategoryIndex,
+    required TResult Function(String categoryId) getSubCategories,
+    required TResult Function(String categoryId, String sortBy) getProducts,
+    required TResult Function(String productId) addToCart,
+    required TResult Function() getCart,
+    required TResult Function() clearCart,
+    required TResult Function(String productId, int count) updateCartCount,
+    required TResult Function(String productId, int count) updateProductCount,
+    required TResult Function(int productCount) changeProductCount,
+    required TResult Function(String productId) deleteItem,
+  }) {
+    return clearCart();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? started,
+    TResult? Function()? getBrands,
+    TResult? Function()? getCategories,
+    TResult? Function(int index)? changeNavBarIndex,
+    TResult? Function(int index)? changeCategoryIndex,
+    TResult? Function(String categoryId)? getSubCategories,
+    TResult? Function(String categoryId, String sortBy)? getProducts,
+    TResult? Function(String productId)? addToCart,
+    TResult? Function()? getCart,
+    TResult? Function()? clearCart,
+    TResult? Function(String productId, int count)? updateCartCount,
+    TResult? Function(String productId, int count)? updateProductCount,
+    TResult? Function(int productCount)? changeProductCount,
+    TResult? Function(String productId)? deleteItem,
+  }) {
+    return clearCart?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? started,
+    TResult Function()? getBrands,
+    TResult Function()? getCategories,
+    TResult Function(int index)? changeNavBarIndex,
+    TResult Function(int index)? changeCategoryIndex,
+    TResult Function(String categoryId)? getSubCategories,
+    TResult Function(String categoryId, String sortBy)? getProducts,
+    TResult Function(String productId)? addToCart,
+    TResult Function()? getCart,
+    TResult Function()? clearCart,
+    TResult Function(String productId, int count)? updateCartCount,
+    TResult Function(String productId, int count)? updateProductCount,
+    TResult Function(int productCount)? changeProductCount,
+    TResult Function(String productId)? deleteItem,
+    required TResult orElse(),
+  }) {
+    if (clearCart != null) {
+      return clearCart();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Started value) started,
+    required TResult Function(GetBrandsEvent value) getBrands,
+    required TResult Function(GetCategoriesEvent value) getCategories,
+    required TResult Function(ChangeNavbarIndexEvent value) changeNavBarIndex,
+    required TResult Function(ChangeCategoryIndex value) changeCategoryIndex,
+    required TResult Function(GetCategoriesOnCategoryEvent value)
+        getSubCategories,
+    required TResult Function(GetProductsEvent value) getProducts,
+    required TResult Function(AddToCartEvent value) addToCart,
+    required TResult Function(GetCartEvent value) getCart,
+    required TResult Function(ClearCartEvent value) clearCart,
+    required TResult Function(UpdateCartItemEvent value) updateCartCount,
+    required TResult Function(UpdateProductItemEvent value) updateProductCount,
+    required TResult Function(ChangeProductCountEvent value) changeProductCount,
+    required TResult Function(DeleteCartItemEvent value) deleteItem,
+  }) {
+    return clearCart(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Started value)? started,
+    TResult? Function(GetBrandsEvent value)? getBrands,
+    TResult? Function(GetCategoriesEvent value)? getCategories,
+    TResult? Function(ChangeNavbarIndexEvent value)? changeNavBarIndex,
+    TResult? Function(ChangeCategoryIndex value)? changeCategoryIndex,
+    TResult? Function(GetCategoriesOnCategoryEvent value)? getSubCategories,
+    TResult? Function(GetProductsEvent value)? getProducts,
+    TResult? Function(AddToCartEvent value)? addToCart,
+    TResult? Function(GetCartEvent value)? getCart,
+    TResult? Function(ClearCartEvent value)? clearCart,
+    TResult? Function(UpdateCartItemEvent value)? updateCartCount,
+    TResult? Function(UpdateProductItemEvent value)? updateProductCount,
+    TResult? Function(ChangeProductCountEvent value)? changeProductCount,
+    TResult? Function(DeleteCartItemEvent value)? deleteItem,
+  }) {
+    return clearCart?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Started value)? started,
+    TResult Function(GetBrandsEvent value)? getBrands,
+    TResult Function(GetCategoriesEvent value)? getCategories,
+    TResult Function(ChangeNavbarIndexEvent value)? changeNavBarIndex,
+    TResult Function(ChangeCategoryIndex value)? changeCategoryIndex,
+    TResult Function(GetCategoriesOnCategoryEvent value)? getSubCategories,
+    TResult Function(GetProductsEvent value)? getProducts,
+    TResult Function(AddToCartEvent value)? addToCart,
+    TResult Function(GetCartEvent value)? getCart,
+    TResult Function(ClearCartEvent value)? clearCart,
+    TResult Function(UpdateCartItemEvent value)? updateCartCount,
+    TResult Function(UpdateProductItemEvent value)? updateProductCount,
+    TResult Function(ChangeProductCountEvent value)? changeProductCount,
+    TResult Function(DeleteCartItemEvent value)? deleteItem,
+    required TResult orElse(),
+  }) {
+    if (clearCart != null) {
+      return clearCart(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class ClearCartEvent implements HomeEvent {
+  const factory ClearCartEvent() = _$ClearCartEventImpl;
+}
+
+/// @nodoc
+abstract class _$$UpdateCartItemEventImplCopyWith<$Res> {
+  factory _$$UpdateCartItemEventImplCopyWith(_$UpdateCartItemEventImpl value,
+          $Res Function(_$UpdateCartItemEventImpl) then) =
+      __$$UpdateCartItemEventImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String productId, int count});
+}
+
+/// @nodoc
+class __$$UpdateCartItemEventImplCopyWithImpl<$Res>
+    extends _$HomeEventCopyWithImpl<$Res, _$UpdateCartItemEventImpl>
+    implements _$$UpdateCartItemEventImplCopyWith<$Res> {
+  __$$UpdateCartItemEventImplCopyWithImpl(_$UpdateCartItemEventImpl _value,
+      $Res Function(_$UpdateCartItemEventImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? productId = null,
+    Object? count = null,
+  }) {
+    return _then(_$UpdateCartItemEventImpl(
+      null == productId
+          ? _value.productId
+          : productId // ignore: cast_nullable_to_non_nullable
+              as String,
+      null == count
+          ? _value.count
+          : count // ignore: cast_nullable_to_non_nullable
+              as int,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$UpdateCartItemEventImpl implements UpdateCartItemEvent {
+  const _$UpdateCartItemEventImpl(this.productId, this.count);
+
+  @override
+  final String productId;
+  @override
+  final int count;
+
+  @override
+  String toString() {
+    return 'HomeEvent.updateCartCount(productId: $productId, count: $count)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$UpdateCartItemEventImpl &&
+            (identical(other.productId, productId) ||
+                other.productId == productId) &&
+            (identical(other.count, count) || other.count == count));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, productId, count);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$UpdateCartItemEventImplCopyWith<_$UpdateCartItemEventImpl> get copyWith =>
+      __$$UpdateCartItemEventImplCopyWithImpl<_$UpdateCartItemEventImpl>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() started,
+    required TResult Function() getBrands,
+    required TResult Function() getCategories,
+    required TResult Function(int index) changeNavBarIndex,
+    required TResult Function(int index) changeCategoryIndex,
+    required TResult Function(String categoryId) getSubCategories,
+    required TResult Function(String categoryId, String sortBy) getProducts,
+    required TResult Function(String productId) addToCart,
+    required TResult Function() getCart,
+    required TResult Function() clearCart,
+    required TResult Function(String productId, int count) updateCartCount,
+    required TResult Function(String productId, int count) updateProductCount,
+    required TResult Function(int productCount) changeProductCount,
+    required TResult Function(String productId) deleteItem,
+  }) {
+    return updateCartCount(productId, count);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? started,
+    TResult? Function()? getBrands,
+    TResult? Function()? getCategories,
+    TResult? Function(int index)? changeNavBarIndex,
+    TResult? Function(int index)? changeCategoryIndex,
+    TResult? Function(String categoryId)? getSubCategories,
+    TResult? Function(String categoryId, String sortBy)? getProducts,
+    TResult? Function(String productId)? addToCart,
+    TResult? Function()? getCart,
+    TResult? Function()? clearCart,
+    TResult? Function(String productId, int count)? updateCartCount,
+    TResult? Function(String productId, int count)? updateProductCount,
+    TResult? Function(int productCount)? changeProductCount,
+    TResult? Function(String productId)? deleteItem,
+  }) {
+    return updateCartCount?.call(productId, count);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? started,
+    TResult Function()? getBrands,
+    TResult Function()? getCategories,
+    TResult Function(int index)? changeNavBarIndex,
+    TResult Function(int index)? changeCategoryIndex,
+    TResult Function(String categoryId)? getSubCategories,
+    TResult Function(String categoryId, String sortBy)? getProducts,
+    TResult Function(String productId)? addToCart,
+    TResult Function()? getCart,
+    TResult Function()? clearCart,
+    TResult Function(String productId, int count)? updateCartCount,
+    TResult Function(String productId, int count)? updateProductCount,
+    TResult Function(int productCount)? changeProductCount,
+    TResult Function(String productId)? deleteItem,
+    required TResult orElse(),
+  }) {
+    if (updateCartCount != null) {
+      return updateCartCount(productId, count);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Started value) started,
+    required TResult Function(GetBrandsEvent value) getBrands,
+    required TResult Function(GetCategoriesEvent value) getCategories,
+    required TResult Function(ChangeNavbarIndexEvent value) changeNavBarIndex,
+    required TResult Function(ChangeCategoryIndex value) changeCategoryIndex,
+    required TResult Function(GetCategoriesOnCategoryEvent value)
+        getSubCategories,
+    required TResult Function(GetProductsEvent value) getProducts,
+    required TResult Function(AddToCartEvent value) addToCart,
+    required TResult Function(GetCartEvent value) getCart,
+    required TResult Function(ClearCartEvent value) clearCart,
+    required TResult Function(UpdateCartItemEvent value) updateCartCount,
+    required TResult Function(UpdateProductItemEvent value) updateProductCount,
+    required TResult Function(ChangeProductCountEvent value) changeProductCount,
+    required TResult Function(DeleteCartItemEvent value) deleteItem,
+  }) {
+    return updateCartCount(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Started value)? started,
+    TResult? Function(GetBrandsEvent value)? getBrands,
+    TResult? Function(GetCategoriesEvent value)? getCategories,
+    TResult? Function(ChangeNavbarIndexEvent value)? changeNavBarIndex,
+    TResult? Function(ChangeCategoryIndex value)? changeCategoryIndex,
+    TResult? Function(GetCategoriesOnCategoryEvent value)? getSubCategories,
+    TResult? Function(GetProductsEvent value)? getProducts,
+    TResult? Function(AddToCartEvent value)? addToCart,
+    TResult? Function(GetCartEvent value)? getCart,
+    TResult? Function(ClearCartEvent value)? clearCart,
+    TResult? Function(UpdateCartItemEvent value)? updateCartCount,
+    TResult? Function(UpdateProductItemEvent value)? updateProductCount,
+    TResult? Function(ChangeProductCountEvent value)? changeProductCount,
+    TResult? Function(DeleteCartItemEvent value)? deleteItem,
+  }) {
+    return updateCartCount?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Started value)? started,
+    TResult Function(GetBrandsEvent value)? getBrands,
+    TResult Function(GetCategoriesEvent value)? getCategories,
+    TResult Function(ChangeNavbarIndexEvent value)? changeNavBarIndex,
+    TResult Function(ChangeCategoryIndex value)? changeCategoryIndex,
+    TResult Function(GetCategoriesOnCategoryEvent value)? getSubCategories,
+    TResult Function(GetProductsEvent value)? getProducts,
+    TResult Function(AddToCartEvent value)? addToCart,
+    TResult Function(GetCartEvent value)? getCart,
+    TResult Function(ClearCartEvent value)? clearCart,
+    TResult Function(UpdateCartItemEvent value)? updateCartCount,
+    TResult Function(UpdateProductItemEvent value)? updateProductCount,
+    TResult Function(ChangeProductCountEvent value)? changeProductCount,
+    TResult Function(DeleteCartItemEvent value)? deleteItem,
+    required TResult orElse(),
+  }) {
+    if (updateCartCount != null) {
+      return updateCartCount(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class UpdateCartItemEvent implements HomeEvent {
+  const factory UpdateCartItemEvent(final String productId, final int count) =
+      _$UpdateCartItemEventImpl;
+
+  String get productId;
+  int get count;
+  @JsonKey(ignore: true)
+  _$$UpdateCartItemEventImplCopyWith<_$UpdateCartItemEventImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$UpdateProductItemEventImplCopyWith<$Res> {
+  factory _$$UpdateProductItemEventImplCopyWith(
+          _$UpdateProductItemEventImpl value,
+          $Res Function(_$UpdateProductItemEventImpl) then) =
+      __$$UpdateProductItemEventImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String productId, int count});
+}
+
+/// @nodoc
+class __$$UpdateProductItemEventImplCopyWithImpl<$Res>
+    extends _$HomeEventCopyWithImpl<$Res, _$UpdateProductItemEventImpl>
+    implements _$$UpdateProductItemEventImplCopyWith<$Res> {
+  __$$UpdateProductItemEventImplCopyWithImpl(
+      _$UpdateProductItemEventImpl _value,
+      $Res Function(_$UpdateProductItemEventImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? productId = null,
+    Object? count = null,
+  }) {
+    return _then(_$UpdateProductItemEventImpl(
+      null == productId
+          ? _value.productId
+          : productId // ignore: cast_nullable_to_non_nullable
+              as String,
+      null == count
+          ? _value.count
+          : count // ignore: cast_nullable_to_non_nullable
+              as int,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$UpdateProductItemEventImpl implements UpdateProductItemEvent {
+  const _$UpdateProductItemEventImpl(this.productId, this.count);
+
+  @override
+  final String productId;
+  @override
+  final int count;
+
+  @override
+  String toString() {
+    return 'HomeEvent.updateProductCount(productId: $productId, count: $count)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$UpdateProductItemEventImpl &&
+            (identical(other.productId, productId) ||
+                other.productId == productId) &&
+            (identical(other.count, count) || other.count == count));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, productId, count);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$UpdateProductItemEventImplCopyWith<_$UpdateProductItemEventImpl>
+      get copyWith => __$$UpdateProductItemEventImplCopyWithImpl<
+          _$UpdateProductItemEventImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() started,
+    required TResult Function() getBrands,
+    required TResult Function() getCategories,
+    required TResult Function(int index) changeNavBarIndex,
+    required TResult Function(int index) changeCategoryIndex,
+    required TResult Function(String categoryId) getSubCategories,
+    required TResult Function(String categoryId, String sortBy) getProducts,
+    required TResult Function(String productId) addToCart,
+    required TResult Function() getCart,
+    required TResult Function() clearCart,
+    required TResult Function(String productId, int count) updateCartCount,
+    required TResult Function(String productId, int count) updateProductCount,
+    required TResult Function(int productCount) changeProductCount,
+    required TResult Function(String productId) deleteItem,
+  }) {
+    return updateProductCount(productId, count);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? started,
+    TResult? Function()? getBrands,
+    TResult? Function()? getCategories,
+    TResult? Function(int index)? changeNavBarIndex,
+    TResult? Function(int index)? changeCategoryIndex,
+    TResult? Function(String categoryId)? getSubCategories,
+    TResult? Function(String categoryId, String sortBy)? getProducts,
+    TResult? Function(String productId)? addToCart,
+    TResult? Function()? getCart,
+    TResult? Function()? clearCart,
+    TResult? Function(String productId, int count)? updateCartCount,
+    TResult? Function(String productId, int count)? updateProductCount,
+    TResult? Function(int productCount)? changeProductCount,
+    TResult? Function(String productId)? deleteItem,
+  }) {
+    return updateProductCount?.call(productId, count);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? started,
+    TResult Function()? getBrands,
+    TResult Function()? getCategories,
+    TResult Function(int index)? changeNavBarIndex,
+    TResult Function(int index)? changeCategoryIndex,
+    TResult Function(String categoryId)? getSubCategories,
+    TResult Function(String categoryId, String sortBy)? getProducts,
+    TResult Function(String productId)? addToCart,
+    TResult Function()? getCart,
+    TResult Function()? clearCart,
+    TResult Function(String productId, int count)? updateCartCount,
+    TResult Function(String productId, int count)? updateProductCount,
+    TResult Function(int productCount)? changeProductCount,
+    TResult Function(String productId)? deleteItem,
+    required TResult orElse(),
+  }) {
+    if (updateProductCount != null) {
+      return updateProductCount(productId, count);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Started value) started,
+    required TResult Function(GetBrandsEvent value) getBrands,
+    required TResult Function(GetCategoriesEvent value) getCategories,
+    required TResult Function(ChangeNavbarIndexEvent value) changeNavBarIndex,
+    required TResult Function(ChangeCategoryIndex value) changeCategoryIndex,
+    required TResult Function(GetCategoriesOnCategoryEvent value)
+        getSubCategories,
+    required TResult Function(GetProductsEvent value) getProducts,
+    required TResult Function(AddToCartEvent value) addToCart,
+    required TResult Function(GetCartEvent value) getCart,
+    required TResult Function(ClearCartEvent value) clearCart,
+    required TResult Function(UpdateCartItemEvent value) updateCartCount,
+    required TResult Function(UpdateProductItemEvent value) updateProductCount,
+    required TResult Function(ChangeProductCountEvent value) changeProductCount,
+    required TResult Function(DeleteCartItemEvent value) deleteItem,
+  }) {
+    return updateProductCount(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Started value)? started,
+    TResult? Function(GetBrandsEvent value)? getBrands,
+    TResult? Function(GetCategoriesEvent value)? getCategories,
+    TResult? Function(ChangeNavbarIndexEvent value)? changeNavBarIndex,
+    TResult? Function(ChangeCategoryIndex value)? changeCategoryIndex,
+    TResult? Function(GetCategoriesOnCategoryEvent value)? getSubCategories,
+    TResult? Function(GetProductsEvent value)? getProducts,
+    TResult? Function(AddToCartEvent value)? addToCart,
+    TResult? Function(GetCartEvent value)? getCart,
+    TResult? Function(ClearCartEvent value)? clearCart,
+    TResult? Function(UpdateCartItemEvent value)? updateCartCount,
+    TResult? Function(UpdateProductItemEvent value)? updateProductCount,
+    TResult? Function(ChangeProductCountEvent value)? changeProductCount,
+    TResult? Function(DeleteCartItemEvent value)? deleteItem,
+  }) {
+    return updateProductCount?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Started value)? started,
+    TResult Function(GetBrandsEvent value)? getBrands,
+    TResult Function(GetCategoriesEvent value)? getCategories,
+    TResult Function(ChangeNavbarIndexEvent value)? changeNavBarIndex,
+    TResult Function(ChangeCategoryIndex value)? changeCategoryIndex,
+    TResult Function(GetCategoriesOnCategoryEvent value)? getSubCategories,
+    TResult Function(GetProductsEvent value)? getProducts,
+    TResult Function(AddToCartEvent value)? addToCart,
+    TResult Function(GetCartEvent value)? getCart,
+    TResult Function(ClearCartEvent value)? clearCart,
+    TResult Function(UpdateCartItemEvent value)? updateCartCount,
+    TResult Function(UpdateProductItemEvent value)? updateProductCount,
+    TResult Function(ChangeProductCountEvent value)? changeProductCount,
+    TResult Function(DeleteCartItemEvent value)? deleteItem,
+    required TResult orElse(),
+  }) {
+    if (updateProductCount != null) {
+      return updateProductCount(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class UpdateProductItemEvent implements HomeEvent {
+  const factory UpdateProductItemEvent(
+      final String productId, final int count) = _$UpdateProductItemEventImpl;
+
+  String get productId;
+  int get count;
+  @JsonKey(ignore: true)
+  _$$UpdateProductItemEventImplCopyWith<_$UpdateProductItemEventImpl>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$ChangeProductCountEventImplCopyWith<$Res> {
+  factory _$$ChangeProductCountEventImplCopyWith(
+          _$ChangeProductCountEventImpl value,
+          $Res Function(_$ChangeProductCountEventImpl) then) =
+      __$$ChangeProductCountEventImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({int productCount});
+}
+
+/// @nodoc
+class __$$ChangeProductCountEventImplCopyWithImpl<$Res>
+    extends _$HomeEventCopyWithImpl<$Res, _$ChangeProductCountEventImpl>
+    implements _$$ChangeProductCountEventImplCopyWith<$Res> {
+  __$$ChangeProductCountEventImplCopyWithImpl(
+      _$ChangeProductCountEventImpl _value,
+      $Res Function(_$ChangeProductCountEventImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? productCount = null,
+  }) {
+    return _then(_$ChangeProductCountEventImpl(
+      null == productCount
+          ? _value.productCount
+          : productCount // ignore: cast_nullable_to_non_nullable
+              as int,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$ChangeProductCountEventImpl implements ChangeProductCountEvent {
+  const _$ChangeProductCountEventImpl(this.productCount);
+
+  @override
+  final int productCount;
+
+  @override
+  String toString() {
+    return 'HomeEvent.changeProductCount(productCount: $productCount)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$ChangeProductCountEventImpl &&
+            (identical(other.productCount, productCount) ||
+                other.productCount == productCount));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, productCount);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$ChangeProductCountEventImplCopyWith<_$ChangeProductCountEventImpl>
+      get copyWith => __$$ChangeProductCountEventImplCopyWithImpl<
+          _$ChangeProductCountEventImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() started,
+    required TResult Function() getBrands,
+    required TResult Function() getCategories,
+    required TResult Function(int index) changeNavBarIndex,
+    required TResult Function(int index) changeCategoryIndex,
+    required TResult Function(String categoryId) getSubCategories,
+    required TResult Function(String categoryId, String sortBy) getProducts,
+    required TResult Function(String productId) addToCart,
+    required TResult Function() getCart,
+    required TResult Function() clearCart,
+    required TResult Function(String productId, int count) updateCartCount,
+    required TResult Function(String productId, int count) updateProductCount,
+    required TResult Function(int productCount) changeProductCount,
+    required TResult Function(String productId) deleteItem,
+  }) {
+    return changeProductCount(productCount);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? started,
+    TResult? Function()? getBrands,
+    TResult? Function()? getCategories,
+    TResult? Function(int index)? changeNavBarIndex,
+    TResult? Function(int index)? changeCategoryIndex,
+    TResult? Function(String categoryId)? getSubCategories,
+    TResult? Function(String categoryId, String sortBy)? getProducts,
+    TResult? Function(String productId)? addToCart,
+    TResult? Function()? getCart,
+    TResult? Function()? clearCart,
+    TResult? Function(String productId, int count)? updateCartCount,
+    TResult? Function(String productId, int count)? updateProductCount,
+    TResult? Function(int productCount)? changeProductCount,
+    TResult? Function(String productId)? deleteItem,
+  }) {
+    return changeProductCount?.call(productCount);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? started,
+    TResult Function()? getBrands,
+    TResult Function()? getCategories,
+    TResult Function(int index)? changeNavBarIndex,
+    TResult Function(int index)? changeCategoryIndex,
+    TResult Function(String categoryId)? getSubCategories,
+    TResult Function(String categoryId, String sortBy)? getProducts,
+    TResult Function(String productId)? addToCart,
+    TResult Function()? getCart,
+    TResult Function()? clearCart,
+    TResult Function(String productId, int count)? updateCartCount,
+    TResult Function(String productId, int count)? updateProductCount,
+    TResult Function(int productCount)? changeProductCount,
+    TResult Function(String productId)? deleteItem,
+    required TResult orElse(),
+  }) {
+    if (changeProductCount != null) {
+      return changeProductCount(productCount);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Started value) started,
+    required TResult Function(GetBrandsEvent value) getBrands,
+    required TResult Function(GetCategoriesEvent value) getCategories,
+    required TResult Function(ChangeNavbarIndexEvent value) changeNavBarIndex,
+    required TResult Function(ChangeCategoryIndex value) changeCategoryIndex,
+    required TResult Function(GetCategoriesOnCategoryEvent value)
+        getSubCategories,
+    required TResult Function(GetProductsEvent value) getProducts,
+    required TResult Function(AddToCartEvent value) addToCart,
+    required TResult Function(GetCartEvent value) getCart,
+    required TResult Function(ClearCartEvent value) clearCart,
+    required TResult Function(UpdateCartItemEvent value) updateCartCount,
+    required TResult Function(UpdateProductItemEvent value) updateProductCount,
+    required TResult Function(ChangeProductCountEvent value) changeProductCount,
+    required TResult Function(DeleteCartItemEvent value) deleteItem,
+  }) {
+    return changeProductCount(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Started value)? started,
+    TResult? Function(GetBrandsEvent value)? getBrands,
+    TResult? Function(GetCategoriesEvent value)? getCategories,
+    TResult? Function(ChangeNavbarIndexEvent value)? changeNavBarIndex,
+    TResult? Function(ChangeCategoryIndex value)? changeCategoryIndex,
+    TResult? Function(GetCategoriesOnCategoryEvent value)? getSubCategories,
+    TResult? Function(GetProductsEvent value)? getProducts,
+    TResult? Function(AddToCartEvent value)? addToCart,
+    TResult? Function(GetCartEvent value)? getCart,
+    TResult? Function(ClearCartEvent value)? clearCart,
+    TResult? Function(UpdateCartItemEvent value)? updateCartCount,
+    TResult? Function(UpdateProductItemEvent value)? updateProductCount,
+    TResult? Function(ChangeProductCountEvent value)? changeProductCount,
+    TResult? Function(DeleteCartItemEvent value)? deleteItem,
+  }) {
+    return changeProductCount?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Started value)? started,
+    TResult Function(GetBrandsEvent value)? getBrands,
+    TResult Function(GetCategoriesEvent value)? getCategories,
+    TResult Function(ChangeNavbarIndexEvent value)? changeNavBarIndex,
+    TResult Function(ChangeCategoryIndex value)? changeCategoryIndex,
+    TResult Function(GetCategoriesOnCategoryEvent value)? getSubCategories,
+    TResult Function(GetProductsEvent value)? getProducts,
+    TResult Function(AddToCartEvent value)? addToCart,
+    TResult Function(GetCartEvent value)? getCart,
+    TResult Function(ClearCartEvent value)? clearCart,
+    TResult Function(UpdateCartItemEvent value)? updateCartCount,
+    TResult Function(UpdateProductItemEvent value)? updateProductCount,
+    TResult Function(ChangeProductCountEvent value)? changeProductCount,
+    TResult Function(DeleteCartItemEvent value)? deleteItem,
+    required TResult orElse(),
+  }) {
+    if (changeProductCount != null) {
+      return changeProductCount(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class ChangeProductCountEvent implements HomeEvent {
+  const factory ChangeProductCountEvent(final int productCount) =
+      _$ChangeProductCountEventImpl;
+
+  int get productCount;
+  @JsonKey(ignore: true)
+  _$$ChangeProductCountEventImplCopyWith<_$ChangeProductCountEventImpl>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$DeleteCartItemEventImplCopyWith<$Res> {
+  factory _$$DeleteCartItemEventImplCopyWith(_$DeleteCartItemEventImpl value,
+          $Res Function(_$DeleteCartItemEventImpl) then) =
+      __$$DeleteCartItemEventImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String productId});
+}
+
+/// @nodoc
+class __$$DeleteCartItemEventImplCopyWithImpl<$Res>
+    extends _$HomeEventCopyWithImpl<$Res, _$DeleteCartItemEventImpl>
+    implements _$$DeleteCartItemEventImplCopyWith<$Res> {
+  __$$DeleteCartItemEventImplCopyWithImpl(_$DeleteCartItemEventImpl _value,
+      $Res Function(_$DeleteCartItemEventImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? productId = null,
+  }) {
+    return _then(_$DeleteCartItemEventImpl(
+      null == productId
+          ? _value.productId
+          : productId // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$DeleteCartItemEventImpl implements DeleteCartItemEvent {
+  const _$DeleteCartItemEventImpl(this.productId);
+
+  @override
+  final String productId;
+
+  @override
+  String toString() {
+    return 'HomeEvent.deleteItem(productId: $productId)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$DeleteCartItemEventImpl &&
+            (identical(other.productId, productId) ||
+                other.productId == productId));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, productId);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$DeleteCartItemEventImplCopyWith<_$DeleteCartItemEventImpl> get copyWith =>
+      __$$DeleteCartItemEventImplCopyWithImpl<_$DeleteCartItemEventImpl>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() started,
+    required TResult Function() getBrands,
+    required TResult Function() getCategories,
+    required TResult Function(int index) changeNavBarIndex,
+    required TResult Function(int index) changeCategoryIndex,
+    required TResult Function(String categoryId) getSubCategories,
+    required TResult Function(String categoryId, String sortBy) getProducts,
+    required TResult Function(String productId) addToCart,
+    required TResult Function() getCart,
+    required TResult Function() clearCart,
+    required TResult Function(String productId, int count) updateCartCount,
+    required TResult Function(String productId, int count) updateProductCount,
+    required TResult Function(int productCount) changeProductCount,
+    required TResult Function(String productId) deleteItem,
+  }) {
+    return deleteItem(productId);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? started,
+    TResult? Function()? getBrands,
+    TResult? Function()? getCategories,
+    TResult? Function(int index)? changeNavBarIndex,
+    TResult? Function(int index)? changeCategoryIndex,
+    TResult? Function(String categoryId)? getSubCategories,
+    TResult? Function(String categoryId, String sortBy)? getProducts,
+    TResult? Function(String productId)? addToCart,
+    TResult? Function()? getCart,
+    TResult? Function()? clearCart,
+    TResult? Function(String productId, int count)? updateCartCount,
+    TResult? Function(String productId, int count)? updateProductCount,
+    TResult? Function(int productCount)? changeProductCount,
+    TResult? Function(String productId)? deleteItem,
+  }) {
+    return deleteItem?.call(productId);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? started,
+    TResult Function()? getBrands,
+    TResult Function()? getCategories,
+    TResult Function(int index)? changeNavBarIndex,
+    TResult Function(int index)? changeCategoryIndex,
+    TResult Function(String categoryId)? getSubCategories,
+    TResult Function(String categoryId, String sortBy)? getProducts,
+    TResult Function(String productId)? addToCart,
+    TResult Function()? getCart,
+    TResult Function()? clearCart,
+    TResult Function(String productId, int count)? updateCartCount,
+    TResult Function(String productId, int count)? updateProductCount,
+    TResult Function(int productCount)? changeProductCount,
+    TResult Function(String productId)? deleteItem,
+    required TResult orElse(),
+  }) {
+    if (deleteItem != null) {
+      return deleteItem(productId);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Started value) started,
+    required TResult Function(GetBrandsEvent value) getBrands,
+    required TResult Function(GetCategoriesEvent value) getCategories,
+    required TResult Function(ChangeNavbarIndexEvent value) changeNavBarIndex,
+    required TResult Function(ChangeCategoryIndex value) changeCategoryIndex,
+    required TResult Function(GetCategoriesOnCategoryEvent value)
+        getSubCategories,
+    required TResult Function(GetProductsEvent value) getProducts,
+    required TResult Function(AddToCartEvent value) addToCart,
+    required TResult Function(GetCartEvent value) getCart,
+    required TResult Function(ClearCartEvent value) clearCart,
+    required TResult Function(UpdateCartItemEvent value) updateCartCount,
+    required TResult Function(UpdateProductItemEvent value) updateProductCount,
+    required TResult Function(ChangeProductCountEvent value) changeProductCount,
+    required TResult Function(DeleteCartItemEvent value) deleteItem,
+  }) {
+    return deleteItem(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Started value)? started,
+    TResult? Function(GetBrandsEvent value)? getBrands,
+    TResult? Function(GetCategoriesEvent value)? getCategories,
+    TResult? Function(ChangeNavbarIndexEvent value)? changeNavBarIndex,
+    TResult? Function(ChangeCategoryIndex value)? changeCategoryIndex,
+    TResult? Function(GetCategoriesOnCategoryEvent value)? getSubCategories,
+    TResult? Function(GetProductsEvent value)? getProducts,
+    TResult? Function(AddToCartEvent value)? addToCart,
+    TResult? Function(GetCartEvent value)? getCart,
+    TResult? Function(ClearCartEvent value)? clearCart,
+    TResult? Function(UpdateCartItemEvent value)? updateCartCount,
+    TResult? Function(UpdateProductItemEvent value)? updateProductCount,
+    TResult? Function(ChangeProductCountEvent value)? changeProductCount,
+    TResult? Function(DeleteCartItemEvent value)? deleteItem,
+  }) {
+    return deleteItem?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Started value)? started,
+    TResult Function(GetBrandsEvent value)? getBrands,
+    TResult Function(GetCategoriesEvent value)? getCategories,
+    TResult Function(ChangeNavbarIndexEvent value)? changeNavBarIndex,
+    TResult Function(ChangeCategoryIndex value)? changeCategoryIndex,
+    TResult Function(GetCategoriesOnCategoryEvent value)? getSubCategories,
+    TResult Function(GetProductsEvent value)? getProducts,
+    TResult Function(AddToCartEvent value)? addToCart,
+    TResult Function(GetCartEvent value)? getCart,
+    TResult Function(ClearCartEvent value)? clearCart,
+    TResult Function(UpdateCartItemEvent value)? updateCartCount,
+    TResult Function(UpdateProductItemEvent value)? updateProductCount,
+    TResult Function(ChangeProductCountEvent value)? changeProductCount,
+    TResult Function(DeleteCartItemEvent value)? deleteItem,
+    required TResult orElse(),
+  }) {
+    if (deleteItem != null) {
+      return deleteItem(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class DeleteCartItemEvent implements HomeEvent {
+  const factory DeleteCartItemEvent(final String productId) =
+      _$DeleteCartItemEventImpl;
+
+  String get productId;
+  @JsonKey(ignore: true)
+  _$$DeleteCartItemEventImplCopyWith<_$DeleteCartItemEventImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -1623,14 +2956,27 @@ mixin _$HomeState {
   ScreenStatus get getProductsStatus => throw _privateConstructorUsedError;
   ScreenStatus get addToCartStatus => throw _privateConstructorUsedError;
   ScreenStatus get getCartStatus => throw _privateConstructorUsedError;
+  ScreenStatus get clearCartStatus => throw _privateConstructorUsedError;
+  ScreenStatus get deleteCartItemStatus => throw _privateConstructorUsedError;
+  ScreenStatus get updateCartCountStatus => throw _privateConstructorUsedError;
+  ScreenStatus get updateProductCountStatus =>
+      throw _privateConstructorUsedError;
   GetAllProductsModel? get getAllProductsModel =>
+      throw _privateConstructorUsedError;
+  DeleteCartItemModel? get deleteCartItemModel =>
       throw _privateConstructorUsedError;
   AddToCartModel? get addToCartModel => throw _privateConstructorUsedError;
   GetCartModel? get getCartModel => throw _privateConstructorUsedError;
   Failures? get getProductsFailure => throw _privateConstructorUsedError;
   Failures? get addToCartFailure => throw _privateConstructorUsedError;
   Failures? get getCartFailure => throw _privateConstructorUsedError;
+  Failures? get clearCartFailure => throw _privateConstructorUsedError;
+  Failures? get deleteCartItemFailure => throw _privateConstructorUsedError;
+  Failures? get updateCartCountFailure => throw _privateConstructorUsedError;
+  Failures? get updateProductCountFailure => throw _privateConstructorUsedError;
+  String get message => throw _privateConstructorUsedError;
   int get cartItemsCount => throw _privateConstructorUsedError;
+  int get productItemCount => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $HomeStateCopyWith<HomeState> get copyWith =>
@@ -1657,13 +3003,24 @@ abstract class $HomeStateCopyWith<$Res> {
       ScreenStatus getProductsStatus,
       ScreenStatus addToCartStatus,
       ScreenStatus getCartStatus,
+      ScreenStatus clearCartStatus,
+      ScreenStatus deleteCartItemStatus,
+      ScreenStatus updateCartCountStatus,
+      ScreenStatus updateProductCountStatus,
       GetAllProductsModel? getAllProductsModel,
+      DeleteCartItemModel? deleteCartItemModel,
       AddToCartModel? addToCartModel,
       GetCartModel? getCartModel,
       Failures? getProductsFailure,
       Failures? addToCartFailure,
       Failures? getCartFailure,
-      int cartItemsCount});
+      Failures? clearCartFailure,
+      Failures? deleteCartItemFailure,
+      Failures? updateCartCountFailure,
+      Failures? updateProductCountFailure,
+      String message,
+      int cartItemsCount,
+      int productItemCount});
 }
 
 /// @nodoc
@@ -1693,13 +3050,24 @@ class _$HomeStateCopyWithImpl<$Res, $Val extends HomeState>
     Object? getProductsStatus = null,
     Object? addToCartStatus = null,
     Object? getCartStatus = null,
+    Object? clearCartStatus = null,
+    Object? deleteCartItemStatus = null,
+    Object? updateCartCountStatus = null,
+    Object? updateProductCountStatus = null,
     Object? getAllProductsModel = freezed,
+    Object? deleteCartItemModel = freezed,
     Object? addToCartModel = freezed,
     Object? getCartModel = freezed,
     Object? getProductsFailure = freezed,
     Object? addToCartFailure = freezed,
     Object? getCartFailure = freezed,
+    Object? clearCartFailure = freezed,
+    Object? deleteCartItemFailure = freezed,
+    Object? updateCartCountFailure = freezed,
+    Object? updateProductCountFailure = freezed,
+    Object? message = null,
     Object? cartItemsCount = null,
+    Object? productItemCount = null,
   }) {
     return _then(_value.copyWith(
       getBrandsStatus: null == getBrandsStatus
@@ -1758,10 +3126,30 @@ class _$HomeStateCopyWithImpl<$Res, $Val extends HomeState>
           ? _value.getCartStatus
           : getCartStatus // ignore: cast_nullable_to_non_nullable
               as ScreenStatus,
+      clearCartStatus: null == clearCartStatus
+          ? _value.clearCartStatus
+          : clearCartStatus // ignore: cast_nullable_to_non_nullable
+              as ScreenStatus,
+      deleteCartItemStatus: null == deleteCartItemStatus
+          ? _value.deleteCartItemStatus
+          : deleteCartItemStatus // ignore: cast_nullable_to_non_nullable
+              as ScreenStatus,
+      updateCartCountStatus: null == updateCartCountStatus
+          ? _value.updateCartCountStatus
+          : updateCartCountStatus // ignore: cast_nullable_to_non_nullable
+              as ScreenStatus,
+      updateProductCountStatus: null == updateProductCountStatus
+          ? _value.updateProductCountStatus
+          : updateProductCountStatus // ignore: cast_nullable_to_non_nullable
+              as ScreenStatus,
       getAllProductsModel: freezed == getAllProductsModel
           ? _value.getAllProductsModel
           : getAllProductsModel // ignore: cast_nullable_to_non_nullable
               as GetAllProductsModel?,
+      deleteCartItemModel: freezed == deleteCartItemModel
+          ? _value.deleteCartItemModel
+          : deleteCartItemModel // ignore: cast_nullable_to_non_nullable
+              as DeleteCartItemModel?,
       addToCartModel: freezed == addToCartModel
           ? _value.addToCartModel
           : addToCartModel // ignore: cast_nullable_to_non_nullable
@@ -1782,9 +3170,33 @@ class _$HomeStateCopyWithImpl<$Res, $Val extends HomeState>
           ? _value.getCartFailure
           : getCartFailure // ignore: cast_nullable_to_non_nullable
               as Failures?,
+      clearCartFailure: freezed == clearCartFailure
+          ? _value.clearCartFailure
+          : clearCartFailure // ignore: cast_nullable_to_non_nullable
+              as Failures?,
+      deleteCartItemFailure: freezed == deleteCartItemFailure
+          ? _value.deleteCartItemFailure
+          : deleteCartItemFailure // ignore: cast_nullable_to_non_nullable
+              as Failures?,
+      updateCartCountFailure: freezed == updateCartCountFailure
+          ? _value.updateCartCountFailure
+          : updateCartCountFailure // ignore: cast_nullable_to_non_nullable
+              as Failures?,
+      updateProductCountFailure: freezed == updateProductCountFailure
+          ? _value.updateProductCountFailure
+          : updateProductCountFailure // ignore: cast_nullable_to_non_nullable
+              as Failures?,
+      message: null == message
+          ? _value.message
+          : message // ignore: cast_nullable_to_non_nullable
+              as String,
       cartItemsCount: null == cartItemsCount
           ? _value.cartItemsCount
           : cartItemsCount // ignore: cast_nullable_to_non_nullable
+              as int,
+      productItemCount: null == productItemCount
+          ? _value.productItemCount
+          : productItemCount // ignore: cast_nullable_to_non_nullable
               as int,
     ) as $Val);
   }
@@ -1813,13 +3225,24 @@ abstract class _$$HomeStateImplCopyWith<$Res>
       ScreenStatus getProductsStatus,
       ScreenStatus addToCartStatus,
       ScreenStatus getCartStatus,
+      ScreenStatus clearCartStatus,
+      ScreenStatus deleteCartItemStatus,
+      ScreenStatus updateCartCountStatus,
+      ScreenStatus updateProductCountStatus,
       GetAllProductsModel? getAllProductsModel,
+      DeleteCartItemModel? deleteCartItemModel,
       AddToCartModel? addToCartModel,
       GetCartModel? getCartModel,
       Failures? getProductsFailure,
       Failures? addToCartFailure,
       Failures? getCartFailure,
-      int cartItemsCount});
+      Failures? clearCartFailure,
+      Failures? deleteCartItemFailure,
+      Failures? updateCartCountFailure,
+      Failures? updateProductCountFailure,
+      String message,
+      int cartItemsCount,
+      int productItemCount});
 }
 
 /// @nodoc
@@ -1847,13 +3270,24 @@ class __$$HomeStateImplCopyWithImpl<$Res>
     Object? getProductsStatus = null,
     Object? addToCartStatus = null,
     Object? getCartStatus = null,
+    Object? clearCartStatus = null,
+    Object? deleteCartItemStatus = null,
+    Object? updateCartCountStatus = null,
+    Object? updateProductCountStatus = null,
     Object? getAllProductsModel = freezed,
+    Object? deleteCartItemModel = freezed,
     Object? addToCartModel = freezed,
     Object? getCartModel = freezed,
     Object? getProductsFailure = freezed,
     Object? addToCartFailure = freezed,
     Object? getCartFailure = freezed,
+    Object? clearCartFailure = freezed,
+    Object? deleteCartItemFailure = freezed,
+    Object? updateCartCountFailure = freezed,
+    Object? updateProductCountFailure = freezed,
+    Object? message = null,
     Object? cartItemsCount = null,
+    Object? productItemCount = null,
   }) {
     return _then(_$HomeStateImpl(
       getBrandsStatus: null == getBrandsStatus
@@ -1912,10 +3346,30 @@ class __$$HomeStateImplCopyWithImpl<$Res>
           ? _value.getCartStatus
           : getCartStatus // ignore: cast_nullable_to_non_nullable
               as ScreenStatus,
+      clearCartStatus: null == clearCartStatus
+          ? _value.clearCartStatus
+          : clearCartStatus // ignore: cast_nullable_to_non_nullable
+              as ScreenStatus,
+      deleteCartItemStatus: null == deleteCartItemStatus
+          ? _value.deleteCartItemStatus
+          : deleteCartItemStatus // ignore: cast_nullable_to_non_nullable
+              as ScreenStatus,
+      updateCartCountStatus: null == updateCartCountStatus
+          ? _value.updateCartCountStatus
+          : updateCartCountStatus // ignore: cast_nullable_to_non_nullable
+              as ScreenStatus,
+      updateProductCountStatus: null == updateProductCountStatus
+          ? _value.updateProductCountStatus
+          : updateProductCountStatus // ignore: cast_nullable_to_non_nullable
+              as ScreenStatus,
       getAllProductsModel: freezed == getAllProductsModel
           ? _value.getAllProductsModel
           : getAllProductsModel // ignore: cast_nullable_to_non_nullable
               as GetAllProductsModel?,
+      deleteCartItemModel: freezed == deleteCartItemModel
+          ? _value.deleteCartItemModel
+          : deleteCartItemModel // ignore: cast_nullable_to_non_nullable
+              as DeleteCartItemModel?,
       addToCartModel: freezed == addToCartModel
           ? _value.addToCartModel
           : addToCartModel // ignore: cast_nullable_to_non_nullable
@@ -1936,9 +3390,33 @@ class __$$HomeStateImplCopyWithImpl<$Res>
           ? _value.getCartFailure
           : getCartFailure // ignore: cast_nullable_to_non_nullable
               as Failures?,
+      clearCartFailure: freezed == clearCartFailure
+          ? _value.clearCartFailure
+          : clearCartFailure // ignore: cast_nullable_to_non_nullable
+              as Failures?,
+      deleteCartItemFailure: freezed == deleteCartItemFailure
+          ? _value.deleteCartItemFailure
+          : deleteCartItemFailure // ignore: cast_nullable_to_non_nullable
+              as Failures?,
+      updateCartCountFailure: freezed == updateCartCountFailure
+          ? _value.updateCartCountFailure
+          : updateCartCountFailure // ignore: cast_nullable_to_non_nullable
+              as Failures?,
+      updateProductCountFailure: freezed == updateProductCountFailure
+          ? _value.updateProductCountFailure
+          : updateProductCountFailure // ignore: cast_nullable_to_non_nullable
+              as Failures?,
+      message: null == message
+          ? _value.message
+          : message // ignore: cast_nullable_to_non_nullable
+              as String,
       cartItemsCount: null == cartItemsCount
           ? _value.cartItemsCount
           : cartItemsCount // ignore: cast_nullable_to_non_nullable
+              as int,
+      productItemCount: null == productItemCount
+          ? _value.productItemCount
+          : productItemCount // ignore: cast_nullable_to_non_nullable
               as int,
     ));
   }
@@ -1962,13 +3440,24 @@ class _$HomeStateImpl implements _HomeState {
       this.getProductsStatus = ScreenStatus.init,
       this.addToCartStatus = ScreenStatus.init,
       this.getCartStatus = ScreenStatus.init,
+      this.clearCartStatus = ScreenStatus.init,
+      this.deleteCartItemStatus = ScreenStatus.init,
+      this.updateCartCountStatus = ScreenStatus.init,
+      this.updateProductCountStatus = ScreenStatus.init,
       this.getAllProductsModel,
+      this.deleteCartItemModel,
       this.addToCartModel,
       this.getCartModel,
       this.getProductsFailure,
       this.addToCartFailure,
       this.getCartFailure,
-      this.cartItemsCount = 0});
+      this.clearCartFailure,
+      this.deleteCartItemFailure,
+      this.updateCartCountFailure,
+      this.updateProductCountFailure,
+      this.message = '',
+      this.cartItemsCount = 1,
+      this.productItemCount = 1});
 
   @override
   @JsonKey()
@@ -2007,7 +3496,21 @@ class _$HomeStateImpl implements _HomeState {
   @JsonKey()
   final ScreenStatus getCartStatus;
   @override
+  @JsonKey()
+  final ScreenStatus clearCartStatus;
+  @override
+  @JsonKey()
+  final ScreenStatus deleteCartItemStatus;
+  @override
+  @JsonKey()
+  final ScreenStatus updateCartCountStatus;
+  @override
+  @JsonKey()
+  final ScreenStatus updateProductCountStatus;
+  @override
   final GetAllProductsModel? getAllProductsModel;
+  @override
+  final DeleteCartItemModel? deleteCartItemModel;
   @override
   final AddToCartModel? addToCartModel;
   @override
@@ -2019,12 +3522,26 @@ class _$HomeStateImpl implements _HomeState {
   @override
   final Failures? getCartFailure;
   @override
+  final Failures? clearCartFailure;
+  @override
+  final Failures? deleteCartItemFailure;
+  @override
+  final Failures? updateCartCountFailure;
+  @override
+  final Failures? updateProductCountFailure;
+  @override
+  @JsonKey()
+  final String message;
+  @override
   @JsonKey()
   final int cartItemsCount;
+  @override
+  @JsonKey()
+  final int productItemCount;
 
   @override
   String toString() {
-    return 'HomeState(getBrandsStatus: $getBrandsStatus, getCategoriesStatus: $getCategoriesStatus, getSubCategoriesStatus: $getSubCategoriesStatus, getAllBrandsModel: $getAllBrandsModel, categoriesOnCategoryModel: $categoriesOnCategoryModel, getSubCategoriesFailure: $getSubCategoriesFailure, currentIndex: $currentIndex, categoryIndex: $categoryIndex, getAllCategoriesModel: $getAllCategoriesModel, getBrandsFailure: $getBrandsFailure, getCategoriesFailure: $getCategoriesFailure, getProductsStatus: $getProductsStatus, addToCartStatus: $addToCartStatus, getCartStatus: $getCartStatus, getAllProductsModel: $getAllProductsModel, addToCartModel: $addToCartModel, getCartModel: $getCartModel, getProductsFailure: $getProductsFailure, addToCartFailure: $addToCartFailure, getCartFailure: $getCartFailure, cartItemsCount: $cartItemsCount)';
+    return 'HomeState(getBrandsStatus: $getBrandsStatus, getCategoriesStatus: $getCategoriesStatus, getSubCategoriesStatus: $getSubCategoriesStatus, getAllBrandsModel: $getAllBrandsModel, categoriesOnCategoryModel: $categoriesOnCategoryModel, getSubCategoriesFailure: $getSubCategoriesFailure, currentIndex: $currentIndex, categoryIndex: $categoryIndex, getAllCategoriesModel: $getAllCategoriesModel, getBrandsFailure: $getBrandsFailure, getCategoriesFailure: $getCategoriesFailure, getProductsStatus: $getProductsStatus, addToCartStatus: $addToCartStatus, getCartStatus: $getCartStatus, clearCartStatus: $clearCartStatus, deleteCartItemStatus: $deleteCartItemStatus, updateCartCountStatus: $updateCartCountStatus, updateProductCountStatus: $updateProductCountStatus, getAllProductsModel: $getAllProductsModel, deleteCartItemModel: $deleteCartItemModel, addToCartModel: $addToCartModel, getCartModel: $getCartModel, getProductsFailure: $getProductsFailure, addToCartFailure: $addToCartFailure, getCartFailure: $getCartFailure, clearCartFailure: $clearCartFailure, deleteCartItemFailure: $deleteCartItemFailure, updateCartCountFailure: $updateCartCountFailure, updateProductCountFailure: $updateProductCountFailure, message: $message, cartItemsCount: $cartItemsCount, productItemCount: $productItemCount)';
   }
 
   @override
@@ -2040,11 +3557,9 @@ class _$HomeStateImpl implements _HomeState {
                 other.getSubCategoriesStatus == getSubCategoriesStatus) &&
             (identical(other.getAllBrandsModel, getAllBrandsModel) ||
                 other.getAllBrandsModel == getAllBrandsModel) &&
-            (identical(other.categoriesOnCategoryModel,
-                    categoriesOnCategoryModel) ||
+            (identical(other.categoriesOnCategoryModel, categoriesOnCategoryModel) ||
                 other.categoriesOnCategoryModel == categoriesOnCategoryModel) &&
-            (identical(
-                    other.getSubCategoriesFailure, getSubCategoriesFailure) ||
+            (identical(other.getSubCategoriesFailure, getSubCategoriesFailure) ||
                 other.getSubCategoriesFailure == getSubCategoriesFailure) &&
             (identical(other.currentIndex, currentIndex) ||
                 other.currentIndex == currentIndex) &&
@@ -2062,8 +3577,18 @@ class _$HomeStateImpl implements _HomeState {
                 other.addToCartStatus == addToCartStatus) &&
             (identical(other.getCartStatus, getCartStatus) ||
                 other.getCartStatus == getCartStatus) &&
+            (identical(other.clearCartStatus, clearCartStatus) ||
+                other.clearCartStatus == clearCartStatus) &&
+            (identical(other.deleteCartItemStatus, deleteCartItemStatus) ||
+                other.deleteCartItemStatus == deleteCartItemStatus) &&
+            (identical(other.updateCartCountStatus, updateCartCountStatus) ||
+                other.updateCartCountStatus == updateCartCountStatus) &&
+            (identical(other.updateProductCountStatus, updateProductCountStatus) ||
+                other.updateProductCountStatus == updateProductCountStatus) &&
             (identical(other.getAllProductsModel, getAllProductsModel) ||
                 other.getAllProductsModel == getAllProductsModel) &&
+            (identical(other.deleteCartItemModel, deleteCartItemModel) ||
+                other.deleteCartItemModel == deleteCartItemModel) &&
             (identical(other.addToCartModel, addToCartModel) ||
                 other.addToCartModel == addToCartModel) &&
             (identical(other.getCartModel, getCartModel) ||
@@ -2074,8 +3599,14 @@ class _$HomeStateImpl implements _HomeState {
                 other.addToCartFailure == addToCartFailure) &&
             (identical(other.getCartFailure, getCartFailure) ||
                 other.getCartFailure == getCartFailure) &&
-            (identical(other.cartItemsCount, cartItemsCount) ||
-                other.cartItemsCount == cartItemsCount));
+            (identical(other.clearCartFailure, clearCartFailure) ||
+                other.clearCartFailure == clearCartFailure) &&
+            (identical(other.deleteCartItemFailure, deleteCartItemFailure) || other.deleteCartItemFailure == deleteCartItemFailure) &&
+            (identical(other.updateCartCountFailure, updateCartCountFailure) || other.updateCartCountFailure == updateCartCountFailure) &&
+            (identical(other.updateProductCountFailure, updateProductCountFailure) || other.updateProductCountFailure == updateProductCountFailure) &&
+            (identical(other.message, message) || other.message == message) &&
+            (identical(other.cartItemsCount, cartItemsCount) || other.cartItemsCount == cartItemsCount) &&
+            (identical(other.productItemCount, productItemCount) || other.productItemCount == productItemCount));
   }
 
   @override
@@ -2095,13 +3626,24 @@ class _$HomeStateImpl implements _HomeState {
         getProductsStatus,
         addToCartStatus,
         getCartStatus,
+        clearCartStatus,
+        deleteCartItemStatus,
+        updateCartCountStatus,
+        updateProductCountStatus,
         getAllProductsModel,
+        deleteCartItemModel,
         addToCartModel,
         getCartModel,
         getProductsFailure,
         addToCartFailure,
         getCartFailure,
-        cartItemsCount
+        clearCartFailure,
+        deleteCartItemFailure,
+        updateCartCountFailure,
+        updateProductCountFailure,
+        message,
+        cartItemsCount,
+        productItemCount
       ]);
 
   @JsonKey(ignore: true)
@@ -2127,13 +3669,24 @@ abstract class _HomeState implements HomeState {
       final ScreenStatus getProductsStatus,
       final ScreenStatus addToCartStatus,
       final ScreenStatus getCartStatus,
+      final ScreenStatus clearCartStatus,
+      final ScreenStatus deleteCartItemStatus,
+      final ScreenStatus updateCartCountStatus,
+      final ScreenStatus updateProductCountStatus,
       final GetAllProductsModel? getAllProductsModel,
+      final DeleteCartItemModel? deleteCartItemModel,
       final AddToCartModel? addToCartModel,
       final GetCartModel? getCartModel,
       final Failures? getProductsFailure,
       final Failures? addToCartFailure,
       final Failures? getCartFailure,
-      final int cartItemsCount}) = _$HomeStateImpl;
+      final Failures? clearCartFailure,
+      final Failures? deleteCartItemFailure,
+      final Failures? updateCartCountFailure,
+      final Failures? updateProductCountFailure,
+      final String message,
+      final int cartItemsCount,
+      final int productItemCount}) = _$HomeStateImpl;
 
   @override
   ScreenStatus get getBrandsStatus;
@@ -2164,7 +3717,17 @@ abstract class _HomeState implements HomeState {
   @override
   ScreenStatus get getCartStatus;
   @override
+  ScreenStatus get clearCartStatus;
+  @override
+  ScreenStatus get deleteCartItemStatus;
+  @override
+  ScreenStatus get updateCartCountStatus;
+  @override
+  ScreenStatus get updateProductCountStatus;
+  @override
   GetAllProductsModel? get getAllProductsModel;
+  @override
+  DeleteCartItemModel? get deleteCartItemModel;
   @override
   AddToCartModel? get addToCartModel;
   @override
@@ -2176,7 +3739,19 @@ abstract class _HomeState implements HomeState {
   @override
   Failures? get getCartFailure;
   @override
+  Failures? get clearCartFailure;
+  @override
+  Failures? get deleteCartItemFailure;
+  @override
+  Failures? get updateCartCountFailure;
+  @override
+  Failures? get updateProductCountFailure;
+  @override
+  String get message;
+  @override
   int get cartItemsCount;
+  @override
+  int get productItemCount;
   @override
   @JsonKey(ignore: true)
   _$$HomeStateImplCopyWith<_$HomeStateImpl> get copyWith =>

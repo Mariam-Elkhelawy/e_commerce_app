@@ -87,7 +87,7 @@ class Data {
   String? title;
   String? slug;
   String? description;
-  num? quantity;
+  int? quantity;
   num? price;
   num? priceAfterDiscount;
   String? imageCover;

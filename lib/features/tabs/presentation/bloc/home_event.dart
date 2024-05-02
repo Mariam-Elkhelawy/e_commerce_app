@@ -13,4 +13,9 @@ class HomeEvent with _$HomeEvent {
       GetProductsEvent;
   const factory HomeEvent.addToCart(String productId) = AddToCartEvent;
   const factory HomeEvent.getCart() = GetCartEvent;
+  const factory HomeEvent.clearCart() = ClearCartEvent;
+  const factory HomeEvent.updateCartCount(String productId,int count) = UpdateCartItemEvent;
+  const factory HomeEvent.updateProductCount(String productId,int count) = UpdateProductItemEvent;
+  const factory HomeEvent.changeProductCount(int productCount) = ChangeProductCountEvent;
+  const factory HomeEvent.deleteItem(String productId) = DeleteCartItemEvent;
 }
