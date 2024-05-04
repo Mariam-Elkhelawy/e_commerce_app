@@ -1,4 +1,5 @@
 import 'package:e_commerce_app/config/routes/app_routes_name.dart';
+import 'package:e_commerce_app/core/cache/shared_prefrences.dart';
 import 'package:e_commerce_app/core/components/reusable_components.dart';
 import 'package:e_commerce_app/core/enums/enums.dart';
 import 'package:e_commerce_app/core/utils/app_colors.dart';
@@ -16,10 +17,10 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class SignUpScreen extends StatelessWidget {
   SignUpScreen({super.key});
-  TextEditingController fullNameController = TextEditingController();
-  TextEditingController mobileController = TextEditingController();
-  TextEditingController emailController = TextEditingController();
-  TextEditingController passwordController = TextEditingController();
+  final TextEditingController fullNameController = TextEditingController();
+  final TextEditingController mobileController = TextEditingController();
+  final TextEditingController emailController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
@@ -61,7 +62,6 @@ class SignUpScreen extends StatelessWidget {
         }
       }, builder: (context, state) {
         var bloc = BlocProvider.of<SignUpBloc>(context);
-
         return Scaffold(
           backgroundColor: AppColor.primaryColor,
           body: Padding(
@@ -82,7 +82,7 @@ class SignUpScreen extends StatelessWidget {
                   ),
                   SizedBox(height: 24.h),
                   customTextFormField(
-                    height: 64.h,
+                      height: 64.h,
                       hintText: AppStrings.fullNameHint,
                       hintStyle: AppStyles.bodyS,
                       radius: 15,

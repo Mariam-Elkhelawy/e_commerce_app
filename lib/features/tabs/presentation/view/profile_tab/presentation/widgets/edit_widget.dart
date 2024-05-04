@@ -1,4 +1,3 @@
-import 'package:e_commerce_app/core/components/reusable_components.dart';
 import 'package:e_commerce_app/core/utils/app_colors.dart';
 import 'package:e_commerce_app/core/utils/app_images.dart';
 import 'package:e_commerce_app/core/utils/styles.dart';
@@ -7,10 +6,15 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class EditWidget extends StatelessWidget {
   const EditWidget(
-      {super.key, required this.hintText, required this.aboveText});
-  final String hintText;
+      {super.key,
+      required this.aboveText,
+      this.isPassword = false,
+      required this.onEditTap,
+      required this.text});
   final String aboveText;
-
+  final bool isPassword;
+  final String text;
+  final VoidCallback onEditTap;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -25,18 +29,35 @@ class EditWidget extends StatelessWidget {
           SizedBox(
             height: 16.h,
           ),
-          customTextFormField(
-            borderColor: AppColor.primaryColor.withOpacity(.3),
+          Container(
+            padding: EdgeInsets.symmetric(horizontal: 16.w),
             height: 55.h,
-            radius: 15.r,
-            hintText: hintText,
-            hintStyle: AppStyles.bodyM
-                .copyWith(color: AppColor.textColor, fontSize: 14.sp),
-            suffixIcon: const ImageIcon(
-              AssetImage(AppImages.edit),
-              color: AppColor.primaryColor,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(15.r),
+              border: Border.all(
+                color: AppColor.primaryColor.withOpacity(.3),
+              ),
             ),
-          )
+            child: Row(
+              children: [
+                Text(
+                  !isPassword ? text : text.replaceAll(RegExp(r'.'), "*"),
+                  style: AppStyles.bodyM
+                      .copyWith(color: AppColor.textColor, fontSize: 14.sp),
+                ),
+                const Spacer(),
+                InkWell(
+                  onTap: () {
+                    onEditTap();
+                  },
+                  child: const ImageIcon(
+                    AssetImage(AppImages.edit),
+                    color: AppColor.primaryColor,
+                  ),
+                ),
+              ],
+            ),
+          ),
         ],
       ),
     );

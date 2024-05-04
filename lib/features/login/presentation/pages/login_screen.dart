@@ -105,6 +105,7 @@ class LoginScreen extends StatelessWidget {
                     ),
                     SizedBox(height: 24.h),
                     customTextFormField(
+                      isPassword: true,
                       height: 64.h,
                       hintText: AppStrings.passwordHint,
                       hintStyle: AppStyles.bodyS,

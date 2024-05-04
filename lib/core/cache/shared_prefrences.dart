@@ -6,11 +6,11 @@ class CacheHelper {
     preferences = await SharedPreferences.getInstance();
   }
 
-  static String? getToken(String key) {
+  static String? getData(String key) {
     return preferences.getString(key);
   }
 
-  static Future<bool> deleteToken(String key) async {
+  static Future<bool> deleteData(String key) async {
     return await preferences.remove(key);
   }
 

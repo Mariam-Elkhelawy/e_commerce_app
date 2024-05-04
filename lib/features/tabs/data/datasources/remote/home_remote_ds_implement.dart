@@ -68,7 +68,7 @@ class HomeRemoteDSImplementation implements HomeRemoteDS {
 
   @override
   Future<AddToCartModel> addToCart(String productId) async {
-    var token = CacheHelper.getToken('token');
+    var token = CacheHelper.getData('token');
     var response = await apiManager.postData(EndPoints.addToCart,
         body: {'productId': productId}, headers: {'token': token});
     AddToCartModel addToCartModel = AddToCartModel.fromJson(response.data);
@@ -77,7 +77,7 @@ class HomeRemoteDSImplementation implements HomeRemoteDS {
 
   @override
   Future<GetCartModel> getCart() async {
-    var token = CacheHelper.getToken('token');
+    var token = CacheHelper.getData('token');
     var response = await apiManager
         .getData(EndPoints.addToCart, headers: {'token': token});
     GetCartModel getCartModel = GetCartModel.fromJson(response.data);
@@ -86,14 +86,14 @@ class HomeRemoteDSImplementation implements HomeRemoteDS {
 
   @override
   Future<String> clearCart() async {
-    var token = CacheHelper.getToken('token');
+    var token = CacheHelper.getData('token');
     await apiManager.deleteData(EndPoints.addToCart, headers: {'token': token});
     return 'Success';
   }
 
   @override
   Future<DeleteCartItemModel> deleteCartItem(String cartItem) async {
-    var token = CacheHelper.getToken('token');
+    var token = CacheHelper.getData('token');
     var response = await apiManager.deleteData(
         EndPoints.deleteCartItem(cartItem),
         headers: {'token': token});
@@ -104,7 +104,7 @@ class HomeRemoteDSImplementation implements HomeRemoteDS {
 
   @override
   Future<GetCartModel> updateCartCount(String productId, int count) async {
-    var token = CacheHelper.getToken('token');
+    var token = CacheHelper.getData('token');
     var response = await apiManager.putData('${EndPoints.addToCart}/$productId',
         body: {'count': count}, headers: {'token': token});
     GetCartModel getCartModel = GetCartModel.fromJson(response.data);
@@ -113,7 +113,7 @@ class HomeRemoteDSImplementation implements HomeRemoteDS {
 
   @override
   Future<GetAllProductsModel> updateProductCount(String productId, int count)async {
-    var token = CacheHelper.getToken('token');
+    var token = CacheHelper.getData('token');
     var response = await apiManager.putData('${EndPoints.addToCart}/$productId',
         body: {'count': count}, headers: {'token': token});
     GetAllProductsModel getAllProductsModel = GetAllProductsModel.fromJson(response.data);

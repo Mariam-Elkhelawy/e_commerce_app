@@ -3456,7 +3456,7 @@ class _$HomeStateImpl implements _HomeState {
       this.updateCartCountFailure,
       this.updateProductCountFailure,
       this.message = '',
-      this.cartItemsCount = 1,
+      this.cartItemsCount = 0,
       this.productItemCount = 1});
 
   @override

@@ -33,7 +33,7 @@ class HomeState with _$HomeState {
     Failures? updateCartCountFailure,
     Failures? updateProductCountFailure,
     @Default('')String message,
-    @Default(1) int cartItemsCount,
+    @Default(0) int cartItemsCount,
     @Default(1) int productItemCount,
   }) = _HomeState;
 }

@@ -33,5 +33,11 @@ class AppStrings{
   static const String offers='Special Offers';
   static const String aboveName='Your full name';
   static const String aboveEmail='Your E-mail';
+  static const String abovePassword='Your password';
+  static const String abovePhone='Your mobile number';
+  static const String changePassword='Change Password';
+  static const String currentPassword='Enter your Current Password';
+  static const String newPassword='Enter New Password';
+  static const String newPasswordRe='Re-Enter New Password';
 
 }

@@ -53,16 +53,6 @@ class LayoutScreen extends StatelessWidget {
         }
         else   if (state.addToCartStatus == ScreenStatus.success) {
           BlocProvider.of<HomeBloc>(context).add(const GetCartEvent());
-          ScaffoldMessenger.of(context).showSnackBar(SnackBar(width: 300,
-            content: const Row(
-              children: [
-                Text("Product added successfully to your cart"),Spacer(),
-                Icon(Icons.check,color: AppColor.whiteColor,)
-              ],
-            ),
-            backgroundColor: AppColor.primaryColor,
-            shape: OutlineInputBorder(borderRadius: BorderRadius.circular(5)),
-          ));
           Fluttertoast.showToast(
               msg: "Product added successfully to your cart",
               toastLength: Toast.LENGTH_LONG,
@@ -78,7 +68,7 @@ class LayoutScreen extends StatelessWidget {
           // state.getProductsStatus!=ScreenStatus.loading? CategoryTab():ProductScreen(),
           const CategoryTab(),
           const FavTab(),
-          const ProfileTab()
+           ProfileTab()
         ];
         return Scaffold(
           appBar: customAppBar(

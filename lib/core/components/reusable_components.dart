@@ -24,13 +24,19 @@ Widget customTextFormField(
     Widget? suffixIcon,
     TextEditingController? controller,
     required double height,
-    double radius = 0}) {
+    double radius = 0,
+    bool isPassword = false,
+    TextStyle? textStyle}) {
   return SizedBox(
     height: height,
     child: TextFormField(
+      style: textStyle,
+      obscureText: isPassword,
+      obscuringCharacter: '*',
       cursorColor: AppColor.primaryColor,
       controller: controller,
       decoration: InputDecoration(
+        contentPadding: EdgeInsets.symmetric(vertical: 11.h,horizontal: 16.w),
         hintText: hintText,
         hintStyle: hintStyle,
         filled: true,
@@ -76,8 +82,8 @@ AppBar customAppBar(
     double? formFieldWidth,
     bool leading = false,
     bool isProfile = false}) {
-  var name = CacheHelper.getToken('name');
-  var email = CacheHelper.getToken('email');
+  var name = CacheHelper.getData('name');
+  var email = CacheHelper.getData('email');
   return AppBar(
     automaticallyImplyLeading: false,
     elevation: 0,
