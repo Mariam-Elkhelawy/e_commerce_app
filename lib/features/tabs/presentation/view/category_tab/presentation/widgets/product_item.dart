@@ -8,8 +8,6 @@ import 'package:e_commerce_app/features/tabs/presentation/bloc/home_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/svg.dart';
-
 import '../../../../../data/models/GetAllProductsModel.dart';
 
 class ProductItem extends StatelessWidget {
@@ -67,19 +65,20 @@ class ProductItem extends StatelessWidget {
                 Positioned(
                   top: 8.h,
                   left: isHome ? 145.w : 150.w,
-                  child: Container(
-                    width: 30.w,
-                    height: 30.h,
-                    decoration: const BoxDecoration(
-                        color: AppColor.whiteColor, shape: BoxShape.circle),
-                    child: SvgPicture.asset(
-                      AppImages.fav,
-                      // width: isHome ? 50.w : 24.w,
-                      // height: isHome ? 100.h : 24.h,
-                      colorFilter: const ColorFilter.mode(
-                          AppColor.primaryColor, BlendMode.srcIn),
-                    ),
-                  ),
+                  child: Image.asset(AppImages.notFav)
+                  // Container(
+                  //   width: 30.w,
+                  //   height: 30.h,
+                  //   decoration: const BoxDecoration(
+                  //       color: AppColor.whiteColor, shape: BoxShape.circle),
+                  //   child: SvgPicture.asset(
+                  //     AppImages.fav,
+                  //     // width: isHome ? 50.w : 24.w,
+                  //     // height: isHome ? 100.h : 24.h,
+                  //     colorFilter: const ColorFilter.mode(
+                  //         AppColor.primaryColor, BlendMode.srcIn),
+                  //   ),
+                  // ),
                 )
               ],
             ),

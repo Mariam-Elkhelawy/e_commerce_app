@@ -19,12 +19,12 @@ mixin _$EditPasswordEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
-    required TResult Function(bool showCurrent) showCurrentPassword,
-    required TResult Function(bool hideCurrent) hideCurrentPassword,
-    required TResult Function(bool showNew) showNewPassword,
-    required TResult Function(bool hideNew) hideNewPassword,
-    required TResult Function(bool showNewRe) showNewPasswordRe,
-    required TResult Function(bool hideNewRe) hideNewPasswordRe,
+    required TResult Function() showCurrentPassword,
+    required TResult Function() hideCurrentPassword,
+    required TResult Function() showNewPassword,
+    required TResult Function() hideNewPassword,
+    required TResult Function() showNewPasswordRe,
+    required TResult Function() hideNewPasswordRe,
     required TResult Function(String currentPassword, String newPassword,
             String newPasswordRetype)
         editPassword,
@@ -33,12 +33,12 @@ mixin _$EditPasswordEvent {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
-    TResult? Function(bool showCurrent)? showCurrentPassword,
-    TResult? Function(bool hideCurrent)? hideCurrentPassword,
-    TResult? Function(bool showNew)? showNewPassword,
-    TResult? Function(bool hideNew)? hideNewPassword,
-    TResult? Function(bool showNewRe)? showNewPasswordRe,
-    TResult? Function(bool hideNewRe)? hideNewPasswordRe,
+    TResult? Function()? showCurrentPassword,
+    TResult? Function()? hideCurrentPassword,
+    TResult? Function()? showNewPassword,
+    TResult? Function()? hideNewPassword,
+    TResult? Function()? showNewPasswordRe,
+    TResult? Function()? hideNewPasswordRe,
     TResult? Function(String currentPassword, String newPassword,
             String newPasswordRetype)?
         editPassword,
@@ -47,12 +47,12 @@ mixin _$EditPasswordEvent {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
-    TResult Function(bool showCurrent)? showCurrentPassword,
-    TResult Function(bool hideCurrent)? hideCurrentPassword,
-    TResult Function(bool showNew)? showNewPassword,
-    TResult Function(bool hideNew)? hideNewPassword,
-    TResult Function(bool showNewRe)? showNewPasswordRe,
-    TResult Function(bool hideNewRe)? hideNewPasswordRe,
+    TResult Function()? showCurrentPassword,
+    TResult Function()? hideCurrentPassword,
+    TResult Function()? showNewPassword,
+    TResult Function()? hideNewPassword,
+    TResult Function()? showNewPasswordRe,
+    TResult Function()? hideNewPasswordRe,
     TResult Function(String currentPassword, String newPassword,
             String newPasswordRetype)?
         editPassword,
@@ -157,12 +157,12 @@ class _$StartedImpl implements _Started {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
-    required TResult Function(bool showCurrent) showCurrentPassword,
-    required TResult Function(bool hideCurrent) hideCurrentPassword,
-    required TResult Function(bool showNew) showNewPassword,
-    required TResult Function(bool hideNew) hideNewPassword,
-    required TResult Function(bool showNewRe) showNewPasswordRe,
-    required TResult Function(bool hideNewRe) hideNewPasswordRe,
+    required TResult Function() showCurrentPassword,
+    required TResult Function() hideCurrentPassword,
+    required TResult Function() showNewPassword,
+    required TResult Function() hideNewPassword,
+    required TResult Function() showNewPasswordRe,
+    required TResult Function() hideNewPasswordRe,
     required TResult Function(String currentPassword, String newPassword,
             String newPasswordRetype)
         editPassword,
@@ -174,12 +174,12 @@ class _$StartedImpl implements _Started {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
-    TResult? Function(bool showCurrent)? showCurrentPassword,
-    TResult? Function(bool hideCurrent)? hideCurrentPassword,
-    TResult? Function(bool showNew)? showNewPassword,
-    TResult? Function(bool hideNew)? hideNewPassword,
-    TResult? Function(bool showNewRe)? showNewPasswordRe,
-    TResult? Function(bool hideNewRe)? hideNewPasswordRe,
+    TResult? Function()? showCurrentPassword,
+    TResult? Function()? hideCurrentPassword,
+    TResult? Function()? showNewPassword,
+    TResult? Function()? hideNewPassword,
+    TResult? Function()? showNewPasswordRe,
+    TResult? Function()? hideNewPasswordRe,
     TResult? Function(String currentPassword, String newPassword,
             String newPasswordRetype)?
         editPassword,
@@ -191,12 +191,12 @@ class _$StartedImpl implements _Started {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
-    TResult Function(bool showCurrent)? showCurrentPassword,
-    TResult Function(bool hideCurrent)? hideCurrentPassword,
-    TResult Function(bool showNew)? showNewPassword,
-    TResult Function(bool hideNew)? hideNewPassword,
-    TResult Function(bool showNewRe)? showNewPasswordRe,
-    TResult Function(bool hideNewRe)? hideNewPasswordRe,
+    TResult Function()? showCurrentPassword,
+    TResult Function()? hideCurrentPassword,
+    TResult Function()? showNewPassword,
+    TResult Function()? hideNewPassword,
+    TResult Function()? showNewPasswordRe,
+    TResult Function()? hideNewPasswordRe,
     TResult Function(String currentPassword, String newPassword,
             String newPasswordRetype)?
         editPassword,
@@ -270,8 +270,6 @@ abstract class _$$ShowCurrentPasswordEventImplCopyWith<$Res> {
           _$ShowCurrentPasswordEventImpl value,
           $Res Function(_$ShowCurrentPasswordEventImpl) then) =
       __$$ShowCurrentPasswordEventImplCopyWithImpl<$Res>;
-  @useResult
-  $Res call({bool showCurrent});
 }
 
 /// @nodoc
@@ -283,104 +281,79 @@ class __$$ShowCurrentPasswordEventImplCopyWithImpl<$Res>
       _$ShowCurrentPasswordEventImpl _value,
       $Res Function(_$ShowCurrentPasswordEventImpl) _then)
       : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? showCurrent = null,
-  }) {
-    return _then(_$ShowCurrentPasswordEventImpl(
-      null == showCurrent
-          ? _value.showCurrent
-          : showCurrent // ignore: cast_nullable_to_non_nullable
-              as bool,
-    ));
-  }
 }
 
 /// @nodoc
 
 class _$ShowCurrentPasswordEventImpl implements ShowCurrentPasswordEvent {
-  const _$ShowCurrentPasswordEventImpl(this.showCurrent);
-
-  @override
-  final bool showCurrent;
+  const _$ShowCurrentPasswordEventImpl();
 
   @override
   String toString() {
-    return 'EditPasswordEvent.showCurrentPassword(showCurrent: $showCurrent)';
+    return 'EditPasswordEvent.showCurrentPassword()';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ShowCurrentPasswordEventImpl &&
-            (identical(other.showCurrent, showCurrent) ||
-                other.showCurrent == showCurrent));
+            other is _$ShowCurrentPasswordEventImpl);
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, showCurrent);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$ShowCurrentPasswordEventImplCopyWith<_$ShowCurrentPasswordEventImpl>
-      get copyWith => __$$ShowCurrentPasswordEventImplCopyWithImpl<
-          _$ShowCurrentPasswordEventImpl>(this, _$identity);
+  int get hashCode => runtimeType.hashCode;
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
-    required TResult Function(bool showCurrent) showCurrentPassword,
-    required TResult Function(bool hideCurrent) hideCurrentPassword,
-    required TResult Function(bool showNew) showNewPassword,
-    required TResult Function(bool hideNew) hideNewPassword,
-    required TResult Function(bool showNewRe) showNewPasswordRe,
-    required TResult Function(bool hideNewRe) hideNewPasswordRe,
+    required TResult Function() showCurrentPassword,
+    required TResult Function() hideCurrentPassword,
+    required TResult Function() showNewPassword,
+    required TResult Function() hideNewPassword,
+    required TResult Function() showNewPasswordRe,
+    required TResult Function() hideNewPasswordRe,
     required TResult Function(String currentPassword, String newPassword,
             String newPasswordRetype)
         editPassword,
   }) {
-    return showCurrentPassword(showCurrent);
+    return showCurrentPassword();
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
-    TResult? Function(bool showCurrent)? showCurrentPassword,
-    TResult? Function(bool hideCurrent)? hideCurrentPassword,
-    TResult? Function(bool showNew)? showNewPassword,
-    TResult? Function(bool hideNew)? hideNewPassword,
-    TResult? Function(bool showNewRe)? showNewPasswordRe,
-    TResult? Function(bool hideNewRe)? hideNewPasswordRe,
+    TResult? Function()? showCurrentPassword,
+    TResult? Function()? hideCurrentPassword,
+    TResult? Function()? showNewPassword,
+    TResult? Function()? hideNewPassword,
+    TResult? Function()? showNewPasswordRe,
+    TResult? Function()? hideNewPasswordRe,
     TResult? Function(String currentPassword, String newPassword,
             String newPasswordRetype)?
         editPassword,
   }) {
-    return showCurrentPassword?.call(showCurrent);
+    return showCurrentPassword?.call();
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
-    TResult Function(bool showCurrent)? showCurrentPassword,
-    TResult Function(bool hideCurrent)? hideCurrentPassword,
-    TResult Function(bool showNew)? showNewPassword,
-    TResult Function(bool hideNew)? hideNewPassword,
-    TResult Function(bool showNewRe)? showNewPasswordRe,
-    TResult Function(bool hideNewRe)? hideNewPasswordRe,
+    TResult Function()? showCurrentPassword,
+    TResult Function()? hideCurrentPassword,
+    TResult Function()? showNewPassword,
+    TResult Function()? hideNewPassword,
+    TResult Function()? showNewPasswordRe,
+    TResult Function()? hideNewPasswordRe,
     TResult Function(String currentPassword, String newPassword,
             String newPasswordRetype)?
         editPassword,
     required TResult orElse(),
   }) {
     if (showCurrentPassword != null) {
-      return showCurrentPassword(showCurrent);
+      return showCurrentPassword();
     }
     return orElse();
   }
@@ -438,13 +411,7 @@ class _$ShowCurrentPasswordEventImpl implements ShowCurrentPasswordEvent {
 }
 
 abstract class ShowCurrentPasswordEvent implements EditPasswordEvent {
-  const factory ShowCurrentPasswordEvent(final bool showCurrent) =
-      _$ShowCurrentPasswordEventImpl;
-
-  bool get showCurrent;
-  @JsonKey(ignore: true)
-  _$$ShowCurrentPasswordEventImplCopyWith<_$ShowCurrentPasswordEventImpl>
-      get copyWith => throw _privateConstructorUsedError;
+  const factory ShowCurrentPasswordEvent() = _$ShowCurrentPasswordEventImpl;
 }
 
 /// @nodoc
@@ -453,8 +420,6 @@ abstract class _$$HideCurrentPasswordEventImplCopyWith<$Res> {
           _$HideCurrentPasswordEventImpl value,
           $Res Function(_$HideCurrentPasswordEventImpl) then) =
       __$$HideCurrentPasswordEventImplCopyWithImpl<$Res>;
-  @useResult
-  $Res call({bool hideCurrent});
 }
 
 /// @nodoc
@@ -466,104 +431,79 @@ class __$$HideCurrentPasswordEventImplCopyWithImpl<$Res>
       _$HideCurrentPasswordEventImpl _value,
       $Res Function(_$HideCurrentPasswordEventImpl) _then)
       : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? hideCurrent = null,
-  }) {
-    return _then(_$HideCurrentPasswordEventImpl(
-      null == hideCurrent
-          ? _value.hideCurrent
-          : hideCurrent // ignore: cast_nullable_to_non_nullable
-              as bool,
-    ));
-  }
 }
 
 /// @nodoc
 
 class _$HideCurrentPasswordEventImpl implements HideCurrentPasswordEvent {
-  const _$HideCurrentPasswordEventImpl(this.hideCurrent);
-
-  @override
-  final bool hideCurrent;
+  const _$HideCurrentPasswordEventImpl();
 
   @override
   String toString() {
-    return 'EditPasswordEvent.hideCurrentPassword(hideCurrent: $hideCurrent)';
+    return 'EditPasswordEvent.hideCurrentPassword()';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$HideCurrentPasswordEventImpl &&
-            (identical(other.hideCurrent, hideCurrent) ||
-                other.hideCurrent == hideCurrent));
+            other is _$HideCurrentPasswordEventImpl);
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, hideCurrent);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$HideCurrentPasswordEventImplCopyWith<_$HideCurrentPasswordEventImpl>
-      get copyWith => __$$HideCurrentPasswordEventImplCopyWithImpl<
-          _$HideCurrentPasswordEventImpl>(this, _$identity);
+  int get hashCode => runtimeType.hashCode;
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
-    required TResult Function(bool showCurrent) showCurrentPassword,
-    required TResult Function(bool hideCurrent) hideCurrentPassword,
-    required TResult Function(bool showNew) showNewPassword,
-    required TResult Function(bool hideNew) hideNewPassword,
-    required TResult Function(bool showNewRe) showNewPasswordRe,
-    required TResult Function(bool hideNewRe) hideNewPasswordRe,
+    required TResult Function() showCurrentPassword,
+    required TResult Function() hideCurrentPassword,
+    required TResult Function() showNewPassword,
+    required TResult Function() hideNewPassword,
+    required TResult Function() showNewPasswordRe,
+    required TResult Function() hideNewPasswordRe,
     required TResult Function(String currentPassword, String newPassword,
             String newPasswordRetype)
         editPassword,
   }) {
-    return hideCurrentPassword(hideCurrent);
+    return hideCurrentPassword();
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
-    TResult? Function(bool showCurrent)? showCurrentPassword,
-    TResult? Function(bool hideCurrent)? hideCurrentPassword,
-    TResult? Function(bool showNew)? showNewPassword,
-    TResult? Function(bool hideNew)? hideNewPassword,
-    TResult? Function(bool showNewRe)? showNewPasswordRe,
-    TResult? Function(bool hideNewRe)? hideNewPasswordRe,
+    TResult? Function()? showCurrentPassword,
+    TResult? Function()? hideCurrentPassword,
+    TResult? Function()? showNewPassword,
+    TResult? Function()? hideNewPassword,
+    TResult? Function()? showNewPasswordRe,
+    TResult? Function()? hideNewPasswordRe,
     TResult? Function(String currentPassword, String newPassword,
             String newPasswordRetype)?
         editPassword,
   }) {
-    return hideCurrentPassword?.call(hideCurrent);
+    return hideCurrentPassword?.call();
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
-    TResult Function(bool showCurrent)? showCurrentPassword,
-    TResult Function(bool hideCurrent)? hideCurrentPassword,
-    TResult Function(bool showNew)? showNewPassword,
-    TResult Function(bool hideNew)? hideNewPassword,
-    TResult Function(bool showNewRe)? showNewPasswordRe,
-    TResult Function(bool hideNewRe)? hideNewPasswordRe,
+    TResult Function()? showCurrentPassword,
+    TResult Function()? hideCurrentPassword,
+    TResult Function()? showNewPassword,
+    TResult Function()? hideNewPassword,
+    TResult Function()? showNewPasswordRe,
+    TResult Function()? hideNewPasswordRe,
     TResult Function(String currentPassword, String newPassword,
             String newPasswordRetype)?
         editPassword,
     required TResult orElse(),
   }) {
     if (hideCurrentPassword != null) {
-      return hideCurrentPassword(hideCurrent);
+      return hideCurrentPassword();
     }
     return orElse();
   }
@@ -621,13 +561,7 @@ class _$HideCurrentPasswordEventImpl implements HideCurrentPasswordEvent {
 }
 
 abstract class HideCurrentPasswordEvent implements EditPasswordEvent {
-  const factory HideCurrentPasswordEvent(final bool hideCurrent) =
-      _$HideCurrentPasswordEventImpl;
-
-  bool get hideCurrent;
-  @JsonKey(ignore: true)
-  _$$HideCurrentPasswordEventImplCopyWith<_$HideCurrentPasswordEventImpl>
-      get copyWith => throw _privateConstructorUsedError;
+  const factory HideCurrentPasswordEvent() = _$HideCurrentPasswordEventImpl;
 }
 
 /// @nodoc
@@ -635,8 +569,6 @@ abstract class _$$ShowNewPasswordEventImplCopyWith<$Res> {
   factory _$$ShowNewPasswordEventImplCopyWith(_$ShowNewPasswordEventImpl value,
           $Res Function(_$ShowNewPasswordEventImpl) then) =
       __$$ShowNewPasswordEventImplCopyWithImpl<$Res>;
-  @useResult
-  $Res call({bool showNew});
 }
 
 /// @nodoc
@@ -646,104 +578,79 @@ class __$$ShowNewPasswordEventImplCopyWithImpl<$Res>
   __$$ShowNewPasswordEventImplCopyWithImpl(_$ShowNewPasswordEventImpl _value,
       $Res Function(_$ShowNewPasswordEventImpl) _then)
       : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? showNew = null,
-  }) {
-    return _then(_$ShowNewPasswordEventImpl(
-      null == showNew
-          ? _value.showNew
-          : showNew // ignore: cast_nullable_to_non_nullable
-              as bool,
-    ));
-  }
 }
 
 /// @nodoc
 
 class _$ShowNewPasswordEventImpl implements ShowNewPasswordEvent {
-  const _$ShowNewPasswordEventImpl(this.showNew);
-
-  @override
-  final bool showNew;
+  const _$ShowNewPasswordEventImpl();
 
   @override
   String toString() {
-    return 'EditPasswordEvent.showNewPassword(showNew: $showNew)';
+    return 'EditPasswordEvent.showNewPassword()';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ShowNewPasswordEventImpl &&
-            (identical(other.showNew, showNew) || other.showNew == showNew));
+            other is _$ShowNewPasswordEventImpl);
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, showNew);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$ShowNewPasswordEventImplCopyWith<_$ShowNewPasswordEventImpl>
-      get copyWith =>
-          __$$ShowNewPasswordEventImplCopyWithImpl<_$ShowNewPasswordEventImpl>(
-              this, _$identity);
+  int get hashCode => runtimeType.hashCode;
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
-    required TResult Function(bool showCurrent) showCurrentPassword,
-    required TResult Function(bool hideCurrent) hideCurrentPassword,
-    required TResult Function(bool showNew) showNewPassword,
-    required TResult Function(bool hideNew) hideNewPassword,
-    required TResult Function(bool showNewRe) showNewPasswordRe,
-    required TResult Function(bool hideNewRe) hideNewPasswordRe,
+    required TResult Function() showCurrentPassword,
+    required TResult Function() hideCurrentPassword,
+    required TResult Function() showNewPassword,
+    required TResult Function() hideNewPassword,
+    required TResult Function() showNewPasswordRe,
+    required TResult Function() hideNewPasswordRe,
     required TResult Function(String currentPassword, String newPassword,
             String newPasswordRetype)
         editPassword,
   }) {
-    return showNewPassword(showNew);
+    return showNewPassword();
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
-    TResult? Function(bool showCurrent)? showCurrentPassword,
-    TResult? Function(bool hideCurrent)? hideCurrentPassword,
-    TResult? Function(bool showNew)? showNewPassword,
-    TResult? Function(bool hideNew)? hideNewPassword,
-    TResult? Function(bool showNewRe)? showNewPasswordRe,
-    TResult? Function(bool hideNewRe)? hideNewPasswordRe,
+    TResult? Function()? showCurrentPassword,
+    TResult? Function()? hideCurrentPassword,
+    TResult? Function()? showNewPassword,
+    TResult? Function()? hideNewPassword,
+    TResult? Function()? showNewPasswordRe,
+    TResult? Function()? hideNewPasswordRe,
     TResult? Function(String currentPassword, String newPassword,
             String newPasswordRetype)?
         editPassword,
   }) {
-    return showNewPassword?.call(showNew);
+    return showNewPassword?.call();
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
-    TResult Function(bool showCurrent)? showCurrentPassword,
-    TResult Function(bool hideCurrent)? hideCurrentPassword,
-    TResult Function(bool showNew)? showNewPassword,
-    TResult Function(bool hideNew)? hideNewPassword,
-    TResult Function(bool showNewRe)? showNewPasswordRe,
-    TResult Function(bool hideNewRe)? hideNewPasswordRe,
+    TResult Function()? showCurrentPassword,
+    TResult Function()? hideCurrentPassword,
+    TResult Function()? showNewPassword,
+    TResult Function()? hideNewPassword,
+    TResult Function()? showNewPasswordRe,
+    TResult Function()? hideNewPasswordRe,
     TResult Function(String currentPassword, String newPassword,
             String newPasswordRetype)?
         editPassword,
     required TResult orElse(),
   }) {
     if (showNewPassword != null) {
-      return showNewPassword(showNew);
+      return showNewPassword();
     }
     return orElse();
   }
@@ -801,13 +708,7 @@ class _$ShowNewPasswordEventImpl implements ShowNewPasswordEvent {
 }
 
 abstract class ShowNewPasswordEvent implements EditPasswordEvent {
-  const factory ShowNewPasswordEvent(final bool showNew) =
-      _$ShowNewPasswordEventImpl;
-
-  bool get showNew;
-  @JsonKey(ignore: true)
-  _$$ShowNewPasswordEventImplCopyWith<_$ShowNewPasswordEventImpl>
-      get copyWith => throw _privateConstructorUsedError;
+  const factory ShowNewPasswordEvent() = _$ShowNewPasswordEventImpl;
 }
 
 /// @nodoc
@@ -815,8 +716,6 @@ abstract class _$$HideNewPasswordEventImplCopyWith<$Res> {
   factory _$$HideNewPasswordEventImplCopyWith(_$HideNewPasswordEventImpl value,
           $Res Function(_$HideNewPasswordEventImpl) then) =
       __$$HideNewPasswordEventImplCopyWithImpl<$Res>;
-  @useResult
-  $Res call({bool hideNew});
 }
 
 /// @nodoc
@@ -826,104 +725,79 @@ class __$$HideNewPasswordEventImplCopyWithImpl<$Res>
   __$$HideNewPasswordEventImplCopyWithImpl(_$HideNewPasswordEventImpl _value,
       $Res Function(_$HideNewPasswordEventImpl) _then)
       : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? hideNew = null,
-  }) {
-    return _then(_$HideNewPasswordEventImpl(
-      null == hideNew
-          ? _value.hideNew
-          : hideNew // ignore: cast_nullable_to_non_nullable
-              as bool,
-    ));
-  }
 }
 
 /// @nodoc
 
 class _$HideNewPasswordEventImpl implements HideNewPasswordEvent {
-  const _$HideNewPasswordEventImpl(this.hideNew);
-
-  @override
-  final bool hideNew;
+  const _$HideNewPasswordEventImpl();
 
   @override
   String toString() {
-    return 'EditPasswordEvent.hideNewPassword(hideNew: $hideNew)';
+    return 'EditPasswordEvent.hideNewPassword()';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$HideNewPasswordEventImpl &&
-            (identical(other.hideNew, hideNew) || other.hideNew == hideNew));
+            other is _$HideNewPasswordEventImpl);
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, hideNew);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$HideNewPasswordEventImplCopyWith<_$HideNewPasswordEventImpl>
-      get copyWith =>
-          __$$HideNewPasswordEventImplCopyWithImpl<_$HideNewPasswordEventImpl>(
-              this, _$identity);
+  int get hashCode => runtimeType.hashCode;
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
-    required TResult Function(bool showCurrent) showCurrentPassword,
-    required TResult Function(bool hideCurrent) hideCurrentPassword,
-    required TResult Function(bool showNew) showNewPassword,
-    required TResult Function(bool hideNew) hideNewPassword,
-    required TResult Function(bool showNewRe) showNewPasswordRe,
-    required TResult Function(bool hideNewRe) hideNewPasswordRe,
+    required TResult Function() showCurrentPassword,
+    required TResult Function() hideCurrentPassword,
+    required TResult Function() showNewPassword,
+    required TResult Function() hideNewPassword,
+    required TResult Function() showNewPasswordRe,
+    required TResult Function() hideNewPasswordRe,
     required TResult Function(String currentPassword, String newPassword,
             String newPasswordRetype)
         editPassword,
   }) {
-    return hideNewPassword(hideNew);
+    return hideNewPassword();
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
-    TResult? Function(bool showCurrent)? showCurrentPassword,
-    TResult? Function(bool hideCurrent)? hideCurrentPassword,
-    TResult? Function(bool showNew)? showNewPassword,
-    TResult? Function(bool hideNew)? hideNewPassword,
-    TResult? Function(bool showNewRe)? showNewPasswordRe,
-    TResult? Function(bool hideNewRe)? hideNewPasswordRe,
+    TResult? Function()? showCurrentPassword,
+    TResult? Function()? hideCurrentPassword,
+    TResult? Function()? showNewPassword,
+    TResult? Function()? hideNewPassword,
+    TResult? Function()? showNewPasswordRe,
+    TResult? Function()? hideNewPasswordRe,
     TResult? Function(String currentPassword, String newPassword,
             String newPasswordRetype)?
         editPassword,
   }) {
-    return hideNewPassword?.call(hideNew);
+    return hideNewPassword?.call();
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
-    TResult Function(bool showCurrent)? showCurrentPassword,
-    TResult Function(bool hideCurrent)? hideCurrentPassword,
-    TResult Function(bool showNew)? showNewPassword,
-    TResult Function(bool hideNew)? hideNewPassword,
-    TResult Function(bool showNewRe)? showNewPasswordRe,
-    TResult Function(bool hideNewRe)? hideNewPasswordRe,
+    TResult Function()? showCurrentPassword,
+    TResult Function()? hideCurrentPassword,
+    TResult Function()? showNewPassword,
+    TResult Function()? hideNewPassword,
+    TResult Function()? showNewPasswordRe,
+    TResult Function()? hideNewPasswordRe,
     TResult Function(String currentPassword, String newPassword,
             String newPasswordRetype)?
         editPassword,
     required TResult orElse(),
   }) {
     if (hideNewPassword != null) {
-      return hideNewPassword(hideNew);
+      return hideNewPassword();
     }
     return orElse();
   }
@@ -981,13 +855,7 @@ class _$HideNewPasswordEventImpl implements HideNewPasswordEvent {
 }
 
 abstract class HideNewPasswordEvent implements EditPasswordEvent {
-  const factory HideNewPasswordEvent(final bool hideNew) =
-      _$HideNewPasswordEventImpl;
-
-  bool get hideNew;
-  @JsonKey(ignore: true)
-  _$$HideNewPasswordEventImplCopyWith<_$HideNewPasswordEventImpl>
-      get copyWith => throw _privateConstructorUsedError;
+  const factory HideNewPasswordEvent() = _$HideNewPasswordEventImpl;
 }
 
 /// @nodoc
@@ -996,8 +864,6 @@ abstract class _$$ShowNewPasswordReEventImplCopyWith<$Res> {
           _$ShowNewPasswordReEventImpl value,
           $Res Function(_$ShowNewPasswordReEventImpl) then) =
       __$$ShowNewPasswordReEventImplCopyWithImpl<$Res>;
-  @useResult
-  $Res call({bool showNewRe});
 }
 
 /// @nodoc
@@ -1008,104 +874,79 @@ class __$$ShowNewPasswordReEventImplCopyWithImpl<$Res>
       _$ShowNewPasswordReEventImpl _value,
       $Res Function(_$ShowNewPasswordReEventImpl) _then)
       : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? showNewRe = null,
-  }) {
-    return _then(_$ShowNewPasswordReEventImpl(
-      null == showNewRe
-          ? _value.showNewRe
-          : showNewRe // ignore: cast_nullable_to_non_nullable
-              as bool,
-    ));
-  }
 }
 
 /// @nodoc
 
 class _$ShowNewPasswordReEventImpl implements ShowNewPasswordReEvent {
-  const _$ShowNewPasswordReEventImpl(this.showNewRe);
-
-  @override
-  final bool showNewRe;
+  const _$ShowNewPasswordReEventImpl();
 
   @override
   String toString() {
-    return 'EditPasswordEvent.showNewPasswordRe(showNewRe: $showNewRe)';
+    return 'EditPasswordEvent.showNewPasswordRe()';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ShowNewPasswordReEventImpl &&
-            (identical(other.showNewRe, showNewRe) ||
-                other.showNewRe == showNewRe));
+            other is _$ShowNewPasswordReEventImpl);
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, showNewRe);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$ShowNewPasswordReEventImplCopyWith<_$ShowNewPasswordReEventImpl>
-      get copyWith => __$$ShowNewPasswordReEventImplCopyWithImpl<
-          _$ShowNewPasswordReEventImpl>(this, _$identity);
+  int get hashCode => runtimeType.hashCode;
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
-    required TResult Function(bool showCurrent) showCurrentPassword,
-    required TResult Function(bool hideCurrent) hideCurrentPassword,
-    required TResult Function(bool showNew) showNewPassword,
-    required TResult Function(bool hideNew) hideNewPassword,
-    required TResult Function(bool showNewRe) showNewPasswordRe,
-    required TResult Function(bool hideNewRe) hideNewPasswordRe,
+    required TResult Function() showCurrentPassword,
+    required TResult Function() hideCurrentPassword,
+    required TResult Function() showNewPassword,
+    required TResult Function() hideNewPassword,
+    required TResult Function() showNewPasswordRe,
+    required TResult Function() hideNewPasswordRe,
     required TResult Function(String currentPassword, String newPassword,
             String newPasswordRetype)
         editPassword,
   }) {
-    return showNewPasswordRe(showNewRe);
+    return showNewPasswordRe();
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
-    TResult? Function(bool showCurrent)? showCurrentPassword,
-    TResult? Function(bool hideCurrent)? hideCurrentPassword,
-    TResult? Function(bool showNew)? showNewPassword,
-    TResult? Function(bool hideNew)? hideNewPassword,
-    TResult? Function(bool showNewRe)? showNewPasswordRe,
-    TResult? Function(bool hideNewRe)? hideNewPasswordRe,
+    TResult? Function()? showCurrentPassword,
+    TResult? Function()? hideCurrentPassword,
+    TResult? Function()? showNewPassword,
+    TResult? Function()? hideNewPassword,
+    TResult? Function()? showNewPasswordRe,
+    TResult? Function()? hideNewPasswordRe,
     TResult? Function(String currentPassword, String newPassword,
             String newPasswordRetype)?
         editPassword,
   }) {
-    return showNewPasswordRe?.call(showNewRe);
+    return showNewPasswordRe?.call();
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
-    TResult Function(bool showCurrent)? showCurrentPassword,
-    TResult Function(bool hideCurrent)? hideCurrentPassword,
-    TResult Function(bool showNew)? showNewPassword,
-    TResult Function(bool hideNew)? hideNewPassword,
-    TResult Function(bool showNewRe)? showNewPasswordRe,
-    TResult Function(bool hideNewRe)? hideNewPasswordRe,
+    TResult Function()? showCurrentPassword,
+    TResult Function()? hideCurrentPassword,
+    TResult Function()? showNewPassword,
+    TResult Function()? hideNewPassword,
+    TResult Function()? showNewPasswordRe,
+    TResult Function()? hideNewPasswordRe,
     TResult Function(String currentPassword, String newPassword,
             String newPasswordRetype)?
         editPassword,
     required TResult orElse(),
   }) {
     if (showNewPasswordRe != null) {
-      return showNewPasswordRe(showNewRe);
+      return showNewPasswordRe();
     }
     return orElse();
   }
@@ -1163,13 +1004,7 @@ class _$ShowNewPasswordReEventImpl implements ShowNewPasswordReEvent {
 }
 
 abstract class ShowNewPasswordReEvent implements EditPasswordEvent {
-  const factory ShowNewPasswordReEvent(final bool showNewRe) =
-      _$ShowNewPasswordReEventImpl;
-
-  bool get showNewRe;
-  @JsonKey(ignore: true)
-  _$$ShowNewPasswordReEventImplCopyWith<_$ShowNewPasswordReEventImpl>
-      get copyWith => throw _privateConstructorUsedError;
+  const factory ShowNewPasswordReEvent() = _$ShowNewPasswordReEventImpl;
 }
 
 /// @nodoc
@@ -1178,8 +1013,6 @@ abstract class _$$HideNewPasswordReEventImplCopyWith<$Res> {
           _$HideNewPasswordReEventImpl value,
           $Res Function(_$HideNewPasswordReEventImpl) then) =
       __$$HideNewPasswordReEventImplCopyWithImpl<$Res>;
-  @useResult
-  $Res call({bool hideNewRe});
 }
 
 /// @nodoc
@@ -1190,104 +1023,79 @@ class __$$HideNewPasswordReEventImplCopyWithImpl<$Res>
       _$HideNewPasswordReEventImpl _value,
       $Res Function(_$HideNewPasswordReEventImpl) _then)
       : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? hideNewRe = null,
-  }) {
-    return _then(_$HideNewPasswordReEventImpl(
-      null == hideNewRe
-          ? _value.hideNewRe
-          : hideNewRe // ignore: cast_nullable_to_non_nullable
-              as bool,
-    ));
-  }
 }
 
 /// @nodoc
 
 class _$HideNewPasswordReEventImpl implements HideNewPasswordReEvent {
-  const _$HideNewPasswordReEventImpl(this.hideNewRe);
-
-  @override
-  final bool hideNewRe;
+  const _$HideNewPasswordReEventImpl();
 
   @override
   String toString() {
-    return 'EditPasswordEvent.hideNewPasswordRe(hideNewRe: $hideNewRe)';
+    return 'EditPasswordEvent.hideNewPasswordRe()';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$HideNewPasswordReEventImpl &&
-            (identical(other.hideNewRe, hideNewRe) ||
-                other.hideNewRe == hideNewRe));
+            other is _$HideNewPasswordReEventImpl);
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, hideNewRe);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$HideNewPasswordReEventImplCopyWith<_$HideNewPasswordReEventImpl>
-      get copyWith => __$$HideNewPasswordReEventImplCopyWithImpl<
-          _$HideNewPasswordReEventImpl>(this, _$identity);
+  int get hashCode => runtimeType.hashCode;
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
-    required TResult Function(bool showCurrent) showCurrentPassword,
-    required TResult Function(bool hideCurrent) hideCurrentPassword,
-    required TResult Function(bool showNew) showNewPassword,
-    required TResult Function(bool hideNew) hideNewPassword,
-    required TResult Function(bool showNewRe) showNewPasswordRe,
-    required TResult Function(bool hideNewRe) hideNewPasswordRe,
+    required TResult Function() showCurrentPassword,
+    required TResult Function() hideCurrentPassword,
+    required TResult Function() showNewPassword,
+    required TResult Function() hideNewPassword,
+    required TResult Function() showNewPasswordRe,
+    required TResult Function() hideNewPasswordRe,
     required TResult Function(String currentPassword, String newPassword,
             String newPasswordRetype)
         editPassword,
   }) {
-    return hideNewPasswordRe(hideNewRe);
+    return hideNewPasswordRe();
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
-    TResult? Function(bool showCurrent)? showCurrentPassword,
-    TResult? Function(bool hideCurrent)? hideCurrentPassword,
-    TResult? Function(bool showNew)? showNewPassword,
-    TResult? Function(bool hideNew)? hideNewPassword,
-    TResult? Function(bool showNewRe)? showNewPasswordRe,
-    TResult? Function(bool hideNewRe)? hideNewPasswordRe,
+    TResult? Function()? showCurrentPassword,
+    TResult? Function()? hideCurrentPassword,
+    TResult? Function()? showNewPassword,
+    TResult? Function()? hideNewPassword,
+    TResult? Function()? showNewPasswordRe,
+    TResult? Function()? hideNewPasswordRe,
     TResult? Function(String currentPassword, String newPassword,
             String newPasswordRetype)?
         editPassword,
   }) {
-    return hideNewPasswordRe?.call(hideNewRe);
+    return hideNewPasswordRe?.call();
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
-    TResult Function(bool showCurrent)? showCurrentPassword,
-    TResult Function(bool hideCurrent)? hideCurrentPassword,
-    TResult Function(bool showNew)? showNewPassword,
-    TResult Function(bool hideNew)? hideNewPassword,
-    TResult Function(bool showNewRe)? showNewPasswordRe,
-    TResult Function(bool hideNewRe)? hideNewPasswordRe,
+    TResult Function()? showCurrentPassword,
+    TResult Function()? hideCurrentPassword,
+    TResult Function()? showNewPassword,
+    TResult Function()? hideNewPassword,
+    TResult Function()? showNewPasswordRe,
+    TResult Function()? hideNewPasswordRe,
     TResult Function(String currentPassword, String newPassword,
             String newPasswordRetype)?
         editPassword,
     required TResult orElse(),
   }) {
     if (hideNewPasswordRe != null) {
-      return hideNewPasswordRe(hideNewRe);
+      return hideNewPasswordRe();
     }
     return orElse();
   }
@@ -1345,13 +1153,7 @@ class _$HideNewPasswordReEventImpl implements HideNewPasswordReEvent {
 }
 
 abstract class HideNewPasswordReEvent implements EditPasswordEvent {
-  const factory HideNewPasswordReEvent(final bool hideNewRe) =
-      _$HideNewPasswordReEventImpl;
-
-  bool get hideNewRe;
-  @JsonKey(ignore: true)
-  _$$HideNewPasswordReEventImplCopyWith<_$HideNewPasswordReEventImpl>
-      get copyWith => throw _privateConstructorUsedError;
+  const factory HideNewPasswordReEvent() = _$HideNewPasswordReEventImpl;
 }
 
 /// @nodoc
@@ -1444,12 +1246,12 @@ class _$EditPasswordButtonEventImpl implements EditPasswordButtonEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
-    required TResult Function(bool showCurrent) showCurrentPassword,
-    required TResult Function(bool hideCurrent) hideCurrentPassword,
-    required TResult Function(bool showNew) showNewPassword,
-    required TResult Function(bool hideNew) hideNewPassword,
-    required TResult Function(bool showNewRe) showNewPasswordRe,
-    required TResult Function(bool hideNewRe) hideNewPasswordRe,
+    required TResult Function() showCurrentPassword,
+    required TResult Function() hideCurrentPassword,
+    required TResult Function() showNewPassword,
+    required TResult Function() hideNewPassword,
+    required TResult Function() showNewPasswordRe,
+    required TResult Function() hideNewPasswordRe,
     required TResult Function(String currentPassword, String newPassword,
             String newPasswordRetype)
         editPassword,
@@ -1461,12 +1263,12 @@ class _$EditPasswordButtonEventImpl implements EditPasswordButtonEvent {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
-    TResult? Function(bool showCurrent)? showCurrentPassword,
-    TResult? Function(bool hideCurrent)? hideCurrentPassword,
-    TResult? Function(bool showNew)? showNewPassword,
-    TResult? Function(bool hideNew)? hideNewPassword,
-    TResult? Function(bool showNewRe)? showNewPasswordRe,
-    TResult? Function(bool hideNewRe)? hideNewPasswordRe,
+    TResult? Function()? showCurrentPassword,
+    TResult? Function()? hideCurrentPassword,
+    TResult? Function()? showNewPassword,
+    TResult? Function()? hideNewPassword,
+    TResult? Function()? showNewPasswordRe,
+    TResult? Function()? hideNewPasswordRe,
     TResult? Function(String currentPassword, String newPassword,
             String newPasswordRetype)?
         editPassword,
@@ -1478,12 +1280,12 @@ class _$EditPasswordButtonEventImpl implements EditPasswordButtonEvent {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
-    TResult Function(bool showCurrent)? showCurrentPassword,
-    TResult Function(bool hideCurrent)? hideCurrentPassword,
-    TResult Function(bool showNew)? showNewPassword,
-    TResult Function(bool hideNew)? hideNewPassword,
-    TResult Function(bool showNewRe)? showNewPasswordRe,
-    TResult Function(bool hideNewRe)? hideNewPasswordRe,
+    TResult Function()? showCurrentPassword,
+    TResult Function()? hideCurrentPassword,
+    TResult Function()? showNewPassword,
+    TResult Function()? hideNewPassword,
+    TResult Function()? showNewPasswordRe,
+    TResult Function()? hideNewPasswordRe,
     TResult Function(String currentPassword, String newPassword,
             String newPasswordRetype)?
         editPassword,
@@ -1567,6 +1369,9 @@ mixin _$EditPasswordState {
   bool get showCurrentPassword => throw _privateConstructorUsedError;
   bool get showNewPassword => throw _privateConstructorUsedError;
   bool get showNewPasswordRe => throw _privateConstructorUsedError;
+  bool get hideCurrentPassword => throw _privateConstructorUsedError;
+  bool get hideNewPassword => throw _privateConstructorUsedError;
+  bool get hideNewPasswordRe => throw _privateConstructorUsedError;
   SignInModel? get signInModel => throw _privateConstructorUsedError;
   Failures? get editPasswordFailure => throw _privateConstructorUsedError;
 
@@ -1586,6 +1391,9 @@ abstract class $EditPasswordStateCopyWith<$Res> {
       bool showCurrentPassword,
       bool showNewPassword,
       bool showNewPasswordRe,
+      bool hideCurrentPassword,
+      bool hideNewPassword,
+      bool hideNewPasswordRe,
       SignInModel? signInModel,
       Failures? editPasswordFailure});
 }
@@ -1607,6 +1415,9 @@ class _$EditPasswordStateCopyWithImpl<$Res, $Val extends EditPasswordState>
     Object? showCurrentPassword = null,
     Object? showNewPassword = null,
     Object? showNewPasswordRe = null,
+    Object? hideCurrentPassword = null,
+    Object? hideNewPassword = null,
+    Object? hideNewPasswordRe = null,
     Object? signInModel = freezed,
     Object? editPasswordFailure = freezed,
   }) {
@@ -1626,6 +1437,18 @@ class _$EditPasswordStateCopyWithImpl<$Res, $Val extends EditPasswordState>
       showNewPasswordRe: null == showNewPasswordRe
           ? _value.showNewPasswordRe
           : showNewPasswordRe // ignore: cast_nullable_to_non_nullable
+              as bool,
+      hideCurrentPassword: null == hideCurrentPassword
+          ? _value.hideCurrentPassword
+          : hideCurrentPassword // ignore: cast_nullable_to_non_nullable
+              as bool,
+      hideNewPassword: null == hideNewPassword
+          ? _value.hideNewPassword
+          : hideNewPassword // ignore: cast_nullable_to_non_nullable
+              as bool,
+      hideNewPasswordRe: null == hideNewPasswordRe
+          ? _value.hideNewPasswordRe
+          : hideNewPasswordRe // ignore: cast_nullable_to_non_nullable
               as bool,
       signInModel: freezed == signInModel
           ? _value.signInModel
@@ -1652,6 +1475,9 @@ abstract class _$$EditPasswordStateImplCopyWith<$Res>
       bool showCurrentPassword,
       bool showNewPassword,
       bool showNewPasswordRe,
+      bool hideCurrentPassword,
+      bool hideNewPassword,
+      bool hideNewPasswordRe,
       SignInModel? signInModel,
       Failures? editPasswordFailure});
 }
@@ -1671,6 +1497,9 @@ class __$$EditPasswordStateImplCopyWithImpl<$Res>
     Object? showCurrentPassword = null,
     Object? showNewPassword = null,
     Object? showNewPasswordRe = null,
+    Object? hideCurrentPassword = null,
+    Object? hideNewPassword = null,
+    Object? hideNewPasswordRe = null,
     Object? signInModel = freezed,
     Object? editPasswordFailure = freezed,
   }) {
@@ -1690,6 +1519,18 @@ class __$$EditPasswordStateImplCopyWithImpl<$Res>
       showNewPasswordRe: null == showNewPasswordRe
           ? _value.showNewPasswordRe
           : showNewPasswordRe // ignore: cast_nullable_to_non_nullable
+              as bool,
+      hideCurrentPassword: null == hideCurrentPassword
+          ? _value.hideCurrentPassword
+          : hideCurrentPassword // ignore: cast_nullable_to_non_nullable
+              as bool,
+      hideNewPassword: null == hideNewPassword
+          ? _value.hideNewPassword
+          : hideNewPassword // ignore: cast_nullable_to_non_nullable
+              as bool,
+      hideNewPasswordRe: null == hideNewPasswordRe
+          ? _value.hideNewPasswordRe
+          : hideNewPasswordRe // ignore: cast_nullable_to_non_nullable
               as bool,
       signInModel: freezed == signInModel
           ? _value.signInModel
@@ -1711,6 +1552,9 @@ class _$EditPasswordStateImpl implements _EditPasswordState {
       this.showCurrentPassword = false,
       this.showNewPassword = false,
       this.showNewPasswordRe = false,
+      this.hideCurrentPassword = true,
+      this.hideNewPassword = true,
+      this.hideNewPasswordRe = true,
       this.signInModel,
       this.editPasswordFailure});
 
@@ -1727,13 +1571,22 @@ class _$EditPasswordStateImpl implements _EditPasswordState {
   @JsonKey()
   final bool showNewPasswordRe;
   @override
+  @JsonKey()
+  final bool hideCurrentPassword;
+  @override
+  @JsonKey()
+  final bool hideNewPassword;
+  @override
+  @JsonKey()
+  final bool hideNewPasswordRe;
+  @override
   final SignInModel? signInModel;
   @override
   final Failures? editPasswordFailure;
 
   @override
   String toString() {
-    return 'EditPasswordState(editPasswordStatus: $editPasswordStatus, showCurrentPassword: $showCurrentPassword, showNewPassword: $showNewPassword, showNewPasswordRe: $showNewPasswordRe, signInModel: $signInModel, editPasswordFailure: $editPasswordFailure)';
+    return 'EditPasswordState(editPasswordStatus: $editPasswordStatus, showCurrentPassword: $showCurrentPassword, showNewPassword: $showNewPassword, showNewPasswordRe: $showNewPasswordRe, hideCurrentPassword: $hideCurrentPassword, hideNewPassword: $hideNewPassword, hideNewPasswordRe: $hideNewPasswordRe, signInModel: $signInModel, editPasswordFailure: $editPasswordFailure)';
   }
 
   @override
@@ -1749,6 +1602,12 @@ class _$EditPasswordStateImpl implements _EditPasswordState {
                 other.showNewPassword == showNewPassword) &&
             (identical(other.showNewPasswordRe, showNewPasswordRe) ||
                 other.showNewPasswordRe == showNewPasswordRe) &&
+            (identical(other.hideCurrentPassword, hideCurrentPassword) ||
+                other.hideCurrentPassword == hideCurrentPassword) &&
+            (identical(other.hideNewPassword, hideNewPassword) ||
+                other.hideNewPassword == hideNewPassword) &&
+            (identical(other.hideNewPasswordRe, hideNewPasswordRe) ||
+                other.hideNewPasswordRe == hideNewPasswordRe) &&
             (identical(other.signInModel, signInModel) ||
                 other.signInModel == signInModel) &&
             (identical(other.editPasswordFailure, editPasswordFailure) ||
@@ -1762,6 +1621,9 @@ class _$EditPasswordStateImpl implements _EditPasswordState {
       showCurrentPassword,
       showNewPassword,
       showNewPasswordRe,
+      hideCurrentPassword,
+      hideNewPassword,
+      hideNewPasswordRe,
       signInModel,
       editPasswordFailure);
 
@@ -1779,6 +1641,9 @@ abstract class _EditPasswordState implements EditPasswordState {
       final bool showCurrentPassword,
       final bool showNewPassword,
       final bool showNewPasswordRe,
+      final bool hideCurrentPassword,
+      final bool hideNewPassword,
+      final bool hideNewPasswordRe,
       final SignInModel? signInModel,
       final Failures? editPasswordFailure}) = _$EditPasswordStateImpl;
 
@@ -1790,6 +1655,12 @@ abstract class _EditPasswordState implements EditPasswordState {
   bool get showNewPassword;
   @override
   bool get showNewPasswordRe;
+  @override
+  bool get hideCurrentPassword;
+  @override
+  bool get hideNewPassword;
+  @override
+  bool get hideNewPasswordRe;
   @override
   SignInModel? get signInModel;
   @override

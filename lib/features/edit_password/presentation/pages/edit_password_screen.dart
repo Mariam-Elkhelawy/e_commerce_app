@@ -11,7 +11,6 @@ import 'package:e_commerce_app/features/edit_password/presentation/widgets/edit_
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:loading_animation_widget/loading_animation_widget.dart';
 
 class EditPasswordScreen extends StatelessWidget {
   EditPasswordScreen({super.key});
@@ -25,61 +24,44 @@ class EditPasswordScreen extends StatelessWidget {
       create: (context) => getIt<EditPasswordBloc>(),
       child: BlocConsumer<EditPasswordBloc, EditPasswordState>(
           listener: (context, state) {
-        if (state.showCurrentPassword == true) {
-          isCurrentShown = true;
-        } else if (state.showCurrentPassword == false) {
-          isCurrentShown = false;
-        }
-        if (state.showNewPassword == true) {
-          isNewShown = true;
-        } else if (state.showNewPassword == false) {
-          isNewShown = false;
-        }
-        if (state.showNewPasswordRe == true) {
-          isNewReShown = true;
-        } else if (state.showNewPasswordRe == false) {
-          isNewReShown = false;
-        }
-        if (state.editPasswordStatus == ScreenStatus.loading) {
-          showDialog(
-            barrierDismissible: false,
-            context: context,
-            builder: (context) => PopScope(
-              canPop: false,
-              child: AlertDialog(
-                backgroundColor: Colors.transparent,
-                elevation: 0,
-                title: Center(
-                  child: LoadingAnimationWidget.fourRotatingDots(
-                    color: AppColor.primaryColor,
-                    size: 90.sp,
-                  ),
-                ),
-              ),
-            ),
-          );
-        } else if (state.editPasswordStatus == ScreenStatus.success) {
-          showDialog(
-            context: context,
-            builder: (context) {
-              return PopScope(
-                canPop: false,
-                child: AlertDialog(
-                  title: const Text('Success'),
-                  content: const Text('Login'),
-                  actions: [
-                    ElevatedButton(
-                        onPressed: () {
-                          Navigator.pushNamedAndRemoveUntil(
-                              context, AppRoutesName.login, (route) => false);
-                        },
-                        child: const Text('Done'))
-                  ],
-                ),
-              );
-            },
-          );
-        } else if (state.editPasswordStatus == ScreenStatus.failure) {
+        // if (state.showCurrentPassword == true) {
+        //   isCurrentShown = true;
+        // }
+        // if (state.hideCurrentPassword == true) {
+        //   isCurrentShown = false;
+        // }
+        // if (state.showNewPassword == true) {
+        //   isNewShown = true;
+        // }
+        // if (state.hideNewPassword == true) {
+        //   isNewShown = false;
+        // }
+        // if (state.showNewPasswordRe == true) {
+        //   isNewReShown = true;
+        // }
+        // if (state.hideNewPasswordRe == true) {
+        //   isNewReShown = false;
+        // }
+        // if (state.editPasswordStatus == ScreenStatus.loading) {
+        //   showDialog(
+        //     barrierDismissible: false,
+        //     context: context,
+        //     builder: (context) => PopScope(
+        //       canPop: false,
+        //       child: AlertDialog(
+        //         backgroundColor: Colors.transparent,
+        //         elevation: 0,
+        //         title: Center(
+        //           child: LoadingAnimationWidget.fourRotatingDots(
+        //             color: AppColor.primaryColor,
+        //             size: 90.sp,
+        //           ),
+        //         ),
+        //       ),
+        //     ),
+        //   );
+        // }
+        if (state.editPasswordStatus == ScreenStatus.failure) {
           showDialog(
             context: context,
             builder: (context) {
@@ -94,7 +76,9 @@ class EditPasswordScreen extends StatelessWidget {
         return Form(
           key: EditPasswordBloc.get(context).formKey,
           child: Scaffold(
-            appBar: AppBar(),
+            appBar: AppBar(
+              backgroundColor: AppColor.whiteColor,
+            ),
             body: SingleChildScrollView(
               child: Padding(
                 padding: EdgeInsets.all(16.r),
@@ -111,15 +95,15 @@ class EditPasswordScreen extends StatelessWidget {
                     EditPasswordWidget(
                       myController: EditPasswordBloc.get(context)
                           .currentPasswordController,
-                      isPasswordShown: isCurrentShown,
+                      isPasswordShown: state.showCurrentPassword,
                       hintText: AppStrings.currentPassword,
                       onIconTapped: () {
-                        if (isCurrentShown) {
+                        if (state.showCurrentPassword) {
                           EditPasswordBloc.get(context)
-                              .add(const ShowCurrentPasswordEvent(true));
+                              .add(const ShowCurrentPasswordEvent());
                         } else {
                           EditPasswordBloc.get(context)
-                              .add(const ShowCurrentPasswordEvent(false));
+                              .add(const HideCurrentPasswordEvent());
                         }
                       },
                     ),
@@ -127,15 +111,15 @@ class EditPasswordScreen extends StatelessWidget {
                     EditPasswordWidget(
                       myController:
                           EditPasswordBloc.get(context).newPasswordController,
-                      isPasswordShown: isNewShown,
+                      isPasswordShown: state.showNewPassword,
                       hintText: AppStrings.newPassword,
                       onIconTapped: () {
-                        if (isNewShown) {
+                        if (state.showNewPassword) {
                           EditPasswordBloc.get(context)
-                              .add(const ShowNewPasswordEvent(true));
+                              .add(const ShowNewPasswordEvent());
                         } else {
                           EditPasswordBloc.get(context)
-                              .add(const ShowNewPasswordEvent(false));
+                              .add(const HideNewPasswordEvent());
                         }
                       },
                     ),
@@ -143,21 +127,21 @@ class EditPasswordScreen extends StatelessWidget {
                     EditPasswordWidget(
                       myController:
                           EditPasswordBloc.get(context).rePasswordController,
-                      isPasswordShown: isNewReShown,
+                      isPasswordShown: state.showNewPasswordRe,
                       hintText: AppStrings.newPasswordRe,
                       onIconTapped: () {
-                        if (isNewReShown) {
+                        if (state.showNewPasswordRe) {
                           EditPasswordBloc.get(context)
-                              .add(const ShowNewPasswordReEvent(true));
+                              .add(const ShowNewPasswordReEvent());
                         } else {
                           EditPasswordBloc.get(context)
-                              .add(const ShowNewPasswordReEvent(false));
+                              .add(const HideNewPasswordReEvent());
                         }
                       },
                     ),
                     SizedBox(height: 100.h),
                     InkWell(
-                      onTap: () {
+                      onTap: () async {
                         if (EditPasswordBloc.get(context)
                                 .formKey
                                 .currentState!
@@ -179,6 +163,8 @@ class EditPasswordScreen extends StatelessWidget {
                                   EditPasswordBloc.get(context)
                                       .rePasswordController
                                       .text));
+                          Navigator.pushNamed(
+                              context, AppRoutesName.editPasswordSuccess);
                         } else if (EditPasswordBloc.get(context)
                                 .newPasswordController
                                 .text !=
@@ -186,7 +172,6 @@ class EditPasswordScreen extends StatelessWidget {
                                 .rePasswordController
                                 .text) {
                           showDialog(
-                            barrierDismissible: false,
                             context: context,
                             builder: (context) {
                               return AlertDialog(

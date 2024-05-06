@@ -26,17 +26,20 @@ Widget customTextFormField(
     required double height,
     double radius = 0,
     bool isPassword = false,
-    TextStyle? textStyle}) {
+    TextStyle? textStyle,
+    EdgeInsetsGeometry? contentPadding,
+    String? Function(String?)? onValidate}) {
   return SizedBox(
     height: height,
     child: TextFormField(
+      validator: onValidate,
       style: textStyle,
       obscureText: isPassword,
       obscuringCharacter: '*',
       cursorColor: AppColor.primaryColor,
       controller: controller,
       decoration: InputDecoration(
-        contentPadding: EdgeInsets.symmetric(vertical: 11.h,horizontal: 16.w),
+        contentPadding: contentPadding,
         hintText: hintText,
         hintStyle: hintStyle,
         filled: true,
@@ -54,6 +57,9 @@ Widget customTextFormField(
         enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(radius),
           borderSide: BorderSide(color: borderColor),
+        ), errorBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(radius),
+          borderSide: BorderSide(color: Colors.red),
         ),
       ),
     ),

@@ -70,14 +70,51 @@ class CartScreen extends StatelessWidget {
             ),
             body: Padding(
               padding: EdgeInsets.symmetric(horizontal: 16.0.w),
-              child: Column(
+              child:state.getCartModel?.data?.products?.isEmpty ?? true
+                  ? Align(
+                alignment: Alignment.center,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Image.asset(
+                      AppImages.box,
+                      height: 300.h,
+                      fit: BoxFit.cover,
+                    ),
+                    SizedBox(height: 24.h),
+                    Text(
+                      AppStrings.emptyCart,
+                      textAlign: TextAlign.center,
+                      style: AppStyles.bodyM
+                          .copyWith(color: AppColor.textColor),
+                    ),
+                    SizedBox(
+                      height: 12.h,
+                    ),
+                    SizedBox(
+                      width: 330.w,
+                      child: Align(
+                        alignment: Alignment.center,
+                        child: Text(
+                          AppStrings.tapCart,
+                          textAlign: TextAlign.center,
+                          style: AppStyles.bodyS
+                              .copyWith(color: AppColor.suffixGrey),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              )
+                  : Column(
                 children: [
                   SizedBox(
                     height: 8.h,
                   ),
                   SizedBox(
                     height: 740.h,
-                    child: ListView.builder(
+                    child:
+                    ListView.builder(
                       itemCount: state.getCartModel?.numOfCartItems ?? 0,
                       itemBuilder: (context, index) {
                         return Padding(

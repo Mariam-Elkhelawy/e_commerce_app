@@ -39,5 +39,11 @@ class AppStrings{
   static const String currentPassword='Enter your Current Password';
   static const String newPassword='Enter New Password';
   static const String newPasswordRe='Re-Enter New Password';
+  static const String passwordEditSuccess='Password Changed Successfully';
+  static const String loginBack='Go Back To Login';
+  static const String emptyList='Your WishList is Empty !';
+  static const String emptyCart='Your Cart is Empty !';
+  static const String tapHeart='Tap heart button to start saving your favorite items .';
+  static const String tapCart='Tap add to cart button to add items in your cart .';
 
 }

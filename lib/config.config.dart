@@ -21,26 +21,30 @@ import 'features/edit_password/data/repositories/edit_password_repo_implement.da
 import 'features/edit_password/domain/repositories/edit_password_repo.dart'
     as _i10;
 import 'features/edit_password/domain/use_cases/edit_password_use_case.dart'
-    as _i23;
+    as _i26;
 import 'features/edit_password/presentation/bloc/edit_password_bloc.dart'
-    as _i24;
+    as _i27;
 import 'features/tabs/data/datasources/remote/home_remote_ds.dart' as _i4;
 import 'features/tabs/data/datasources/remote/home_remote_ds_implement.dart'
     as _i5;
 import 'features/tabs/data/repositories/home_repo_implement.dart' as _i9;
 import 'features/tabs/domain/repositories/home_repo.dart' as _i8;
 import 'features/tabs/domain/use_cases/add_to_Cart_use_case.dart' as _i12;
+import 'features/tabs/domain/use_cases/add_to_fav_use_case.dart' as _i22;
 import 'features/tabs/domain/use_cases/clear_cart_use_case.dart' as _i13;
 import 'features/tabs/domain/use_cases/delete_cart_item_use_case.dart' as _i14;
 import 'features/tabs/domain/use_cases/get_brands_use_case.dart' as _i15;
 import 'features/tabs/domain/use_cases/get_cart_use_case.dart' as _i16;
 import 'features/tabs/domain/use_cases/get_categories_use_case.dart' as _i17;
+import 'features/tabs/domain/use_cases/get_fav_use_case.dart' as _i23;
 import 'features/tabs/domain/use_cases/get_products_use_case.dart' as _i18;
 import 'features/tabs/domain/use_cases/get_subCategories_use_case.dart' as _i19;
+import 'features/tabs/domain/use_cases/remove_product_fromFav_use_case.dart'
+    as _i24;
 import 'features/tabs/domain/use_cases/update_cart_count_use_case.dart' as _i20;
 import 'features/tabs/domain/use_cases/update_product_count_use_case.dart'
     as _i21;
-import 'features/tabs/presentation/bloc/home_bloc.dart' as _i22;
+import 'features/tabs/presentation/bloc/home_bloc.dart' as _i25;
 
 extension GetItInjectableX on _i1.GetIt {
 // initializes the registration of main-scope dependencies inside of GetIt
@@ -82,7 +86,13 @@ extension GetItInjectableX on _i1.GetIt {
         () => _i20.UpdateCartCountUseCase(gh<_i8.HomeRepo>()));
     gh.factory<_i21.UpdateProductCountUseCase>(
         () => _i21.UpdateProductCountUseCase(gh<_i8.HomeRepo>()));
-    gh.factory<_i22.HomeBloc>(() => _i22.HomeBloc(
+    gh.factory<_i22.AddToFavUseCase>(
+        () => _i22.AddToFavUseCase(gh<_i8.HomeRepo>()));
+    gh.factory<_i23.GetFavUseCase>(
+        () => _i23.GetFavUseCase(gh<_i8.HomeRepo>()));
+    gh.factory<_i24.DeleteFavItemUseCase>(
+        () => _i24.DeleteFavItemUseCase(gh<_i8.HomeRepo>()));
+    gh.factory<_i25.HomeBloc>(() => _i25.HomeBloc(
           getAllCategoriesUseCase: gh<_i17.GetAllCategoriesUseCase>(),
           getAllBrandsUseCase: gh<_i15.GetAllBrandsUseCase>(),
           getCategoriesOnCategoryUseCase:
@@ -94,11 +104,14 @@ extension GetItInjectableX on _i1.GetIt {
           deleteCartItemUseCase: gh<_i14.DeleteCartItemUseCase>(),
           updateCartCountUseCase: gh<_i20.UpdateCartCountUseCase>(),
           updateProductCountUseCase: gh<_i21.UpdateProductCountUseCase>(),
+          addToFavUseCase: gh<_i22.AddToFavUseCase>(),
+          getFavUseCase: gh<_i23.GetFavUseCase>(),
+          deleteFavItemUseCase: gh<_i24.DeleteFavItemUseCase>(),
         ));
-    gh.factory<_i23.EditPasswordUseCase>(
-        () => _i23.EditPasswordUseCase(gh<_i10.EditPasswordRepo>()));
-    gh.factory<_i24.EditPasswordBloc>(() => _i24.EditPasswordBloc(
-        editPasswordUseCase: gh<_i23.EditPasswordUseCase>()));
+    gh.factory<_i26.EditPasswordUseCase>(
+        () => _i26.EditPasswordUseCase(gh<_i10.EditPasswordRepo>()));
+    gh.factory<_i27.EditPasswordBloc>(() => _i27.EditPasswordBloc(
+        editPasswordUseCase: gh<_i26.EditPasswordUseCase>()));
     return this;
   }
 }

@@ -7,4 +7,5 @@ class AppRoutesName {
   static const String cart = "Cart";
    static const String layout = "Layout";
    static const String editPassword = "Edit Password";
+   static const String editPasswordSuccess = "Edit Password Success";
 }

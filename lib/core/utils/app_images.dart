@@ -17,4 +17,8 @@ class AppImages{
   static const String carousel3='assets/images/3.png';
   static const String edit='assets/images/ic_edit.png';
   static const String editPassword='assets/images/edit_password.jpg';
+  static const String editPasswordSuccess='assets/images/edit_password_success.jpg';
+  static const String box='assets/images/empty_box.png';
+  static const String addedFav='assets/images/add_fav.png';
+  static const String notFav='assets/images/not_fav.png';
 }

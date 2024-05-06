@@ -50,7 +50,7 @@ class HomeTab extends StatelessWidget {
                 SizedBox(height: 12.h),
                 SizedBox(
                   width: double.infinity,
-                  height: 300.h,
+                  height: 305.h,
                   child: Column(
                     children: [
                       Expanded(

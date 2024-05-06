@@ -1,23 +1,25 @@
-
 import 'package:e_commerce_app/features/tabs/data/models/AddToCartModel.dart';
+import 'package:e_commerce_app/features/tabs/data/models/FavModel.dart';
 import 'package:e_commerce_app/features/tabs/data/models/CategoriesOnCategoryModel.dart';
 import 'package:e_commerce_app/features/tabs/data/models/DeleteCartItemModel.dart';
 import 'package:e_commerce_app/features/tabs/data/models/GetAllBrandsModel.dart';
 import 'package:e_commerce_app/features/tabs/data/models/GetAllCategoriesModel.dart';
 import 'package:e_commerce_app/features/tabs/data/models/GetAllProductsModel.dart';
 import 'package:e_commerce_app/features/tabs/data/models/GetCartModel.dart';
+import 'package:e_commerce_app/features/tabs/data/models/GetFavModel.dart';
 
-abstract class HomeRemoteDS{
-  Future<GetAllBrandsModel>getAllBrands();
-  Future<GetAllCategoriesModel>getAllCategories();
-  Future<CategoriesOnCategoryModel>getCategoriesOnCategory(String categoryId);
-  Future<GetAllProductsModel> getAllProducts(String categoryId,String sortBy);
+abstract class HomeRemoteDS {
+  Future<GetAllBrandsModel> getAllBrands();
+  Future<GetAllCategoriesModel> getAllCategories();
+  Future<CategoriesOnCategoryModel> getCategoriesOnCategory(String categoryId);
+  Future<GetAllProductsModel> getAllProducts(String categoryId, String sortBy);
   Future<AddToCartModel> addToCart(String productId);
   Future<GetCartModel> getCart();
-  Future<GetCartModel> updateCartCount(String productId,int count);
-  Future<GetAllProductsModel> updateProductCount(String productId,int count);
+  Future<GetCartModel> updateCartCount(String productId, int count);
+  Future<GetAllProductsModel> updateProductCount(String productId, int count);
   Future<DeleteCartItemModel> deleteCartItem(String cartItem);
   Future<String> clearCart();
-
-
+  Future<FavModel> addToFav(String productId);
+  Future<FavModel> deleteFromFav(String productId);
+  Future<GetFavModel> getFav();
 }

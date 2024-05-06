@@ -7,6 +7,9 @@ class EditPasswordState with _$EditPasswordState {
     @Default(false) bool showCurrentPassword,
     @Default(false) bool showNewPassword,
     @Default(false) bool showNewPasswordRe,
+    @Default(true) bool hideCurrentPassword,
+    @Default(true) bool hideNewPassword,
+    @Default(true) bool hideNewPasswordRe,
     SignInModel? signInModel,
     Failures? editPasswordFailure,
   }) = _EditPasswordState;

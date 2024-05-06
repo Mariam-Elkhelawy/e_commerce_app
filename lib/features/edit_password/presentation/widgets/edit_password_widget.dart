@@ -16,15 +16,20 @@ class EditPasswordWidget extends StatelessWidget {
   final String hintText;
   final VoidCallback onIconTapped;
   final TextEditingController myController;
-
   @override
   Widget build(BuildContext context) {
     return customTextFormField(
+      onValidate: (value) {
+        if (value == null || value.isEmpty) {
+          return hintText;
+        }
+      },
+        contentPadding: EdgeInsets.symmetric(vertical: 11.h, horizontal: 16.w),
         controller: myController,
         borderColor: AppColor.primaryColor.withOpacity(.6),
-        height: 55.h,
+        height: 65.h,
         suffixIcon: IconButton(
-          icon: Icon(isPasswordShown ? Icons.visibility : Icons.visibility_off,
+          icon: Icon(  isPasswordShown ? Icons.visibility : Icons.visibility_off,
               color: AppColor.suffixGrey),
           onPressed: () {
             onIconTapped();
@@ -32,7 +37,7 @@ class EditPasswordWidget extends StatelessWidget {
         ),
         hintText: hintText,
         hintStyle: AppStyles.bodyS.copyWith(color: AppColor.suffixGrey),
-        isPassword: isPasswordShown,
+        isPassword:! isPasswordShown,
         radius: 10.r);
   }
 }

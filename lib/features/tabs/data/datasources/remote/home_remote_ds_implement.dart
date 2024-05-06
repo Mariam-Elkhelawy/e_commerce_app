@@ -6,10 +6,12 @@ import 'package:e_commerce_app/features/tabs/data/datasources/remote/home_remote
 import 'package:e_commerce_app/features/tabs/data/models/AddToCartModel.dart';
 import 'package:e_commerce_app/features/tabs/data/models/CategoriesOnCategoryModel.dart';
 import 'package:e_commerce_app/features/tabs/data/models/DeleteCartItemModel.dart';
+import 'package:e_commerce_app/features/tabs/data/models/FavModel.dart';
 import 'package:e_commerce_app/features/tabs/data/models/GetAllBrandsModel.dart';
 import 'package:e_commerce_app/features/tabs/data/models/GetAllCategoriesModel.dart';
 import 'package:e_commerce_app/features/tabs/data/models/GetAllProductsModel.dart';
 import 'package:e_commerce_app/features/tabs/data/models/GetCartModel.dart';
+import 'package:e_commerce_app/features/tabs/data/models/GetFavModel.dart';
 
 import 'package:injectable/injectable.dart';
 
@@ -17,6 +19,7 @@ import 'package:injectable/injectable.dart';
 class HomeRemoteDSImplementation implements HomeRemoteDS {
   ApiManager apiManager;
   HomeRemoteDSImplementation(this.apiManager);
+  var token = CacheHelper.getData('token');
 
   @override
   Future<GetAllBrandsModel> getAllBrands() async {
@@ -68,7 +71,6 @@ class HomeRemoteDSImplementation implements HomeRemoteDS {
 
   @override
   Future<AddToCartModel> addToCart(String productId) async {
-    var token = CacheHelper.getData('token');
     var response = await apiManager.postData(EndPoints.addToCart,
         body: {'productId': productId}, headers: {'token': token});
     AddToCartModel addToCartModel = AddToCartModel.fromJson(response.data);
@@ -77,7 +79,6 @@ class HomeRemoteDSImplementation implements HomeRemoteDS {
 
   @override
   Future<GetCartModel> getCart() async {
-    var token = CacheHelper.getData('token');
     var response = await apiManager
         .getData(EndPoints.addToCart, headers: {'token': token});
     GetCartModel getCartModel = GetCartModel.fromJson(response.data);
@@ -86,14 +87,12 @@ class HomeRemoteDSImplementation implements HomeRemoteDS {
 
   @override
   Future<String> clearCart() async {
-    var token = CacheHelper.getData('token');
     await apiManager.deleteData(EndPoints.addToCart, headers: {'token': token});
     return 'Success';
   }
 
   @override
   Future<DeleteCartItemModel> deleteCartItem(String cartItem) async {
-    var token = CacheHelper.getData('token');
     var response = await apiManager.deleteData(
         EndPoints.deleteCartItem(cartItem),
         headers: {'token': token});
@@ -104,7 +103,6 @@ class HomeRemoteDSImplementation implements HomeRemoteDS {
 
   @override
   Future<GetCartModel> updateCartCount(String productId, int count) async {
-    var token = CacheHelper.getData('token');
     var response = await apiManager.putData('${EndPoints.addToCart}/$productId',
         body: {'count': count}, headers: {'token': token});
     GetCartModel getCartModel = GetCartModel.fromJson(response.data);
@@ -112,11 +110,37 @@ class HomeRemoteDSImplementation implements HomeRemoteDS {
   }
 
   @override
-  Future<GetAllProductsModel> updateProductCount(String productId, int count)async {
-    var token = CacheHelper.getData('token');
+  Future<GetAllProductsModel> updateProductCount(
+      String productId, int count) async {
     var response = await apiManager.putData('${EndPoints.addToCart}/$productId',
         body: {'count': count}, headers: {'token': token});
-    GetAllProductsModel getAllProductsModel = GetAllProductsModel.fromJson(response.data);
+    GetAllProductsModel getAllProductsModel =
+        GetAllProductsModel.fromJson(response.data);
     return getAllProductsModel;
+  }
+
+  @override
+  Future<FavModel> addToFav(String productId) async {
+    var response = await apiManager.postData(EndPoints.wishlist,
+        headers: {'token': token}, body: {'productId': productId});
+    FavModel favModel = FavModel.fromJson(response.data);
+    return favModel;
+  }
+
+  @override
+  Future<FavModel> deleteFromFav(String productId) async {
+    var response = await apiManager.deleteData(
+        '${EndPoints.wishlist}/$productId',
+        headers: {'token': token});
+    FavModel favModel = FavModel.fromJson(response.data);
+    return favModel;
+  }
+
+  @override
+  Future<GetFavModel> getFav() async {
+    var response =
+        await apiManager.getData(EndPoints.wishlist, headers: {'token': token});
+    GetFavModel getFavModel = GetFavModel.fromJson(response.data);
+    return getFavModel;
   }
 }

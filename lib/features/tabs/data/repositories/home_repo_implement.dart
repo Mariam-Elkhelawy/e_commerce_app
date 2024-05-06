@@ -4,10 +4,12 @@ import 'package:e_commerce_app/features/tabs/data/datasources/remote/home_remote
 import 'package:e_commerce_app/features/tabs/data/models/AddToCartModel.dart';
 import 'package:e_commerce_app/features/tabs/data/models/CategoriesOnCategoryModel.dart';
 import 'package:e_commerce_app/features/tabs/data/models/DeleteCartItemModel.dart';
+import 'package:e_commerce_app/features/tabs/data/models/FavModel.dart';
 import 'package:e_commerce_app/features/tabs/data/models/GetAllBrandsModel.dart';
 import 'package:e_commerce_app/features/tabs/data/models/GetAllCategoriesModel.dart';
 import 'package:e_commerce_app/features/tabs/data/models/GetAllProductsModel.dart';
 import 'package:e_commerce_app/features/tabs/data/models/GetCartModel.dart';
+import 'package:e_commerce_app/features/tabs/data/models/GetFavModel.dart';
 import 'package:e_commerce_app/features/tabs/domain/repositories/home_repo.dart';
 import 'package:injectable/injectable.dart';
 
@@ -152,6 +154,48 @@ class HomeRepoImplementation implements HomeRepo {
       String productId, int count) async {
     try {
       var result = await homeRemoteDS.updateProductCount(productId, count);
+      return Right(result);
+    } catch (e) {
+      return Left(
+        RemoteFailures(
+          e.toString(),
+        ),
+      );
+    }
+  }
+
+  @override
+  Future<Either<Failures, FavModel>> addToFav(String productId)async {
+    try {
+      var result = await homeRemoteDS.addToFav(productId);
+      return Right(result);
+    } catch (e) {
+      return Left(
+        RemoteFailures(
+          e.toString(),
+        ),
+      );
+    }
+  }
+
+  @override
+  Future<Either<Failures, FavModel>> deleteFromFav(String productId) async{
+    try {
+      var result = await homeRemoteDS.deleteFromFav(productId);
+      return Right(result);
+    } catch (e) {
+      return Left(
+        RemoteFailures(
+          e.toString(),
+        ),
+      );
+    }
+  }
+
+  @override
+  Future<Either<Failures, GetFavModel>> getFav() async{
+    try {
+      var result = await homeRemoteDS.getFav();
       return Right(result);
     } catch (e) {
       return Left(

@@ -26,19 +26,31 @@ class EditPasswordBloc extends Bloc<EditPasswordEvent, EditPasswordState> {
       : super(const EditPasswordState()) {
     on<EditPasswordEvent>((event, emit) async {
       if (event is ShowCurrentPasswordEvent) {
-        emit(state.copyWith(showCurrentPassword: true));
+        emit(
+          state.copyWith(showCurrentPassword: true, hideCurrentPassword: false),
+        );
       } else if (event is HideCurrentPasswordEvent) {
-        emit(state.copyWith(showCurrentPassword: false));
+        emit(
+          state.copyWith(hideCurrentPassword: true, showCurrentPassword: false),
+        );
       }
       if (event is ShowNewPasswordEvent) {
-        emit(state.copyWith(showNewPassword: true));
+        emit(
+          state.copyWith(showNewPassword: true, hideNewPassword: false),
+        );
       } else if (event is HideNewPasswordEvent) {
-        emit(state.copyWith(showNewPassword: false));
+        emit(
+          state.copyWith(hideNewPassword: true, showNewPassword: false),
+        );
       }
       if (event is ShowNewPasswordReEvent) {
-        emit(state.copyWith(showNewPasswordRe: true));
+        emit(
+          state.copyWith(showNewPasswordRe: true, hideNewPasswordRe: false),
+        );
       } else if (event is HideNewPasswordReEvent) {
-        emit(state.copyWith(showNewPasswordRe: false));
+        emit(
+          state.copyWith(hideNewPasswordRe: true, showNewPasswordRe: false),
+        );
       }
       if (event is EditPasswordButtonEvent) {
         emit(state.copyWith(editPasswordStatus: ScreenStatus.loading));

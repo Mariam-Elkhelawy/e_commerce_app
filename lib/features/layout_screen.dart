@@ -25,7 +25,8 @@ class LayoutScreen extends StatelessWidget {
         ..add(const GetCartEvent())
         ..add(const GetBrandsEvent())
         ..add(const GetCategoriesEvent())
-        ..add(const GetCategoriesEvent()),
+        ..add(const GetCategoriesEvent())
+        ..add(const GetFavEvent()),
       child: BlocConsumer<HomeBloc, HomeState>(listener: (context, state) {
         // if (state.getBrandsStatus == ScreenStatus.loading ||
         //     state.getCategoriesStatus == ScreenStatus.loading ||
@@ -41,17 +42,14 @@ class LayoutScreen extends StatelessWidget {
         //       );
         //     },
         //   );
-        if (
-             state.getBrandsStatus == ScreenStatus.success ||
-               state.getCategoriesStatus == ScreenStatus.success ||
+        if (state.getBrandsStatus == ScreenStatus.success ||
+            state.getCategoriesStatus == ScreenStatus.success ||
             // state.addToCartStatus == ScreenStatus.success ||
-                 state.getProductsStatus == ScreenStatus.success ||
-                state.getCartStatus == ScreenStatus.success
-             ||  state.getSubCategoriesStatus == ScreenStatus.success
-            ) {
+            state.getProductsStatus == ScreenStatus.success ||
+            state.getCartStatus == ScreenStatus.success ||
+            state.getSubCategoriesStatus == ScreenStatus.success) {
           BlocProvider.of<HomeBloc>(context).add(const GetCartEvent());
-        }
-        else   if (state.addToCartStatus == ScreenStatus.success) {
+        } else if (state.addToCartStatus == ScreenStatus.success) {
           BlocProvider.of<HomeBloc>(context).add(const GetCartEvent());
           Fluttertoast.showToast(
               msg: "Product added successfully to your cart",
@@ -68,14 +66,14 @@ class LayoutScreen extends StatelessWidget {
           // state.getProductsStatus!=ScreenStatus.loading? CategoryTab():ProductScreen(),
           const CategoryTab(),
           const FavTab(),
-           ProfileTab()
+          const ProfileTab()
         ];
         return Scaffold(
           appBar: customAppBar(
               context: context,
               formFieldWidth: 348.w,
               cartItemsCount: state.cartItemsCount,
-          isProfile: state.currentIndex==3),
+              isProfile: state.currentIndex == 3),
           bottomNavigationBar: SizedBox(
             height: 56.h,
             child: ClipRRect(
