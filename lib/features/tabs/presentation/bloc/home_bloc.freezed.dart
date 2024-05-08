@@ -3900,6 +3900,7 @@ mixin _$HomeState {
   String get message => throw _privateConstructorUsedError;
   int get cartItemsCount => throw _privateConstructorUsedError;
   int get productItemCount => throw _privateConstructorUsedError;
+  List<String?>? get favIds => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $HomeStateCopyWith<HomeState> get copyWith =>
@@ -3951,7 +3952,8 @@ abstract class $HomeStateCopyWith<$Res> {
       Failures? updateProductCountFailure,
       String message,
       int cartItemsCount,
-      int productItemCount});
+      int productItemCount,
+      List<String?>? favIds});
 }
 
 /// @nodoc
@@ -4007,6 +4009,7 @@ class _$HomeStateCopyWithImpl<$Res, $Val extends HomeState>
     Object? message = null,
     Object? cartItemsCount = null,
     Object? productItemCount = null,
+    Object? favIds = freezed,
   }) {
     return _then(_value.copyWith(
       getBrandsStatus: null == getBrandsStatus
@@ -4169,6 +4172,10 @@ class _$HomeStateCopyWithImpl<$Res, $Val extends HomeState>
           ? _value.productItemCount
           : productItemCount // ignore: cast_nullable_to_non_nullable
               as int,
+      favIds: freezed == favIds
+          ? _value.favIds
+          : favIds // ignore: cast_nullable_to_non_nullable
+              as List<String?>?,
     ) as $Val);
   }
 }
@@ -4221,7 +4228,8 @@ abstract class _$$HomeStateImplCopyWith<$Res>
       Failures? updateProductCountFailure,
       String message,
       int cartItemsCount,
-      int productItemCount});
+      int productItemCount,
+      List<String?>? favIds});
 }
 
 /// @nodoc
@@ -4275,6 +4283,7 @@ class __$$HomeStateImplCopyWithImpl<$Res>
     Object? message = null,
     Object? cartItemsCount = null,
     Object? productItemCount = null,
+    Object? favIds = freezed,
   }) {
     return _then(_$HomeStateImpl(
       getBrandsStatus: null == getBrandsStatus
@@ -4437,6 +4446,10 @@ class __$$HomeStateImplCopyWithImpl<$Res>
           ? _value.productItemCount
           : productItemCount // ignore: cast_nullable_to_non_nullable
               as int,
+      favIds: freezed == favIds
+          ? _value._favIds
+          : favIds // ignore: cast_nullable_to_non_nullable
+              as List<String?>?,
     ));
   }
 }
@@ -4484,7 +4497,9 @@ class _$HomeStateImpl implements _HomeState {
       this.updateProductCountFailure,
       this.message = '',
       this.cartItemsCount = 0,
-      this.productItemCount = 1});
+      this.productItemCount = 1,
+      final List<String?>? favIds})
+      : _favIds = favIds;
 
   @override
   @JsonKey()
@@ -4584,10 +4599,19 @@ class _$HomeStateImpl implements _HomeState {
   @override
   @JsonKey()
   final int productItemCount;
+  final List<String?>? _favIds;
+  @override
+  List<String?>? get favIds {
+    final value = _favIds;
+    if (value == null) return null;
+    if (_favIds is EqualUnmodifiableListView) return _favIds;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
 
   @override
   String toString() {
-    return 'HomeState(getBrandsStatus: $getBrandsStatus, getCategoriesStatus: $getCategoriesStatus, getSubCategoriesStatus: $getSubCategoriesStatus, getAllBrandsModel: $getAllBrandsModel, categoriesOnCategoryModel: $categoriesOnCategoryModel, getSubCategoriesFailure: $getSubCategoriesFailure, currentIndex: $currentIndex, categoryIndex: $categoryIndex, getAllCategoriesModel: $getAllCategoriesModel, getBrandsFailure: $getBrandsFailure, getCategoriesFailure: $getCategoriesFailure, getProductsStatus: $getProductsStatus, addToCartStatus: $addToCartStatus, getCartStatus: $getCartStatus, clearCartStatus: $clearCartStatus, deleteCartItemStatus: $deleteCartItemStatus, addToFavStatus: $addToFavStatus, getFavStatus: $getFavStatus, deleteFavItemStatus: $deleteFavItemStatus, updateCartCountStatus: $updateCartCountStatus, updateProductCountStatus: $updateProductCountStatus, getAllProductsModel: $getAllProductsModel, deleteCartItemModel: $deleteCartItemModel, addToCartModel: $addToCartModel, getCartModel: $getCartModel, favModel: $favModel, getFavModel: $getFavModel, getProductsFailure: $getProductsFailure, addToCartFailure: $addToCartFailure, getCartFailure: $getCartFailure, clearCartFailure: $clearCartFailure, deleteCartItemFailure: $deleteCartItemFailure, addToFavFailure: $addToFavFailure, getFavFailure: $getFavFailure, deleteFavItemFailure: $deleteFavItemFailure, updateCartCountFailure: $updateCartCountFailure, updateProductCountFailure: $updateProductCountFailure, message: $message, cartItemsCount: $cartItemsCount, productItemCount: $productItemCount)';
+    return 'HomeState(getBrandsStatus: $getBrandsStatus, getCategoriesStatus: $getCategoriesStatus, getSubCategoriesStatus: $getSubCategoriesStatus, getAllBrandsModel: $getAllBrandsModel, categoriesOnCategoryModel: $categoriesOnCategoryModel, getSubCategoriesFailure: $getSubCategoriesFailure, currentIndex: $currentIndex, categoryIndex: $categoryIndex, getAllCategoriesModel: $getAllCategoriesModel, getBrandsFailure: $getBrandsFailure, getCategoriesFailure: $getCategoriesFailure, getProductsStatus: $getProductsStatus, addToCartStatus: $addToCartStatus, getCartStatus: $getCartStatus, clearCartStatus: $clearCartStatus, deleteCartItemStatus: $deleteCartItemStatus, addToFavStatus: $addToFavStatus, getFavStatus: $getFavStatus, deleteFavItemStatus: $deleteFavItemStatus, updateCartCountStatus: $updateCartCountStatus, updateProductCountStatus: $updateProductCountStatus, getAllProductsModel: $getAllProductsModel, deleteCartItemModel: $deleteCartItemModel, addToCartModel: $addToCartModel, getCartModel: $getCartModel, favModel: $favModel, getFavModel: $getFavModel, getProductsFailure: $getProductsFailure, addToCartFailure: $addToCartFailure, getCartFailure: $getCartFailure, clearCartFailure: $clearCartFailure, deleteCartItemFailure: $deleteCartItemFailure, addToFavFailure: $addToFavFailure, getFavFailure: $getFavFailure, deleteFavItemFailure: $deleteFavItemFailure, updateCartCountFailure: $updateCartCountFailure, updateProductCountFailure: $updateProductCountFailure, message: $message, cartItemsCount: $cartItemsCount, productItemCount: $productItemCount, favIds: $favIds)';
   }
 
   @override
@@ -4661,7 +4685,8 @@ class _$HomeStateImpl implements _HomeState {
             (identical(other.updateProductCountFailure, updateProductCountFailure) || other.updateProductCountFailure == updateProductCountFailure) &&
             (identical(other.message, message) || other.message == message) &&
             (identical(other.cartItemsCount, cartItemsCount) || other.cartItemsCount == cartItemsCount) &&
-            (identical(other.productItemCount, productItemCount) || other.productItemCount == productItemCount));
+            (identical(other.productItemCount, productItemCount) || other.productItemCount == productItemCount) &&
+            const DeepCollectionEquality().equals(other._favIds, _favIds));
   }
 
   @override
@@ -4706,7 +4731,8 @@ class _$HomeStateImpl implements _HomeState {
         updateProductCountFailure,
         message,
         cartItemsCount,
-        productItemCount
+        productItemCount,
+        const DeepCollectionEquality().hash(_favIds)
       ]);
 
   @JsonKey(ignore: true)
@@ -4757,7 +4783,8 @@ abstract class _HomeState implements HomeState {
       final Failures? updateProductCountFailure,
       final String message,
       final int cartItemsCount,
-      final int productItemCount}) = _$HomeStateImpl;
+      final int productItemCount,
+      final List<String?>? favIds}) = _$HomeStateImpl;
 
   @override
   ScreenStatus get getBrandsStatus;
@@ -4839,6 +4866,8 @@ abstract class _HomeState implements HomeState {
   int get cartItemsCount;
   @override
   int get productItemCount;
+  @override
+  List<String?>? get favIds;
   @override
   @JsonKey(ignore: true)
   _$$HomeStateImplCopyWith<_$HomeStateImpl> get copyWith =>

@@ -35,7 +35,7 @@ class ProductDetailsScreen extends StatelessWidget {
             state.productItemCount,
           ),);
           Fluttertoast.showToast(
-              msg: "Product added successfully to your cart",
+              msg: AppStrings.productAdded,
               toastLength: Toast.LENGTH_SHORT,
               gravity: ToastGravity.BOTTOM,
               backgroundColor: AppColor.primaryColor,
@@ -233,8 +233,10 @@ class ProductDetailsScreen extends StatelessWidget {
                   fit: BoxFit.cover,
                   height: 90.h,
                   progressIndicatorBuilder: (context, url, downloadProgress) =>
-                      CircularProgressIndicator(
-                          value: downloadProgress.progress),
+                      Center(
+                        child: CircularProgressIndicator(
+                            value: downloadProgress.progress),
+                      ),
                   errorWidget: (context, url, error) =>
                       const Icon(Icons.image_not_supported_outlined, size: 30),
                 ),

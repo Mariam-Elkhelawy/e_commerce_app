@@ -8,4 +8,7 @@ class AppRoutesName {
    static const String layout = "Layout";
    static const String editPassword = "Edit Password";
    static const String editPasswordSuccess = "Edit Password Success";
+   static const String forgetPassword = "Forget Password";
+   static const String verifyEmail = "Verify Email";
+   static const String newPassword = "New Password ";
 }

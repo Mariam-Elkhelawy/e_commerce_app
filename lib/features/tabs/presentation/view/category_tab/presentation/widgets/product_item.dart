@@ -15,10 +15,12 @@ class ProductItem extends StatelessWidget {
       {super.key,
       required this.data,
       required this.index,
-      this.isHome = false});
+      this.isHome = false,
+      required this.isFav});
   final List<Data>? data;
   final int index;
   final bool isHome;
+  final bool isFav;
   @override
   Widget build(BuildContext context) {
     if (data?[index].priceAfterDiscount == 0) {
@@ -54,9 +56,10 @@ class ProductItem extends StatelessWidget {
                       imageUrl: data?[index].imageCover ?? 'Image',
                       fit: BoxFit.cover,
                       progressIndicatorBuilder:
-                          (context, url, downloadProgress) =>
-                              CircularProgressIndicator(
-                                  value: downloadProgress.progress),
+                          (context, url, downloadProgress) => Center(
+                        child: CircularProgressIndicator(
+                            value: downloadProgress.progress),
+                      ),
                       errorWidget: (context, url, error) =>
                           const Icon(Icons.image_not_supported_outlined),
                     ),
@@ -64,21 +67,24 @@ class ProductItem extends StatelessWidget {
                 ),
                 Positioned(
                   top: 8.h,
-                  left: isHome ? 145.w : 150.w,
-                  child: Image.asset(AppImages.notFav)
-                  // Container(
-                  //   width: 30.w,
-                  //   height: 30.h,
-                  //   decoration: const BoxDecoration(
-                  //       color: AppColor.whiteColor, shape: BoxShape.circle),
-                  //   child: SvgPicture.asset(
-                  //     AppImages.fav,
-                  //     // width: isHome ? 50.w : 24.w,
-                  //     // height: isHome ? 100.h : 24.h,
-                  //     colorFilter: const ColorFilter.mode(
-                  //         AppColor.primaryColor, BlendMode.srcIn),
-                  //   ),
-                  // ),
+                  left: isHome ? 135.w : 140.w,
+                  child: InkWell(
+                    onTap: () {
+                      print(isFav);
+                      if (!isFav) {
+                        BlocProvider.of<HomeBloc>(context).add(
+                          AddToFavEvent(data?[index].id ?? ""),
+                        );
+                      } else {
+                        BlocProvider.of<HomeBloc>(context).add(
+                          DeleteFavItemEvent(data?[index].id ?? ""),
+                        );
+                      }
+                    },
+                    child: isFav
+                        ? Image.asset(AppImages.addedFav)
+                        : Image.asset(AppImages.notFav),
+                  ),
                 )
               ],
             ),

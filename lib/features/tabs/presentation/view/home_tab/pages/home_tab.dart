@@ -168,7 +168,11 @@ class HomeTab extends StatelessWidget {
                                     itemBuilder: (context, index) {
                                       return ProductItem(
                                           isHome: true,
-                                          data: productState
+                                          isFav: state.favIds?.contains(state
+                                              .getAllProductsModel
+                                              ?.data?[index]
+                                              .id) ??
+                                              false,                                          data: productState
                                               .getAllProductsModel?.data,
                                           index: index);
                                     },
@@ -248,6 +252,11 @@ class HomeTab extends StatelessWidget {
                                     itemBuilder: (context, index) {
                                       return ProductItem(
                                           isHome: true,
+                                          isFav: state.favIds?.contains(state
+                                                  .getAllProductsModel
+                                                  ?.data?[index]
+                                                  .id) ??
+                                              false,
                                           data: productState
                                               .getAllProductsModel?.data,
                                           index: index);

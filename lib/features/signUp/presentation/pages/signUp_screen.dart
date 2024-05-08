@@ -1,5 +1,4 @@
 import 'package:e_commerce_app/config/routes/app_routes_name.dart';
-import 'package:e_commerce_app/core/cache/shared_prefrences.dart';
 import 'package:e_commerce_app/core/components/reusable_components.dart';
 import 'package:e_commerce_app/core/enums/enums.dart';
 import 'package:e_commerce_app/core/utils/app_colors.dart';
@@ -121,6 +120,7 @@ class SignUpScreen extends StatelessWidget {
                   ),
                   SizedBox(height: 24.h),
                   customTextFormField(
+                    isPassword: true,
                     height: 64.h,
                     hintText: AppStrings.passwordHint,
                     hintStyle: AppStyles.bodyS,

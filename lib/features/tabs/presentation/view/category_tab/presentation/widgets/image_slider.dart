@@ -5,8 +5,6 @@ import 'package:e_commerce_app/core/utils/app_colors.dart';
 import 'package:e_commerce_app/core/utils/app_images.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/svg.dart';
-
 import '../../../../../data/models/GetAllProductsModel.dart';
 
 
@@ -34,7 +32,7 @@ class _ImageSliderState extends State<ImageSlider> {
                 fit: BoxFit.cover,
                 width: double.infinity,
                 progressIndicatorBuilder: (context, url, downloadProgress) =>
-                    CircularProgressIndicator(value: downloadProgress.progress),
+                    Center(child: CircularProgressIndicator(value: downloadProgress.progress)),
                 errorWidget: (context, url, error) =>
                     const Icon(Icons.image_not_supported_outlined, size: 100),
               ),
@@ -63,20 +61,8 @@ class _ImageSliderState extends State<ImageSlider> {
         Positioned(
           top: 10.h,
           left: 345.w,
-          child: Container(
-            width: 30.w,
-            height: 30.h,
-            decoration: const BoxDecoration(
-                color: AppColor.whiteColor, shape: BoxShape.circle),
-            child: SvgPicture.asset(
-              AppImages.fav,
-              width: 24.w,
-              height: 24.h,
-              colorFilter: const ColorFilter.mode(
-                  AppColor.primaryColor, BlendMode.srcIn),
-            ),
-          ),
-        ),
+          child: Image.asset(AppImages.notFav),),
+
         Positioned(
           top: 295.h,
           left: 145.w,

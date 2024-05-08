@@ -12,13 +12,16 @@ class EditPasswordSuccess extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    bool isReset = ModalRoute.of(context)!.settings.arguments as bool;
     return Scaffold(
       backgroundColor: AppColor.whiteColor,
       body: Column(
         children: [
           SizedBox(height: 100.h),
           Text(
-            AppStrings.passwordEditSuccess,
+            isReset
+                ? AppStrings.passwordResetSuccess
+                : AppStrings.passwordEditSuccess,
             style: AppStyles.bodyM.copyWith(color: AppColor.textColor),
           ),
           SizedBox(height: 30.h),

@@ -164,7 +164,7 @@ class EditPasswordScreen extends StatelessWidget {
                                       .rePasswordController
                                       .text));
                           Navigator.pushNamed(
-                              context, AppRoutesName.editPasswordSuccess);
+                              context, AppRoutesName.editPasswordSuccess,arguments: false);
                         } else if (EditPasswordBloc.get(context)
                                 .newPasswordController
                                 .text !=

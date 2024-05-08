@@ -29,13 +29,17 @@ class ProductScreen extends StatelessWidget {
           ScaffoldMessenger.of(context).showSnackBar(SnackBar(
             content: const Row(
               children: [
-                Text("Product added successfully to your cart"),Spacer(),
-                Icon(Icons.check,color: AppColor.whiteColor,)
+                Text("Product added successfully to your cart"),
+                Spacer(),
+                Icon(
+                  Icons.check,
+                  color: AppColor.whiteColor,
+                )
               ],
             ),
             backgroundColor: AppColor.primaryColor,
             shape: OutlineInputBorder(borderRadius: BorderRadius.circular(5)),
-          ));
+          ),);
           Fluttertoast.showToast(
               msg: "Product added successfully to your cart",
               toastLength: Toast.LENGTH_LONG,
@@ -57,7 +61,12 @@ class ProductScreen extends StatelessWidget {
             child: GridView.builder(
               itemBuilder: (context, index) {
                 return ProductItem(
-                    data: state.getAllProductsModel?.data ?? [], index: index);
+                  data: state.getAllProductsModel?.data ?? [],
+                  index: index,
+                  isFav: state.favIds?.contains(
+                          state.getAllProductsModel?.data?[index].id) ??
+                      false,
+                );
               },
               itemCount: state.getAllProductsModel?.data?.length ?? 0,
               gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(

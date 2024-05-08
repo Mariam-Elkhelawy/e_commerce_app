@@ -2,6 +2,9 @@ import 'package:e_commerce_app/config/routes/app_routes_name.dart';
 import 'package:e_commerce_app/core/components/reusable_components.dart';
 import 'package:e_commerce_app/features/edit_password/presentation/pages/edit_password_screen.dart';
 import 'package:e_commerce_app/features/edit_password/presentation/pages/edit_password_success.dart';
+import 'package:e_commerce_app/features/forget_password/presentation/pages/forget_password_screen.dart';
+import 'package:e_commerce_app/features/forget_password/presentation/pages/new_password_screen.dart';
+import 'package:e_commerce_app/features/forget_password/presentation/pages/verify_email_scrren.dart';
 import 'package:e_commerce_app/features/layout_screen.dart';
 import 'package:e_commerce_app/features/login/presentation/pages/login_screen.dart';
 import 'package:e_commerce_app/features/signUp/presentation/pages/signUp_screen.dart';
@@ -42,6 +45,15 @@ class AppRoutes {
       case AppRoutesName.editPasswordSuccess:
         return MaterialPageRoute(
             builder: (context) => const EditPasswordSuccess(), settings: settings);
+        case AppRoutesName.forgetPassword:
+        return MaterialPageRoute(
+            builder: (context) => ForgetPasswordScreen(), settings: settings);
+        case AppRoutesName.verifyEmail:
+        return MaterialPageRoute(
+            builder: (context) => const VerifyEmailScreen(), settings: settings);
+        case AppRoutesName.newPassword:
+        return MaterialPageRoute(
+            builder: (context) => const NewPasswordScreen(), settings: settings);
       default:
         return MaterialPageRoute(
             builder: (context) => unDefinedRoute(), settings: settings);

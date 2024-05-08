@@ -118,11 +118,17 @@ class LoginScreen extends StatelessWidget {
                       ),
                     ),
                     SizedBox(height: 16.h),
-                    Text(
-                      AppStrings.forgotPassword,
-                      textAlign: TextAlign.end,
-                      style:
-                          AppStyles.bodyM.copyWith(fontWeight: FontWeight.w400),
+                    InkWell(
+                      onTap: () {
+                        Navigator.pushNamed(
+                            context, AppRoutesName.forgetPassword);
+                      },
+                      child: Text(
+                        AppStrings.forgotPassword,
+                        textAlign: TextAlign.end,
+                        style: AppStyles.bodyM
+                            .copyWith(fontWeight: FontWeight.w400),
+                      ),
                     ),
                     SizedBox(height: 56.h),
                     InkWell(

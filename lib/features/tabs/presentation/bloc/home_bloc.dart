@@ -10,7 +10,7 @@ import 'package:e_commerce_app/features/tabs/data/models/GetAllCategoriesModel.d
 import 'package:e_commerce_app/features/tabs/data/models/GetAllProductsModel.dart';
 import 'package:e_commerce_app/features/tabs/data/models/GetCartModel.dart';
 import 'package:e_commerce_app/features/tabs/data/models/GetFavModel.dart';
-import 'package:e_commerce_app/features/tabs/domain/use_cases/add_to_Cart_use_case.dart';
+import 'package:e_commerce_app/features/tabs/domain/use_cases/add_to_cart_use_case.dart';
 import 'package:e_commerce_app/features/tabs/domain/use_cases/add_to_fav_use_case.dart';
 import 'package:e_commerce_app/features/tabs/domain/use_cases/clear_cart_use_case.dart';
 import 'package:e_commerce_app/features/tabs/domain/use_cases/delete_cart_item_use_case.dart';
@@ -224,13 +224,16 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
     on<GetFavEvent>((event, emit) async {
       emit(state.copyWith(
           getFavStatus: ScreenStatus.loading,
-          addToFavStatus: ScreenStatus.init));
+          // addToFavStatus: ScreenStatus.init,
+      ));
       var result = await getFavUseCase.call();
       result.fold((l) {
         emit(state.copyWith(
             getFavStatus: ScreenStatus.failure, getFavFailure: l));
       }, (r) {
+        var ids = r.favData?.map((e) => e.id).toList();
         emit(state.copyWith(
+          favIds: ids ?? [],
           getFavStatus: ScreenStatus.success,
           getFavModel: r,
         ));
