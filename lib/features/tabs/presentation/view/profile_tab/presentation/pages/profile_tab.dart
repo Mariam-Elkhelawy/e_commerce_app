@@ -13,7 +13,6 @@ class ProfileTab extends StatelessWidget {
     var name = CacheHelper.getData('name') ?? 'Name';
     var email = CacheHelper.getData('email') ?? 'E-mail';
     var phone = CacheHelper.getData('phone') ?? 'Phone';
-    var password = CacheHelper.getData('password') ?? 'Password';
     return Padding(
       padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 10.h),
       child: SingleChildScrollView(
@@ -31,15 +30,16 @@ class ProfileTab extends StatelessWidget {
               onEditTap: () {},
             ),
             EditWidget(
-              text: password,
-              aboveText: AppStrings.abovePassword,
-              isPassword: true,
-              onEditTap: () {Navigator.pushNamed(context, AppRoutesName.editPassword);},
-            ),
-            EditWidget(
               text: phone,
               aboveText: AppStrings.abovePhone,
               onEditTap: () {},
+            ),
+            EditWidget(
+              text: 'Change Password',
+              aboveText: 'Privacy and Security',
+              onEditTap: () {
+                Navigator.pushNamed(context, AppRoutesName.editPassword);
+              },
             ),
           ],
         ),

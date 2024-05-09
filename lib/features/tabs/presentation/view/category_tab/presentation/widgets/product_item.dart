@@ -1,5 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:e_commerce_app/config/routes/app_routes_name.dart';
+import 'package:e_commerce_app/core/components/reusable_components.dart';
 import 'package:e_commerce_app/core/utils/app_colors.dart';
 import 'package:e_commerce_app/core/utils/app_images.dart';
 import 'package:e_commerce_app/core/utils/app_strings.dart';
@@ -75,10 +76,14 @@ class ProductItem extends StatelessWidget {
                         BlocProvider.of<HomeBloc>(context).add(
                           AddToFavEvent(data?[index].id ?? ""),
                         );
+                        customToast(message: AppStrings.favAdd);
+
                       } else {
                         BlocProvider.of<HomeBloc>(context).add(
                           DeleteFavItemEvent(data?[index].id ?? ""),
                         );
+                        customToast(message: AppStrings.favDelete);
+
                       }
                     },
                     child: isFav
@@ -156,6 +161,7 @@ class ProductItem extends StatelessWidget {
                         onTap: () {
                           BlocProvider.of<HomeBloc>(context)
                               .add(AddToCartEvent(data?[index].id ?? ''));
+                          customToast(message: AppStrings.cartAdd);
                         },
                         child: const Icon(Icons.add_circle,
                             color: AppColor.primaryColor, size: 30),

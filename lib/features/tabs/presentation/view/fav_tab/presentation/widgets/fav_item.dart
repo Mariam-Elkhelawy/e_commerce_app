@@ -119,6 +119,7 @@ class FavItem extends StatelessWidget {
                     BlocProvider.of<HomeBloc>(context).add(
                       const GetCartEvent(),
                     );
+                    customToast(message: AppStrings.cartAdd);
                   },
                   child: customButton(
                     padding: EdgeInsets.all(8.r),

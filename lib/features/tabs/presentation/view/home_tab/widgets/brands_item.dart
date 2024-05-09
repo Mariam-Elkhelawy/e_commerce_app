@@ -3,7 +3,6 @@ import 'package:e_commerce_app/core/utils/app_colors.dart';
 import 'package:e_commerce_app/core/utils/styles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
 import '../../../../data/models/GetAllBrandsModel.dart';
 
 class BrandsItem extends StatelessWidget {
@@ -29,8 +28,10 @@ class BrandsItem extends StatelessWidget {
               height: 122.h,
               // fit: BoxFit.cover,
               progressIndicatorBuilder: (context, url, downloadProgress) =>
-                  CircularProgressIndicator(
-                      value: downloadProgress.progress),
+                  Center(
+                child:
+                    CircularProgressIndicator(value: downloadProgress.progress),
+              ),
               errorWidget: (context, url, error) =>
                   const Icon(Icons.image_not_supported_outlined),
             ),

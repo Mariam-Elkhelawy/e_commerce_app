@@ -1,3 +1,4 @@
+import 'package:dio/dio.dart';
 import 'package:e_commerce_app/core/api/api_manager.dart';
 import 'package:e_commerce_app/core/api/end_points.dart';
 import 'package:e_commerce_app/features/forget_password/data/data_sources/remote/forget_password_remote_ds.dart';
@@ -9,10 +10,9 @@ class ForgetPasswordRemoteDSImplementation implements ForgetPasswordRemoteDs {
   ApiManager apiManager;
 
   ForgetPasswordRemoteDSImplementation(this.apiManager);
-
   @override
   Future<ForgetPasswordModel> forgetPassword(String email) async {
-    var response = await apiManager
+    Response response = await apiManager
         .postData(EndPoints.forgetPassword, body: {'email': email});
     ForgetPasswordModel forgetPasswordModel =
         ForgetPasswordModel.fromJson(response.data);

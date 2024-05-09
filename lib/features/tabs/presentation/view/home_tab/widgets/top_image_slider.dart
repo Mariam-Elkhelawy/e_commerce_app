@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class TopSlider extends StatelessWidget {
-   TopSlider({super.key});
+  TopSlider({super.key});
   final List<String> items = [
     AppImages.carousel1,
     AppImages.carousel2,
@@ -12,7 +12,7 @@ class TopSlider extends StatelessWidget {
   ];
   @override
   Widget build(BuildContext context) {
-    return                   CarouselSlider(
+    return CarouselSlider(
       items: items.map((e) {
         return Builder(
           builder: (context) {
@@ -41,7 +41,6 @@ class TopSlider extends StatelessWidget {
         enlargeFactor: 0.3,
         scrollDirection: Axis.horizontal,
       ),
-    )
-    ;
+    );
   }
 }

@@ -38,6 +38,8 @@ import 'features/forget_password/domain/use_cases/reset_password_use_case.dart'
     as _i17;
 import 'features/forget_password/domain/use_cases/verify_code_use_case.dart'
     as _i18;
+import 'features/forget_password/presentation/bloc/forget_password_bloc.dart'
+    as _i35;
 import 'features/tabs/data/datasources/remote/home_remote_ds.dart' as _i6;
 import 'features/tabs/data/datasources/remote/home_remote_ds_implement.dart'
     as _i7;
@@ -136,6 +138,11 @@ extension GetItInjectableX on _i1.GetIt {
         () => _i33.EditPasswordUseCase(gh<_i14.EditPasswordRepo>()));
     gh.factory<_i34.EditPasswordBloc>(() => _i34.EditPasswordBloc(
         editPasswordUseCase: gh<_i33.EditPasswordUseCase>()));
+    gh.factory<_i35.ForgetPasswordBloc>(() => _i35.ForgetPasswordBloc(
+          verifyCodeUseCase: gh<_i18.VerifyCodeUseCase>(),
+          resetPasswordUseCase: gh<_i17.ResetPasswordUseCase>(),
+          forgetPasswordUseCase: gh<_i16.ForgetPasswordUseCase>(),
+        ));
     return this;
   }
 }

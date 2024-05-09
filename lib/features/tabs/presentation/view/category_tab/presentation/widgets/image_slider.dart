@@ -1,16 +1,20 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:dots_indicator/dots_indicator.dart';
+import 'package:e_commerce_app/core/components/reusable_components.dart';
 import 'package:e_commerce_app/core/utils/app_colors.dart';
 import 'package:e_commerce_app/core/utils/app_images.dart';
+import 'package:e_commerce_app/core/utils/app_strings.dart';
+import 'package:e_commerce_app/features/tabs/presentation/bloc/home_bloc.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../../../data/models/GetAllProductsModel.dart';
 
-
 class ImageSlider extends StatefulWidget {
-  ImageSlider({super.key, required this.model});
+  ImageSlider({super.key, required this.model, required this.isFav});
   Data model;
+  final bool isFav;
 
   @override
   State<ImageSlider> createState() => _ImageSliderState();
@@ -32,7 +36,9 @@ class _ImageSliderState extends State<ImageSlider> {
                 fit: BoxFit.cover,
                 width: double.infinity,
                 progressIndicatorBuilder: (context, url, downloadProgress) =>
-                    Center(child: CircularProgressIndicator(value: downloadProgress.progress)),
+                    Center(
+                        child: CircularProgressIndicator(
+                            value: downloadProgress.progress)),
                 errorWidget: (context, url, error) =>
                     const Icon(Icons.image_not_supported_outlined, size: 100),
               ),
@@ -61,8 +67,26 @@ class _ImageSliderState extends State<ImageSlider> {
         Positioned(
           top: 10.h,
           left: 345.w,
-          child: Image.asset(AppImages.notFav),),
-
+          child: InkWell(
+            onTap: () {
+              print(widget.isFav);
+              if (!widget.isFav) {
+                BlocProvider.of<HomeBloc>(context).add(
+                  AddToFavEvent(widget.model.id ?? ""),
+                );
+                customToast(message: AppStrings.favAdd);
+              } else {
+                BlocProvider.of<HomeBloc>(context).add(
+                  DeleteFavItemEvent(widget.model.id ?? ""),
+                );
+                customToast(message: AppStrings.favDelete);
+              }
+            },
+            child: widget.isFav
+                ? Image.asset(AppImages.addedFav)
+                : Image.asset(AppImages.notFav),
+          ),
+        ),
         Positioned(
           top: 295.h,
           left: 145.w,

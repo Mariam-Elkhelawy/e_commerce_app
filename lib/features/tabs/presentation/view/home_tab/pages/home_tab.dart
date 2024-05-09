@@ -1,5 +1,6 @@
 import 'package:e_commerce_app/config.dart';
 import 'package:e_commerce_app/config/routes/app_routes_name.dart';
+import 'package:e_commerce_app/core/components/reusable_components.dart';
 import 'package:e_commerce_app/core/enums/enums.dart';
 import 'package:e_commerce_app/core/utils/app_colors.dart';
 import 'package:e_commerce_app/core/utils/app_images.dart';
@@ -129,18 +130,13 @@ class HomeTab extends StatelessWidget {
                       if (state.addToCartStatus == ScreenStatus.success) {
                         BlocProvider.of<HomeBloc>(context)
                             .add(const GetCartEvent());
-                        Fluttertoast.showToast(
-                            msg: "Product added successfully to your cart",
-                            toastLength: Toast.LENGTH_SHORT,
-                            gravity: ToastGravity.BOTTOM,
-                            backgroundColor: AppColor.primaryColor,
-                            timeInSecForIosWeb: 3,
-                            textColor: Colors.white,
-                            fontSize: 13.0);
+                        customToast(message: AppStrings.cartAdd);
                       }
                     },
                     builder: (context, productState) {
-                      return Column(
+                      return
+
+                        Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
@@ -169,10 +165,11 @@ class HomeTab extends StatelessWidget {
                                       return ProductItem(
                                           isHome: true,
                                           isFav: state.favIds?.contains(state
-                                              .getAllProductsModel
-                                              ?.data?[index]
-                                              .id) ??
-                                              false,                                          data: productState
+                                                  .getAllProductsModel
+                                                  ?.data?[index]
+                                                  .id) ??
+                                              false,
+                                          data: productState
                                               .getAllProductsModel?.data,
                                           index: index);
                                     },
@@ -206,21 +203,14 @@ class HomeTab extends StatelessWidget {
                 BlocProvider(
                   create: (context) => getIt<HomeBloc>()
                     ..add(
-                      const GetProductsEvent('', Constants.offers),
+                      const GetProductsEvent('', Constants.rating),
                     ),
                   child: BlocConsumer<HomeBloc, HomeState>(
                     listener: (context, state) {
                       if (state.addToCartStatus == ScreenStatus.success) {
                         BlocProvider.of<HomeBloc>(context)
                             .add(const GetCartEvent());
-                        Fluttertoast.showToast(
-                            msg: "Product added successfully to your cart",
-                            toastLength: Toast.LENGTH_SHORT,
-                            gravity: ToastGravity.BOTTOM,
-                            backgroundColor: AppColor.primaryColor,
-                            timeInSecForIosWeb: 3,
-                            textColor: Colors.white,
-                            fontSize: 13.0);
+                        customToast(message: AppStrings.cartAdd);
                       }
                     },
                     builder: (context, productState) {
@@ -228,7 +218,7 @@ class HomeTab extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            AppStrings.offers,
+                            AppStrings.rating,
                             style: AppStyles.bodyM.copyWith(
                               color: AppColor.textColor,
                             ),

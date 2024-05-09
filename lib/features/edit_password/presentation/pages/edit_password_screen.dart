@@ -24,38 +24,35 @@ class EditPasswordScreen extends StatelessWidget {
       create: (context) => getIt<EditPasswordBloc>(),
       child: BlocConsumer<EditPasswordBloc, EditPasswordState>(
           listener: (context, state) {
-        // if (state.showCurrentPassword == true) {
-        //   isCurrentShown = true;
-        // }
-        // if (state.hideCurrentPassword == true) {
-        //   isCurrentShown = false;
-        // }
-        // if (state.showNewPassword == true) {
-        //   isNewShown = true;
-        // }
-        // if (state.hideNewPassword == true) {
-        //   isNewShown = false;
-        // }
-        // if (state.showNewPasswordRe == true) {
-        //   isNewReShown = true;
-        // }
-        // if (state.hideNewPasswordRe == true) {
-        //   isNewReShown = false;
-        // }
+        if (state.showCurrentPassword == true) {
+          isCurrentShown = true;
+        }
+        if (state.hideCurrentPassword == true) {
+          isCurrentShown = false;
+        }
+        if (state.showNewPassword == true) {
+          isNewShown = true;
+        }
+        if (state.hideNewPassword == true) {
+          isNewShown = false;
+        }
+        if (state.showNewPasswordRe == true) {
+          isNewReShown = true;
+        }
+        if (state.hideNewPasswordRe == true) {
+          isNewReShown = false;
+        }
         // if (state.editPasswordStatus == ScreenStatus.loading) {
         //   showDialog(
         //     barrierDismissible: false,
         //     context: context,
-        //     builder: (context) => PopScope(
+        //     builder: (context) => const PopScope(
         //       canPop: false,
         //       child: AlertDialog(
         //         backgroundColor: Colors.transparent,
         //         elevation: 0,
         //         title: Center(
-        //           child: LoadingAnimationWidget.fourRotatingDots(
-        //             color: AppColor.primaryColor,
-        //             size: 90.sp,
-        //           ),
+        //           child: CircularProgressIndicator()
         //         ),
         //       ),
         //     ),
@@ -176,7 +173,7 @@ class EditPasswordScreen extends StatelessWidget {
                             builder: (context) {
                               return AlertDialog(
                                 title: const Text(AppStrings.error),
-                                content: const Text('Not Match'),
+                                content: const Text(AppStrings.notMatch),
                                 actions: [
                                   ElevatedButton(
                                       onPressed: () {

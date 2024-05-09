@@ -15,7 +15,7 @@ class ForgetPasswordRepoImplement implements ForgetPasswordRepo {
   Future<Either<Failures, ForgetPasswordModel>> forgetPassword(
       String email) async {
     try {
-      var result = await forgetPasswordRemoteDs.forgetPassword(email);
+      ForgetPasswordModel result = await forgetPasswordRemoteDs.forgetPassword(email);
       return Right(result);
     } catch (e) {
       return Left(

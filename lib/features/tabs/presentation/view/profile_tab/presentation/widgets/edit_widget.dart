@@ -8,11 +8,9 @@ class EditWidget extends StatelessWidget {
   const EditWidget(
       {super.key,
       required this.aboveText,
-      this.isPassword = false,
       required this.onEditTap,
       required this.text});
   final String aboveText;
-  final bool isPassword;
   final String text;
   final VoidCallback onEditTap;
   @override
@@ -41,7 +39,7 @@ class EditWidget extends StatelessWidget {
             child: Row(
               children: [
                 Text(
-                  !isPassword ? text : text.replaceAll(RegExp(r'.'), "*"),
+                  text,
                   style: AppStyles.bodyM
                       .copyWith(color: AppColor.textColor, fontSize: 14.sp),
                 ),
@@ -51,9 +49,9 @@ class EditWidget extends StatelessWidget {
                     onEditTap();
                   },
                   child: const ImageIcon(
-                    AssetImage(AppImages.edit),
-                    color: AppColor.primaryColor,
-                  ),
+                          AssetImage(AppImages.edit),
+                          color: AppColor.primaryColor,
+                        ),
                 ),
               ],
             ),

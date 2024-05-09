@@ -20,7 +20,6 @@ class SignUpRepoImplementation implements SignUpRepo {
       CacheHelper.saveData('name', signUpModel.user?.name??'Name');
       CacheHelper.saveData('email', signUpModel.user?.email??'Email');
       CacheHelper.saveData('phone', signUpRequestModel.phone??'Phone');
-      CacheHelper.saveData('password', signUpRequestModel.password??'Password');
       return Right(signUpModel);
     } catch (e) {
       return Left(

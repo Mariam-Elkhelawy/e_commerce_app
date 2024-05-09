@@ -30,10 +30,12 @@ class ProductDetailsScreen extends StatelessWidget {
       create: (context) => getIt<HomeBloc>()..add(const GetCartEvent()),
       child: BlocConsumer<HomeBloc, HomeState>(listener: (context, state) {
         if (state.addToCartStatus == ScreenStatus.success) {
-          BlocProvider.of<HomeBloc>(context).add(UpdateProductItemEvent(
-            model.id ?? '',
-            state.productItemCount,
-          ),);
+          BlocProvider.of<HomeBloc>(context).add(
+            UpdateProductItemEvent(
+              model.id ?? '',
+              state.productItemCount,
+            ),
+          );
           Fluttertoast.showToast(
               msg: AppStrings.productAdded,
               toastLength: Toast.LENGTH_SHORT,
@@ -93,7 +95,10 @@ class ProductDetailsScreen extends StatelessWidget {
                       color: AppColor.primaryColor.withOpacity(.3),
                     ),
                   ),
-                  child: ImageSlider(model: model),
+                  child: ImageSlider(
+                    model: model,
+                    isFav: state.favIds?.contains(model.id) ?? false,
+                  ),
                 ),
                 SizedBox(height: 24.h),
                 Row(
@@ -234,9 +239,9 @@ class ProductDetailsScreen extends StatelessWidget {
                   height: 90.h,
                   progressIndicatorBuilder: (context, url, downloadProgress) =>
                       Center(
-                        child: CircularProgressIndicator(
-                            value: downloadProgress.progress),
-                      ),
+                    child: CircularProgressIndicator(
+                        value: downloadProgress.progress),
+                  ),
                   errorWidget: (context, url, error) =>
                       const Icon(Icons.image_not_supported_outlined, size: 30),
                 ),
@@ -269,6 +274,7 @@ class ProductDetailsScreen extends StatelessWidget {
                             .add(AddToCartEvent(model.id ?? ''));
                         BlocProvider.of<HomeBloc>(context)
                             .add(const GetCartEvent());
+                        customToast(message: AppStrings.cartAdd);
                       },
                       child: customButton(
                         padding: EdgeInsets.symmetric(

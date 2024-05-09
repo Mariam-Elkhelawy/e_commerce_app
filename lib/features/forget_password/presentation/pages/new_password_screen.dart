@@ -105,7 +105,9 @@ class NewPasswordScreen extends StatelessWidget {
             ),
             InkWell(
               onTap: () {
-                Navigator.pushNamed(context, AppRoutesName.editPasswordSuccess,arguments: true);
+                Navigator.pushNamedAndRemoveUntil(context,
+                    AppRoutesName.editPasswordSuccess, (route) => false,
+                    arguments: true);
               },
               child: customButton(
                   borderRadius: BorderRadius.circular(25.r),

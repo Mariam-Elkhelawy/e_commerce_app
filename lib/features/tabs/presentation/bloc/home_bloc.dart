@@ -223,8 +223,8 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
     });
     on<GetFavEvent>((event, emit) async {
       emit(state.copyWith(
-          getFavStatus: ScreenStatus.loading,
-          // addToFavStatus: ScreenStatus.init,
+        getFavStatus: ScreenStatus.loading,
+        addToFavStatus: ScreenStatus.init,
       ));
       var result = await getFavUseCase.call();
       result.fold((l) {
@@ -233,7 +233,7 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
       }, (r) {
         var ids = r.favData?.map((e) => e.id).toList();
         emit(state.copyWith(
-          favIds: ids ?? [],
+          favIds: ids,
           getFavStatus: ScreenStatus.success,
           getFavModel: r,
         ));

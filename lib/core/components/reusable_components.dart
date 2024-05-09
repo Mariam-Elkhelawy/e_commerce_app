@@ -7,6 +7,7 @@ import 'package:e_commerce_app/core/utils/styles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
 Widget unDefinedRoute() {
   return const Scaffold(
@@ -57,7 +58,8 @@ Widget customTextFormField(
         enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(radius),
           borderSide: BorderSide(color: borderColor),
-        ), errorBorder: OutlineInputBorder(
+        ),
+        errorBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(radius),
           borderSide: BorderSide(color: Colors.red),
         ),
@@ -164,4 +166,15 @@ AppBar customAppBar(
             )
     ]),
   );
+}
+
+customToast({required String message}) {
+  return Fluttertoast.showToast(
+      msg: message,
+      toastLength: Toast.LENGTH_SHORT,
+      gravity: ToastGravity.BOTTOM,
+      backgroundColor: AppColor.primaryColor,
+      timeInSecForIosWeb: 3,
+      textColor: Colors.white,
+      fontSize: 13.0);
 }
